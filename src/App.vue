@@ -1,6 +1,6 @@
 <template>
-  <main font-sans p="x-4 y-10" text="center gray-700 dark:gray-200">
+  <main class="of-x-hidden px-7 py-10">
     <RouterView />
-    <TheFooter />
+    <Footer :key="$route.path" />
   </main>
 </template>
