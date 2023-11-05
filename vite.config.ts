@@ -10,7 +10,7 @@ import UnoCSS from 'unocss/vite'
 import VueMacros from 'unplugin-vue-macros/vite'
 
 export default defineConfig({
-  base: '/',
+  base: '/chentao0717.me',
   resolve: {
     alias: {
       '~/': `${path.resolve(__dirname, 'src')}/`,
