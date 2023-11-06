@@ -1,16 +1,55 @@
-import { createApp } from 'vue'
-import { createRouter, createWebHistory } from 'vue-router'
-import routes from 'virtual:generated-pages'
-import App from './App.vue'
-
 import '@unocss/reset/tailwind.css'
 import './styles/main.css'
 import 'uno.css'
 
-const app = createApp(App)
-const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
-  routes,
+import autoRoutes from 'pages-generated'
+import NProgress from 'nprogress'
+import { ViteSSG } from 'vite-ssg'
+import dayjs from 'dayjs'
+import LocalizedFormat from 'dayjs/plugin/localizedFormat.js'
+import { setupRouterScroller } from 'vue-router-better-scroller'
+import FloatingVue from 'floating-vue'
+import App from './App.vue'
+
+const routes = autoRoutes.map((i) => {
+  return {
+    ...i,
+    alias: i.path.endsWith('/')
+      ? `${i.path}index.html`
+      : `${i.path}.html`,
+  }
 })
-app.use(router)
-app.mount('#app')
+
+export const createApp = ViteSSG(
+  App,
+  {
+    routes,
+  },
+  ({ router, app, isClient }) => {
+    dayjs.extend(LocalizedFormat)
+
+    app.use(FloatingVue)
+
+    if (isClient) {
+      const html = document.querySelector('html')!
+      setupRouterScroller(router, {
+        selectors: {
+          html(ctx) {
+            if (ctx.savedPosition?.top)
+              html.classList.add('no-sliding')
+            else
+              html.classList.remove('no-sliding')
+            return true
+          },
+          behavior: 'auto',
+        },
+      })
+      router.beforeEach(() => {
+        NProgress.start()
+      })
+      router.afterEach(() => {
+        NProgress.done()
+      })
+    }
+  },
+)
