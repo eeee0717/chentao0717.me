@@ -1,5 +1,8 @@
 import '@unocss/reset/tailwind.css'
+import 'floating-vue/dist/style.css'
 import './styles/main.css'
+import './styles/prose.css'
+import './styles/markdown.css'
 import 'uno.css'
 
 import autoRoutes from 'pages-generated'
@@ -19,7 +22,6 @@ const routes = autoRoutes.map((i) => {
       : `${i.path}.html`,
   }
 })
-
 export const createApp = ViteSSG(
   App,
   {
