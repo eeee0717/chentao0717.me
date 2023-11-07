@@ -14,6 +14,7 @@ declare module 'vue' {
     Plum: typeof import('./src/components/Plum.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SubNav: typeof import('./src/components/SubNav.vue')['default']
     ToggleTheme: typeof import('./src/components/ToggleTheme.vue')['default']
     WrapperPost: typeof import('./src/components/WrapperPost.vue')['default']
   }
