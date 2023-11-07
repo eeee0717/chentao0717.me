@@ -8,6 +8,7 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     Footer: typeof import('./src/components/Footer.vue')['default']
+    ListDemos: typeof import('./src/components/ListDemos.vue')['default']
     ListPosts: typeof import('./src/components/ListPosts.vue')['default']
     Logo: typeof import('./src/components/Logo.vue')['default']
     NavBar: typeof import('./src/components/NavBar.vue')['default']
@@ -16,6 +17,7 @@ declare module 'vue' {
     RouterView: typeof import('vue-router')['RouterView']
     SubNav: typeof import('./src/components/SubNav.vue')['default']
     ToggleTheme: typeof import('./src/components/ToggleTheme.vue')['default']
+    WrapperDemo: typeof import('./src/components/WrapperDemo.vue')['default']
     WrapperPost: typeof import('./src/components/WrapperPost.vue')['default']
   }
 }
