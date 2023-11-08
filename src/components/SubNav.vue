@@ -25,6 +25,9 @@ const route = useRoute()
       <RouterLink to="/notes" class="!border-none" :class="route.path === '/notes' ? activeStyle : inactiveStyle">
         Notes
       </RouterLink>
+      <RouterLink to="/projects-detail" class="!border-none" :class="route.path === '/projects-detail' ? activeStyle : inactiveStyle">
+        Projects
+      </RouterLink>
     </div>
   </div>
 </template>
