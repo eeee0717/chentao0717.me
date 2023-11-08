@@ -78,7 +78,7 @@ function getGroupName(p: Post) {
           v-bind="
             route.path.includes('://') ? {
               href: route.path,
-              target: '_blank',
+              target: '_self',
               rel: 'noopener noreferrer',
             } : {
               to: route.path,

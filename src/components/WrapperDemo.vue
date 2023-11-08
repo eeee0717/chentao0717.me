@@ -23,7 +23,7 @@ const { frontmatter, video, date } = defineProps({
       class="group"
       hover="scale-101 shadow-xl z-10" transition-all duration-500 bg-base relative
       :href="frontmatter.link"
-      target="_blank"
+      target="_self"
     >
       <video
         v-if="video"

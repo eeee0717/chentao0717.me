@@ -110,7 +110,7 @@ export default defineConfig({
         md.use(LinkAttributes, {
           matcher: (link: string) => /^https?:\/\//.test(link),
           attrs: {
-            target: '_blank',
+            target: '_self',
             rel: 'noopener',
           },
         })

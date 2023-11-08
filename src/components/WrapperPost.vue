@@ -37,7 +37,7 @@ onMounted(() => {
       !event.defaultPrevented
       && link
       && event.button === 0
-      && link.target !== '_blank'
+      && link.target !== '_self'
       && link.rel !== 'external'
       && !link.download
       && !event.metaKey
