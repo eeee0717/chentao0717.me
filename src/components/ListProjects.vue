@@ -25,7 +25,7 @@ function slug(name: string) {
           :key="idx"
           class="item relative flex items-center"
           :href="item.link"
-          target="_self"
+          target="_blank"
           :class="!item.link ? 'opacity-0 pointer-events-none h-0 -mt-8 -mb-4' : ''"
           :title="item.name"
         >
