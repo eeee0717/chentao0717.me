@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@amap/amap-jsapi-loader':
+    specifier: ^1.0.1
+    version: registry.npmmirror.com/@amap/amap-jsapi-loader@1.0.1
   '@vueuse/core':
     specifier: ^10.5.0
     version: 10.5.0(vue@3.3.7)
@@ -23,6 +26,9 @@ dependencies:
   vue:
     specifier: ^3.3.4
     version: registry.npmmirror.com/vue@3.3.7(typescript@5.2.2)
+  vue-baidu-map-3x:
+    specifier: ^1.0.35
+    version: registry.npmmirror.com/vue-baidu-map-3x@1.0.35(vue@3.3.7)
   vue-router:
     specifier: 4.2.5
     version: registry.npmmirror.com/vue-router@4.2.5(vue@3.3.7)
@@ -896,6 +902,12 @@ packages:
     version: 1.2.6
     engines: {node: '>=0.10.0'}
     dev: true
+
+  registry.npmmirror.com/@amap/amap-jsapi-loader@1.0.1:
+    resolution: {integrity: sha512-nPyLKt7Ow/ThHLkSvn2etQlUzqxmTVgK7bIgwdBRTg2HK5668oN7xVxkaiRe3YZEzGzfV2XgH5Jmu2T73ljejw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@amap/amap-jsapi-loader/-/amap-jsapi-loader-1.0.1.tgz}
+    name: '@amap/amap-jsapi-loader'
+    version: 1.0.1
+    dev: false
 
   registry.npmmirror.com/@ampproject/remapping@2.2.1:
     resolution: {integrity: sha512-lFMjJTrFL3j7L9yBxwYfCq2k6qqwHyzuUl/XBnif78PWTJYyL/dfowQHWE3sp6U6ZzqWiiIZnpTMO96zhkjwtg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@ampproject/remapping/-/remapping-2.2.1.tgz}
@@ -2829,6 +2841,44 @@ packages:
       inherits: registry.npmmirror.com/inherits@2.0.4
       readable-stream: registry.npmmirror.com/readable-stream@3.6.2
     dev: true
+
+  registry.npmmirror.com/bmaplib.curveline@1.0.0:
+    resolution: {integrity: sha512-9wcFMVhiYxNPqpvsLDAADn3qDhNzXp2mA6VyHSHg2XOAgSooC7ZiujdFhy0sp+0QYjTfJ/MjmLuNoUg2HHxH4Q==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/bmaplib.curveline/-/bmaplib.curveline-1.0.0.tgz}
+    name: bmaplib.curveline
+    version: 1.0.0
+    dev: false
+
+  registry.npmmirror.com/bmaplib.distancetool@1.0.2:
+    resolution: {integrity: sha512-EvxMnQRH6xM036zx5OLPyTg5tMCTbFBuGTTHOtExLy2/T0X6v5Va0YE7c3IPm/a/Eo5V/ynYpOLOLZbRY8ccyA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/bmaplib.distancetool/-/bmaplib.distancetool-1.0.2.tgz}
+    name: bmaplib.distancetool
+    version: 1.0.2
+    dev: false
+
+  registry.npmmirror.com/bmaplib.heatmap@1.0.4:
+    resolution: {integrity: sha512-rmhqUARBpUSJ9jXzUI2j7dIOqnc38bqubkx/8a349U2qtw/ulLUwyzRD535OrA8G7w5cz4aPKm6/rNvUAarg/Q==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/bmaplib.heatmap/-/bmaplib.heatmap-1.0.4.tgz}
+    name: bmaplib.heatmap
+    version: 1.0.4
+    dev: false
+
+  registry.npmmirror.com/bmaplib.lushu@1.0.7:
+    resolution: {integrity: sha512-LVvgpESPii6xGxyjnQjq8u+ic4NjvhdCPV/RiSS/PGTUdZKeTDS7prSpleJLZH3ES0+oc0gYn8bw0LtPYUSz2w==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/bmaplib.lushu/-/bmaplib.lushu-1.0.7.tgz}
+    name: bmaplib.lushu
+    version: 1.0.7
+    dev: false
+
+  registry.npmmirror.com/bmaplib.markerclusterer@1.0.13:
+    resolution: {integrity: sha512-VrLyWSiuDEVNi0yUfwOhFQ6z1oEEHS4w36GNu3iASu6p52QIx9uAXMUkuSCHReNR0bj2Cp9SA1dSx5RpojXajQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/bmaplib.markerclusterer/-/bmaplib.markerclusterer-1.0.13.tgz}
+    name: bmaplib.markerclusterer
+    version: 1.0.13
+    dependencies:
+      bmaplib.texticonoverlay: registry.npmmirror.com/bmaplib.texticonoverlay@1.0.2
+    dev: false
+
+  registry.npmmirror.com/bmaplib.texticonoverlay@1.0.2:
+    resolution: {integrity: sha512-4ZTWr4ZP3B6qEWput5Tut16CfZgII38YwM3bpyb4gFTQyORlKYryFp9WHWrwZZaHlOyYDAXG9SX0hka43jTADg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/bmaplib.texticonoverlay/-/bmaplib.texticonoverlay-1.0.2.tgz}
+    name: bmaplib.texticonoverlay
+    version: 1.0.2
+    dev: false
 
   registry.npmmirror.com/boolbase@1.0.0:
     resolution: {integrity: sha512-JZOSA7Mo9sNGB8+UjSgzdLtokWAky1zbztM3WRLCbZ70/3cTANmQmOdR7y2g+J0e2WXywy1yS468tY+IruqEww==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/boolbase/-/boolbase-1.0.0.tgz}
@@ -7335,6 +7385,12 @@ packages:
     version: 0.2.0
     dev: true
 
+  registry.npmmirror.com/tiny-emitter@2.1.0:
+    resolution: {integrity: sha512-NB6Dk1A9xgQPMoGqC5CVXn123gWyte215ONT5Pp5a0yt4nlEoO1ZWeCwpncaekPHXO60i47ihFnZPiRPjRMq4Q==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/tiny-emitter/-/tiny-emitter-2.1.0.tgz}
+    name: tiny-emitter
+    version: 2.1.0
+    dev: false
+
   registry.npmmirror.com/tinybench@2.5.1:
     resolution: {integrity: sha512-65NKvSuAVDP/n4CqH+a9w2kTlLReS9vhsAP06MWx+/89nMinJyB2icyl58RIcqCmIggpojIGeuJGhjU1aGMBSg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/tinybench/-/tinybench-2.5.1.tgz}
     name: tinybench
@@ -8099,6 +8155,24 @@ packages:
       - supports-color
       - terser
     dev: true
+
+  registry.npmmirror.com/vue-baidu-map-3x@1.0.35(vue@3.3.7):
+    resolution: {integrity: sha512-1FDzxgd+X7MVcG8JbyyxDOSYRDUi96qEuuNICQmwlAE/EDwf4vz1oYRhRz05s/MuDpW7aIBlubF/PlSTpBlUEw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/vue-baidu-map-3x/-/vue-baidu-map-3x-1.0.35.tgz}
+    id: registry.npmmirror.com/vue-baidu-map-3x/1.0.35
+    name: vue-baidu-map-3x
+    version: 1.0.35
+    peerDependencies:
+      vue: ^3.2.25
+    dependencies:
+      bmaplib.curveline: registry.npmmirror.com/bmaplib.curveline@1.0.0
+      bmaplib.distancetool: registry.npmmirror.com/bmaplib.distancetool@1.0.2
+      bmaplib.heatmap: registry.npmmirror.com/bmaplib.heatmap@1.0.4
+      bmaplib.lushu: registry.npmmirror.com/bmaplib.lushu@1.0.7
+      bmaplib.markerclusterer: registry.npmmirror.com/bmaplib.markerclusterer@1.0.13
+      tiny-emitter: registry.npmmirror.com/tiny-emitter@2.1.0
+      vue: registry.npmmirror.com/vue@3.3.7(typescript@5.2.2)
+      vue-router: registry.npmmirror.com/vue-router@4.2.5(vue@3.3.7)
+    dev: false
 
   registry.npmmirror.com/vue-eslint-parser@9.3.2(eslint@8.51.0):
     resolution: {integrity: sha512-q7tWyCVaV9f8iQyIA5Mkj/S6AoJ9KBN8IeUSf3XEmBrOtxOZnfTg5s4KClbZBCK3GtnT/+RyCLZyDHuZwTuBjg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/vue-eslint-parser/-/vue-eslint-parser-9.3.2.tgz}

@@ -6,4 +6,4 @@ display: ''
 
 <SubNav />
 
-<ListPosts only-date type="photo" />
+<MapPhotos/>

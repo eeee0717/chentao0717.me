@@ -12,6 +12,7 @@ declare module 'vue' {
     ListPosts: typeof import('./src/components/ListPosts.vue')['default']
     ListProjects: typeof import('./src/components/ListProjects.vue')['default']
     Logo: typeof import('./src/components/Logo.vue')['default']
+    MapPhotos: typeof import('./src/components/MapPhotos.vue')['default']
     NavBar: typeof import('./src/components/NavBar.vue')['default']
     Plum: typeof import('./src/components/Plum.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
