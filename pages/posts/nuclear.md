@@ -1,8 +1,22 @@
 ---
-title: Nuclear Pipeline Inspection System
+title: 核电站管道检测系统
 date: 2022-09-01T16:00:00.000+00:00
 lang: zh
 duration: 10min
 type: projects-detail
 ---
+
+## 1. 项目介绍
+基于WPF开发的管道故障检测系统是为了方便调试人员对检测到的数据进行可视化分析，更快速精确的了解管道状况。
+
+## 2. 技术栈
+WPF, .NET, MVVM, XAML, 数据绑定
+
+## 3. 技术要点
+- 使用 MVVM 架构实现前、后端分离，并通过数据绑定将数据与逻辑隔离，更易于代码的测试
+- 使用数据绑定的方式将数据与前端 UI 元素关联，并通过 INotifyPropertyChanged 接口自动反映绑定源的动态更改
+
+## 4. 成果展示
+
+
 

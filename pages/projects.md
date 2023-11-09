@@ -6,7 +6,7 @@ plum: true
 wrapperClass: 'text-center'
 projects:
   WPF:
-    - name: 'Bosom Friends Of IoT'
+    - name: 'Bosom Friends of IoT'
       link: 'https://www.bilibili.com/video/BV1iz4y1E7sC/?vd_source=e69adc4cbcbf14d298fc66f0ae53c5c8'
       desc: 'A Smart IoT System based in ChatGPT'
       icon: 'i-carbon-iot-platform'
