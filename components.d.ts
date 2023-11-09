@@ -9,6 +9,7 @@ declare module 'vue' {
   export interface GlobalComponents {
     Footer: typeof import('./src/components/Footer.vue')['default']
     ListDemos: typeof import('./src/components/ListDemos.vue')['default']
+    ListPhotos: typeof import('./src/components/ListPhotos.vue')['default']
     ListPosts: typeof import('./src/components/ListPosts.vue')['default']
     ListProjects: typeof import('./src/components/ListProjects.vue')['default']
     Logo: typeof import('./src/components/Logo.vue')['default']
@@ -19,6 +20,8 @@ declare module 'vue' {
     SubNav: typeof import('./src/components/SubNav.vue')['default']
     ToggleTheme: typeof import('./src/components/ToggleTheme.vue')['default']
     WrapperDemo: typeof import('./src/components/WrapperDemo.vue')['default']
+    WrapperPhoto: typeof import('./src/components/WrapperPhoto.vue')['default']
+    WrapperPhotos: typeof import('./src/components/WrapperPhotos.vue')['default']
     WrapperPost: typeof import('./src/components/WrapperPost.vue')['default']
   }
 }

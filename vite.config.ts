@@ -70,6 +70,7 @@ export default defineConfig({
       wrapperComponent: id => id.includes('/demo/')
         ? 'WrapperDemo'
         : 'WrapperPost',
+      wrapperComponets: id => id.includes('/photo/') ? 'WrapperPhoto' : '',
       wrapperClasses: (id, code) => code.includes('@layout-full-width')
         ? ''
         : 'prose m-auto slide-enter-content',
