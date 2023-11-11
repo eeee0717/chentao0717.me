@@ -22,6 +22,16 @@ projects:
       link: '/posts/lathe-control'
       desc: 'Precision Control of Lathe Movement'
       icon: 'i-carbon-ibm-z-cloud-mod-stack'
+  
+  Contributor:
+    - name: 'LeetCode Master'
+      link: 'https://github.com/youngyangyang04/leetcode-master'
+      desc: 'LeetCode刷题指南，C#版贡献者'
+      icon: 'i-simple-icons-leetcode'
+    - name: 'CS Base'
+      link: 'https://github.com/xiaolincoder/CS-Base'
+      desc: '计算机基础知识'
+      icon: 'i-carbon-ibm-cloud-sysdig-secure'
 ---
 
 
