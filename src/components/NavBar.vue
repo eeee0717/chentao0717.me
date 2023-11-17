@@ -42,6 +42,10 @@ const { y: scroll } = useWindowScroll()
           <span class="lt-md:hidden">Demos</span>
           <div i-ri-screenshot-line class="md:hidden" />
         </RouterLink>
+        <a href="https://www.notion.so/335b32995ac74fde97dae06960de0968?v=529a78414cc24d17bb1e17dc2bf160e8&pvs=4">
+          <span class="lt-md:hidden">Books</span>
+          <div i-material-symbols-book-2-outline class="md:hidden" />
+        </a>
         <a href="https://github.com/eeee0717" target="_blank" title="GitHub" class="lt-md:hidden">
           <div i-uil-github-alt />
         </a>
