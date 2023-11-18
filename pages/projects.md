@@ -23,6 +23,12 @@ projects:
       desc: 'Precision Control of Lathe Movement'
       icon: 'i-carbon-ibm-z-cloud-mod-stack'
   
+  Productivity:
+    - name: 'Workspace'
+      link: https://github.com/eeee0717/raycast-workspace
+      desc: A Raycast extension that helps you to manage your workspace
+      icon: 'i-carbon-workspace' 
+
   Contributor:
     - name: 'LeetCode Master'
       link: 'https://github.com/youngyangyang04/leetcode-master'
