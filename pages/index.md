@@ -9,6 +9,8 @@ Hey, I am Chen Tao,
 
 A senior student from **ZSTU** and I am now admitted to **BJUT**.
 
+Team member of [<span i-material-symbols-mail/>MicaApps](https://github.com/MicaApps).
+
 Contributor of [Leetcode-master 43.2k🌟](https://github.com/youngyangyang04/leetcode-master), [CS-base 10.7k🌟](https://github.com/xiaolincoder/CS-Base).
 
 Dreaming up ideas and making them come true is where my passion lies. You can find my full [projects](/projects) list here. I also share some technical [articles](/posts) on Blog

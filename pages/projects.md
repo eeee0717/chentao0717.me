@@ -5,6 +5,12 @@ description: List of projects that I am proud of
 plum: true
 wrapperClass: 'text-center'
 projects:
+  Current Focus:
+    - name: 'MicaApps'
+      link: 'https://apps.microsoft.com/detail/9NVMM1QDW3QB?hl=zh-cn&gl=CN'
+      desc: 'UWP Mail client. Currently only Outlook is supported'
+      icon: 'i-material-symbols-mail'
+
   WPF:
     - name: 'Bosom Friends of IoT'
       link: 'https://www.bilibili.com/video/BV1iz4y1E7sC/?vd_source=e69adc4cbcbf14d298fc66f0ae53c5c8'
