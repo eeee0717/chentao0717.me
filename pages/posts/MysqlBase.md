@@ -16,3 +16,6 @@ type: note
 
 ## 约束
 - [Mysql约束](/posts/Mysql-constraint)
+
+## 多表查询
+- [Mysql多表查询](/posts/Mysql-multiple)
