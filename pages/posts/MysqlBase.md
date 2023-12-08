@@ -12,13 +12,13 @@ type: note
 - [DCL](/posts/Mysql-DCL) 数据控制语言
 
 ## 函数
-- [Mysql函数](/posts/Mysql-function)
+[Mysql函数](/posts/Mysql-function)
 
 ## 约束
-- [Mysql约束](/posts/Mysql-constraint)
+[Mysql约束](/posts/Mysql-constraint)
 
 ## 多表查询
-- [Mysql多表查询](/posts/Mysql-multiple)
+[Mysql多表查询](/posts/Mysql-multiple)
 
 ## 事务
-- [Mysql事务](/posts/Mysql-transaction)
+[Mysql事务](/posts/Mysql-transaction)
