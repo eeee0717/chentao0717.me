@@ -92,5 +92,27 @@ show index from 表名;
 
 ## SQL性能分析
 
+- 查看SQL执行频率
+```sql
+show global status like 'Com_______';
+```
+- 慢查询日志
+```sql
+slow_query_log = 1
+# 设置慢日志的时间为1秒
+long_query_time = 1
+# 慢日志的路径
+vi /etc/my.cnf
+```
+- profile详情
+```sql
+set profiling = 1;
+show profiles; # 查看profile
+show profile for query_id; # 查看某个profile的详情
+```
+- explain执行计划
+```sql
+explain select * from t where id = 1;
+```
 
-
+## 索引的使用
