@@ -11,3 +11,6 @@ type: note
 ## 索引
 [Mysql索引](/posts/Mysql-index)
 
+## SQL优化
+[Mysql SQL优化](/posts/Mysql-SQL-optimization)
+
