@@ -42,6 +42,19 @@ load data local infile 'file_name' into table table_name; fields terminated by '
 - 多字段排序时，一个升序一个降序，注意联合索引创建时的规则
 - 如果不可避免出现filesort，可以增大缓冲取得大小sort_buffer_size
 ## group by优化
+同order by优化
 ## limit优化
+通过覆盖索引+子查询的形式
+```sql
+select * from table_name where id in (select id from table_name limit 1000, 10);
+```
 ## count优化
+MyISAM引擎会将一个表的总行数存储在磁盘上，因此使用Count(*)时，只需要读取该值即可，效率较高。
+
+InnoDB引擎没有将总行数存储在磁盘上，因此使用Count(*)时，需要遍历整个表，效率较低。
+
+优化思路：自己计数
+
+效率排序：count（字段）< count（主键）< count（*）
 ## update优化
+尽量根据主键/索引字段进行数据更新。
