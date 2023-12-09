@@ -116,3 +116,28 @@ explain select * from t where id = 1;
 ```
 
 ## 索引的使用
+- 查询索引
+```sql
+show index from 表名;
+```
+- 最左前缀原则
+如果使用了联合索引，要遵守最左前缀原则，即查询条件从左到右依次匹配索引的最左前缀，才能使用到索引。
+
+如果跳跃了某一列，那么这个索引就无法使用。
+- sql提示
+```sql
+use index：
+select * from t use index(索引名) where id = 1;
+ignore index：
+select * from t ignore index(索引名) where id = 1;
+force index：
+select * from t force index(索引名) where id = 1;
+```
+- 覆盖索引
+尽量不要使用select *，而是使用select 字段名，这样可以减少IO操作，提高查询效率。
+
+- 前缀索引
+如果某一列的数据长度较长，可以只取前面的一部分作为索引，这样可以减少索引的大小，提高查询效率。（字符串）
+```sql
+create index 索引名 on 表名(字段名(长度));
+```
