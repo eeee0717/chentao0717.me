@@ -14,3 +14,14 @@ type: note
 ## SQL优化
 [Mysql SQL优化](/posts/Mysql-SQL-optimization)
 
+## 视图
+[Mysql视图](/posts/Mysql-view)
+
+## 存储过程
+[Mysql存储过程](/posts/Mysql-procedure)
+
+## 触发器
+[Mysql触发器](/posts/Mysql-trigger)
+
+## 锁
+[Mysql锁](/posts/Mysql-lock)
