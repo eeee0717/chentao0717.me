@@ -25,7 +25,6 @@ import { slugify } from './scripts/slugify'
 const promises: Promise<any>[] = []
 
 export default defineConfig({
-  base: '/',
   resolve: {
     alias: [
       { find: '~/', replacement: `${resolve(__dirname, 'src')}/` },
