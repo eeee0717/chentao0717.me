@@ -60,7 +60,6 @@ export default defineConfig({
           const { data } = matter(md)
           route.meta = Object.assign(route.meta || {}, { frontmatter: data })
         }
-
         return route
       },
     }),
@@ -109,7 +108,7 @@ export default defineConfig({
         md.use(LinkAttributes, {
           matcher: (link: string) => /^https?:\/\//.test(link),
           attrs: {
-            target: '_self',
+            target: '_blank',
             rel: 'noopener',
           },
         })
@@ -134,7 +133,7 @@ export default defineConfig({
               ? fs.copy(`${id.slice(0, -3)}.png`, `public/${path}`)
               : generateOg(frontmatter.title!.replace(/\s-\s.*$/, '').trim(), `public/${path}`),
           )
-          frontmatter.image = `https://antfu.me/${path}`
+          frontmatter.image = `https://chentao0717.me/${path}`
         })()
         const head = defaults(frontmatter, options)
         return { head, frontmatter }
