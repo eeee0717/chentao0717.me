@@ -20,7 +20,7 @@ type: note
 
    值类型（栈分配）：直接存放值，所有的“结构”和“枚举”都是值类型。性能更好
 
-![Image.png](/img/CLR-3-1.png)
+![](https://raw.githubusercontent.com/eeee0717/chentaoImg/master/CLR-3-1.png)
 
 ```cs
 // 值类型栈上分配

@@ -70,20 +70,18 @@ private double getInterestRate () {
 
 如果一个class做了应该由两个class做的事，则需要提炼。
 
-![Image.png](/img/重构-6-1.png)
+![](https://raw.githubusercontent.com/eeee0717/chentaoImg/master/重构-6-1.png)
 
 ## 将类内联化
 
 某个类没有做太多的事情，把这个类的所有特性搬到另一个类中。
 
-![Image.png](/img/重构-6-2.png)
+![](https://raw.githubusercontent.com/eeee0717/chentaoImg/master/重构-6-2.png)
 
 ## 隐藏「委托关系」
 
 在server端建立客户所需的所有函数，用于隐藏委托关系
-
-![Image.png](/img/重构-6-3.png)
-
+![](https://raw.githubusercontent.com/eeee0717/chentaoImg/master/重构-6-3.png)
 ## 移除中间人
 
 某个class做了过多的简单委托动作
@@ -137,5 +135,5 @@ private static Date nextDay(Date arg) {
 
 ## 引入本地扩展
 
-![Image.png](/img/重构-6-4.png)
+![](https://raw.githubusercontent.com/eeee0717/chentaoImg/master/重构-6-4.png)
 

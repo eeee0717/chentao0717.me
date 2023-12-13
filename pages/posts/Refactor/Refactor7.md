@@ -31,19 +31,19 @@ int getHigh() {return _high;}
 
 ## 以对象取代数据值
 
-![Image.png](/img/重构-7-1.png)
+![](https://raw.githubusercontent.com/eeee0717/chentaoImg/master/重构-7-1.png)
 
 ## 将实值对象改为引用对象
 
 你有一个类，衍生出许多相等的实体，可以转化为单一对象
 
-![Image.png](/img/重构-7-2.png)
+![](https://raw.githubusercontent.com/eeee0717/chentaoImg/master/重构-7-2.png)
 
 ## 将引用对象改为实值对象
 
 如果有一个引用对象，很小且不可变，而且不易管理，可以将它变为一个实值对象
 
-![Image.png](/img/重构-7-3.png)
+![](https://raw.githubusercontent.com/eeee0717/chentaoImg/master/重构-7-3.png)
 
 ## 以对象取代数组
 
@@ -65,13 +65,13 @@ row.setWins("15");
 
 一个分层良好的系统应该将GUI处理事件和业务逻辑的代码分开
 
-![Image.png](/img/重构-7-4.png)
+![](https://raw.githubusercontent.com/eeee0717/chentaoImg/master/重构-7-4.png)
 
 ## 将单向关联改为双向
 
 开发初期，你可能会在两个classes之间建立一条单向连接，使其中一个可以引用另一个class。随着时间推移，你可能发现需要一个反向指针双向连接两个classes。
 
-![Image.png](/img/重构-7-5.png)
+![](https://raw.githubusercontent.com/eeee0717/chentaoImg/master/重构-7-5.png)
 
 ## 将双向关联改为单向
 
@@ -110,15 +110,15 @@ public void setName(String arg) {_name = arg;}
 
 ## 封装群集
 
-![Image.png](/img/重构-7-6.png)
+![](https://raw.githubusercontent.com/eeee0717/chentaoImg/master/重构-7-6.png)
 
 ## 以类取代型别码
 
-![Image.png](/img/重构-7-7.png)
+![](https://raw.githubusercontent.com/eeee0717/chentaoImg/master/重构-7-7.png)
 
 ## 以子类取代型别码
 
-![Image.png](/img/重构-7-8.png)
+![](https://raw.githubusercontent.com/eeee0717/chentaoImg/master/重构-7-8.png)
 
 ## 以State/Strategy 取代型别码
 
@@ -151,5 +151,5 @@ static final int MANAGER = 2;
 
 如果各个子类的唯一差别只在「返回常量数据」的函数身上。
 
-![Image.png](/img/重构-7-9.png)
+![](https://raw.githubusercontent.com/eeee0717/chentaoImg/master/重构-7-9.png)
 

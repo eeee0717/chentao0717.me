@@ -40,13 +40,13 @@ Point p1 = new Point(10, 20);
 Point p2 = p1;
 ```
 
-![Image.png](/img/csharp-value-1.png)
+![](https://raw.githubusercontent.com/eeee0717/chentaoImg/master/csharp-value-1.png)
 
 变量的值在它声明时的位置存储。局部变量的值总是存储在栈中，实例变量的值总是存储在实例本身存储的地方。引用类型实例总是存储在堆中，静态变量也是。
 
 两种类型的另一鞥差异在于，值类型不可以派生出其他类型。这将导致的一个结果是，值不需要额外的信息来描述实际是什么类型，而引用类型的开头都需要包含一个数据块，它标识了对象的实际类型，同时还提供了一些其他信息。
 
-![Image.png](/img/csharp-value-2.png)
+![](https://raw.githubusercontent.com/eeee0717/chentaoImg/master/csharp-value-2.png)
 
 ## 装箱和拆箱
 

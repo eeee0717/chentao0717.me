@@ -12,17 +12,17 @@ type: note
 
 建立两个继承体系，通过委托的方法让其中一个调用另外一个
 
-![Image.png](/img/重构-11-1.png)
+![](https://raw.githubusercontent.com/eeee0717/chentaoImg/master/重构-11-1.png)
 
 ## 将过程化设计转化为对象设计
 
-![Image.png](/img/重构-11-2.png)
+![](https://raw.githubusercontent.com/eeee0717/chentaoImg/master/重构-11-2.png)
 
 ## 将领域和表述/显示分离
 
 将GUI class中的领域逻辑分离出来
 
-![Image.png](/img/重构-11-3.png)
+![](https://raw.githubusercontent.com/eeee0717/chentaoImg/master/重构-11-3.png)
 
 ## 提炼继承体系
 
@@ -30,5 +30,5 @@ type: note
 
 建立继承体系，以一个subclass 表示一种特殊情况。
 
-![Image.png](/img/重构-11-4.png)
+![](https://raw.githubusercontent.com/eeee0717/chentaoImg/master/重构-11-4.png)
 

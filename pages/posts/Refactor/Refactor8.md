@@ -143,7 +143,7 @@ double getSpeed() {
 }
 ```
 
-![Image.png](/img/重构-8-1.png)
+![](https://raw.githubusercontent.com/eeee0717/chentaoImg/master/重构-8-1.png)
 
 ## 引入null对象
 

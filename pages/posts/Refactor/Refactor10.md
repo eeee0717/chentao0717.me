@@ -12,7 +12,7 @@ type: note
 
 将此值域移至超类
 
-![Image.png](/img/重构-10-1.png)
+![](https://raw.githubusercontent.com/eeee0717/chentaoImg/master/重构-10-1.png)
 
 ## 函数上移
 
@@ -20,7 +20,7 @@ type: note
 
 将该函数移至超类
 
-![Image.png](/img/重构-10-2.png)
+![](https://raw.githubusercontent.com/eeee0717/chentaoImg/master/重构-10-2.png)
 
 ## 构造函数本体上移
 
@@ -50,7 +50,7 @@ public Manager (String name, String id, int grade) {
 
 将这个函数移到相关的子类中去
 
-![Image.png](/img/重构-10-3.png)
+![](https://raw.githubusercontent.com/eeee0717/chentaoImg/master/重构-10-3.png)
 
 ## 值域下移
 
@@ -62,7 +62,7 @@ public Manager (String name, String id, int grade) {
 
 class中的某些特性只被某些实体用到，新建一个子类，将上面的一部分特性转移到子类上
 
-![Image.png](/img/重构-10-4.png)
+![](https://raw.githubusercontent.com/eeee0717/chentaoImg/master/重构-10-4.png)
 
 ## 提炼超类
 
@@ -70,19 +70,19 @@ class中的某些特性只被某些实体用到，新建一个子类，将上面
 
 为这两个类建立一个超类，将相同的特性移至超类中
 
-![Image.png](/img/重构-10-5.png)
+![](https://raw.githubusercontent.com/eeee0717/chentaoImg/master/重构-10-5.png)
 
 ## 提炼接口
 
 若干客户使用class接口中的同一个子集，或者两个class的接口有部分相同
 
-![Image.png](/img/重构-10-6.png)
+![](https://raw.githubusercontent.com/eeee0717/chentaoImg/master/重构-10-6.png)
 
 ## 折叠继承关系
 
 超类和子类之间并无太大区别
 
-![Image.png](/img/重构-10-7.png)
+![](https://raw.githubusercontent.com/eeee0717/chentaoImg/master/重构-10-7.png)
 
 ## 塑造模版函数
 
@@ -120,5 +120,5 @@ class MyStack extends Vector{
 
 你在两个classes 之间使用委托关系（delegation），并经常为整个接口编写许多极简单的请托函数（delegating methods）
 
-![Image.png](/img/重构-10-8.png)
+![](https://raw.githubusercontent.com/eeee0717/chentaoImg/master/重构-10-8.png)
 

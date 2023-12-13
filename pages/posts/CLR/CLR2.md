@@ -36,5 +36,5 @@ type: note
 
    P90
 
-![Image.png](/img/CLR-2-1.png)
+![](https://raw.githubusercontent.com/eeee0717/chentaoImg/master/CLR-2-1.png)
 

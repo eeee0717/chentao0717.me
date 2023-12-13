@@ -100,7 +100,7 @@ double finalPrice = discountedPrice (basePrice);
 
 以一个对象取代这些参数
 
-![Image.png](/img/重构-9-1.png)
+![](https://raw.githubusercontent.com/eeee0717/chentaoImg/master/重构-9-1.png)
 
 ## 移除设置函数
 
