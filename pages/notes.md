@@ -23,6 +23,9 @@ pinned:
   - name: 'C#'
     link: '/posts/CSharp/CSharp'
     desc: 'C#学习笔记'
+  - name: 'Dotnet'
+    link: '/posts/Dotnet/Dotnet'
+    desc: 'Dotnet学习笔记'
 ---
 
 <SubNav />
