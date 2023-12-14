@@ -59,3 +59,22 @@ static async Task ReadFile(int num)
 ## CancellationToken
 场景：有时需要提前终止任务，比如： 请求超时、用户取消请求很多异步方法都有CancellationToken参数，用于获得提前终止执行的信号。
 
+## WhenAll/WhenAny
+1. `Task.WhenAll`：等待所有任务完成，返回一个`Task`，这个`Task`的返回值是一个`Task[]`，这个`Task[]`的返回值是所有任务的返回值。
+2. `Task.WhenAny`：等待任意一个任务完成，返回一个`Task`，这个`Task`的返回值是一个`Task<Task>`，这个`Task<Task>`的返回值是第一个完成的任务的返回值。
+```C#
+static async Task Main(string[] args)
+{
+    var task1 = ReadFile(1);
+    var task2 = ReadFile(2);
+    var task3 = ReadFile(3);
+
+    var tasks = new[] { task1, task2, task3 };
+
+    var result = await Task.WhenAll(tasks);
+    Console.WriteLine(result.Length);
+}
+```
+## 其他
+1. 接口中不需要写`async`，在实现接口的类中写`async`。
+2. 异步与`yield`，`yield`是同步的，`yield return`会把当前的状态保存下来，下次调用时从上次保存的状态开始执行。
