@@ -16,7 +16,7 @@ type: note
 
 查询表达式必须以from开头，效果可以类比foreach
 
-```javascript
+```C#
 from item in items
 ```
 
@@ -24,7 +24,7 @@ from item in items
 
 指定将在查询表达式中返回数据源中的哪些元素
 
-```javascript
+```C#
 // 可以传入数值 也可以 传入函数
 where num > 5
 where IsEven(num)
@@ -34,7 +34,7 @@ where IsEven(num)
 
 选择筛选的结果
 
-```javascript
+```C#
 from item in items
 select item
 
@@ -45,13 +45,13 @@ select item.name
 
 分组
 
-```javascript
+```C#
 group student by student.name
 ```
 
 希望按照多个键对元素进行分组时，可使用复合键。 使用匿名类型或命名类型来存储键元素，创建复合键。
 
-```javascript
+```C#
 group person by new {name = person.surname, city = person.city};
 ```
 
@@ -59,7 +59,7 @@ group person by new {name = person.surname, city = person.city};
 
 可使用 `into` 上下文关键字创建临时标识符，将 [group](https://learn.microsoft.com/zh-cn/dotnet/csharp/language-reference/keywords/group-clause)、[join](https://learn.microsoft.com/zh-cn/dotnet/csharp/language-reference/keywords/join-clause) 或 [select](https://learn.microsoft.com/zh-cn/dotnet/csharp/language-reference/keywords/select-clause) 子句的结果存储至新标识符
 
-```javascript
+```C#
 group w by w[0] into fruitGroup
 ```
 
@@ -67,7 +67,7 @@ group w by w[0] into fruitGroup
 
 在查询表达式中，`orderby` 子句可导致返回的序列或子序列（组）以升序或降序排序。
 
-```javascript
+```C#
 // 可按多个键排序 默认升序
 orderby student.Last ascending, student.First ascending
 ```
@@ -78,19 +78,19 @@ orderby student.Last ascending, student.First ascending
 
 1. 内部联接
 
-```javascript
+```C#
 join prod in products on category.ID equals prod.CategoryID
 ```
 
 2. 分组联接
 
-```javascript
+```C#
 join prod in products on category.ID equals prod.CategoryID
 ```
 
-3. 左外部联接(需要使用DefaultIfEmpty）
+3. 左外部联接(需要使用DefaultIfEmpty)
 
-```javascript
+```C#
 join prod in products on category.ID equals prod.CategoryID into prodGroup
 from item in prodGroup.DefaultIfEmpty(new Product { Name = String.Empty, CategoryID = 0 })
 ```
@@ -99,7 +99,7 @@ from item in prodGroup.DefaultIfEmpty(new Product { Name = String.Empty, Categor
 
 用于存储子表达式
 
-```javascript
+```C#
 let words = sentence.Split(' ')
 ```
 
