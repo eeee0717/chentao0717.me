@@ -7,3 +7,4 @@ type: note
 ---
 
 1. [异步编程](/posts/Dotnet/Async)
+2. [LINQ](/posts/Dotnet/LINQ)
