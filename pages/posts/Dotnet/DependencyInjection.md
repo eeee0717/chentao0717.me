@@ -18,3 +18,23 @@ type: note
 1. Transient（瞬时）：每次请求都会创建一个新的实例。
 2. Scoped（作用域）：每次请求都会创建一个新的实例，但是在同一个请求中，每次都会使用同一个实例。
 3. Singleton（单例）：每次请求都会使用同一个实例。
+
+## 扩展方法
+### AddTransient
+```csharp
+// ConsoleLogExtension.cs
+public static class ConsoleLogExtension
+{
+    public static void AddConsoleLog(this IServiceCollection services)
+    {
+        services.AddTransient<ILog, ConsoleLog>();
+    }
+}
+// main.cs
+public static void Main(string[] args)
+{
+    var services = new ServiceCollection();
+    services.AddConsoleLog();
+}
+```
+```
