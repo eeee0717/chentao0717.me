@@ -10,3 +10,4 @@ type: note
 2. [LINQ](/posts/Dotnet/LINQ)
 3. [依赖注入](/posts/Dotnet/DependencyInjection)
 4. [配置文件](/posts/Dotnet/Configuration)
+5. [日志系统](/posts/Dotnet/Logging)
