@@ -11,3 +11,4 @@ type: note
 3. [依赖注入](/posts/Dotnet/DependencyInjection)
 4. [配置文件](/posts/Dotnet/Configuration)
 5. [日志系统](/posts/Dotnet/Logging)
+6. [EFCore](/posts/Dotnet/EFCore)
