@@ -11,3 +11,44 @@ type: note
 
 ## Code First
 1. [efcore-mysql](/posts/Dotnet/EFCore-Mysql)
+
+
+## 增删改查
+> 最好使用异步方法，避免阻塞线程。
+### 增
+```csharp
+using (var db = new BloggingContext())
+{
+    var blog = new Blog { Url = "http://sample.com" };
+    db.Blogs.Add(blog);
+    db.SaveChangesAsync();
+}
+```
+### 删
+```csharp
+using (var db = new BloggingContext())
+{
+    var blog = db.Blogs.Find(1);
+    db.Blogs.Remove(blog);
+    db.SaveChangesAsync();
+}
+```
+### 改
+```csharp
+using (var db = new BloggingContext())
+{
+    var blog = db.Blogs.Find(1);
+    blog.Url = "http://sample.com/blog";
+    db.SaveChangesAsync();
+}
+```
+### 查
+```csharp
+using (var db = new BloggingContext())
+{
+    var blogs = db.Blogs
+        .Where(b => b.Rating > 3)
+        .OrderBy(b => b.Url)
+        .ToList();
+}
+```
