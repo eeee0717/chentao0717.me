@@ -25,6 +25,7 @@ using (var db = new BloggingContext())
 }
 ```
 ### 删
+> 删除之前需要先查询出来
 ```csharp
 using (var db = new BloggingContext())
 {
@@ -52,3 +53,43 @@ using (var db = new BloggingContext())
         .ToList();
 }
 ```
+
+## Data Annotations
+```csharp
+public class Blog
+{
+    public int BlogId { get; set; }
+    [Required]
+    public string Url { get; set; }
+    public int Rating { get; set; }
+}
+```
+> 简单，但是耦合
+> 
+## Fluent API
+> Fluent API是一种配置EFCore的方式，可以在OnModelCreating方法中进行配置。
+> 建议放在config文件夹下，方便管理。
+```csharp
+public class BlogConfiguration : IEntityTypeConfiguration<Blog>
+{
+    public void Configure(EntityTypeBuilder<Blog> builder)
+    {
+        builder.Property(b => b.Url).IsRequired();
+    }
+}
+```
+> 复杂但是可以解耦
+## 主键
+支持多种主键生成策略：自增、Guid、Hi/Lo算法
+1. 自增：简单，但是分布式系统中比较麻烦，并发性能差
+2. Guid：全局唯一，高并发，但是占用空间大
+> 不连续，主键不能做聚集索引（顺序存储），mysql innodb插入性能差，每次都需要重排
+
+## 反向工程
+Scaffold-DbContext
+```bash
+Scaffold-DbContext "Server=(localdb)\mssqllocaldb;Database=Blogging;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer
+```
+
+## EFCore的底层原理
+将C#代码转化成SQL语句，然后通过ADO.NET执行SQL语句。
