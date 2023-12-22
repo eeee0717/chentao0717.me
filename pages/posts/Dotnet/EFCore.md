@@ -113,3 +113,6 @@ var blog = db.Blogs
 1. 在实体类中显式声明一个外键属性
 2. 关系配置中通过HasForeignKey方法指定外键属性
 3. 除非有特殊需求，否则不建议使用外键属性，引入重复
+
+## IQueryable与IEnumerable
+[IEnumerable与IQueryable](/posts/CSharp/CSharp-IEnumerableAndIQueryable)

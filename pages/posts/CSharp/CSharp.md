@@ -12,3 +12,4 @@ type: note
 5. [值类型和引用类型](/posts/CSharp/CSharp-val-ref)
 6. [单元测试](/posts/CSharp/CSharp-Nunit)
 7. [Record](/posts/CSharp/CSharp-Record)
+8. [IEnumerable与IQueryable](/posts/CSharp/CSharp-IEnumerableAndIQueryable)
