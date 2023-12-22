@@ -93,3 +93,23 @@ Scaffold-DbContext "Server=(localdb)\mssqllocaldb;Database=Blogging;Trusted_Conn
 
 ## EFCore的底层原理
 将C#代码转化成SQL语句，然后通过ADO.NET执行SQL语句。
+
+## EFCore一对多配置
+```csharp
+public void Configure(EntityTypeBuilder<Blog> builder)
+{
+    builder.HasMany(b => b.Posts)
+        .WithOne(p => p.Blog)
+        .HasForeignKey(p => p.BlogId);
+}
+```
+```csharp
+// 查询
+var blog = db.Blogs
+    .Include(b => b.Posts)
+    .FirstOrDefault();
+```
+### 设置外键属性
+1. 在实体类中显式声明一个外键属性
+2. 关系配置中通过HasForeignKey方法指定外键属性
+3. 除非有特殊需求，否则不建议使用外键属性，引入重复
