@@ -116,3 +116,32 @@ var blog = db.Blogs
 
 ## IQueryable与IEnumerable
 [IEnumerable与IQueryable](/posts/CSharp/CSharp-IEnumerableAndIQueryable)
+### 何时需要一次性加载
+1. 遍历IQueryable并进行数据处理很耗时（延迟加载），`ToList()`一次性加载到内存
+2. 方法返回查询结果，并且销毁DbContext
+3. 多个IQueryable的便利嵌套。
+
+## EFCore原生SQL
+```csharp
+await ctx.Database.ExecuteSqlInterpolatedAsync(@$"insert into Blog
+    (URL) values ({url})");
+``` 
+### 是否存在SQL注入的风险
+> EFCore会对参数进行转义，避免SQL注入的风险。
+
+## EFCore如何知道实体修改了？
+通过快照进行比较，如果不一致则认为实体被修改了。
+1. Added：新增
+2. Unchanged：未修改
+3. Modified：已修改
+4. Deleted：已删除
+5. Detached：未跟踪
+```csharp
+EntityEntry entry = ctx.Entry(blog);
+Console.WriteLine(entry.State);
+```
+AsNoTracking：不跟踪实体状态，提高性能(值不会修改)
+```csharp
+var blogs = ctx.Blogs.AsNoTracking().ToList();
+```
+
