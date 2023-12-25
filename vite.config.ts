@@ -183,7 +183,15 @@ export default defineConfig({
       defaultStyle: 'vertical-align: sub;',
     }),
   ],
-
+  server: {
+    proxy: {
+      '/api': {
+        target: 'http://localhost:80',
+        changeOrigin: true,
+        rewrite: path => path.replace(/^\/api/, ''),
+      },
+    },
+  },
   build: {
     rollupOptions: {
       onwarn(warning, next) {
