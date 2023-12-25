@@ -13,3 +13,5 @@ type: note
 5. [日志系统](/posts/Dotnet/Logging)
 6. [EFCore](/posts/Dotnet/EFCore)
 7. [表达式树](/posts/Dotnet/ExpressionTree)
+8. [WebAPI](/posts/Dotnet/WebAPI)
+9. [前后端分离技术](/posts/Dotnet/SPA)
