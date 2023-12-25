@@ -37,4 +37,14 @@ public static void Main(string[] args)
     services.AddConsoleLog();
 }
 ```
+## asp.net core中的DI
+### 服务需要时注册
+> 服务需要时注册，不需要时注销，这样可以提高性能。
+```csharp
+[FromServices]
+public IActionResult Index([FromServices] ILog log)
+{
+    log.Write("Hello World");
+    return View();
+}
 ```
