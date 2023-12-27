@@ -56,3 +56,17 @@ public class ExceptionFilterController : ControllerBase
 ## Action filter
 和Exception差不多
 案例：自动启用事务的filter
+1. 数据库事务：要么全部成功，要么全部失败
+2. 自动化：启动、提交以及回滚事务
+3. 当一段使用EFCore进行数据库操作的代码放到TransactionScope时自动标记为支持事务
+4. TransactionScope实现IDisposable接口
+5. 支持嵌套事务
+```csharp
+using(TransactionScope tx = new(TransactionScopeOption.Enabled))
+{
+    ctx.Books.Add(book);
+    ctx.SaveChanges();
+    tx.Complete();
+}
+```
+
