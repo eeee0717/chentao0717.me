@@ -55,7 +55,7 @@ public class ExceptionFilterController : ControllerBase
 ```
 ## Action filter
 和Exception差不多
-案例：自动启用事务的filter
+### [案例：自动启用事务的filter](https://www.bilibili.com/video/BV1pK41137He/?p=136&spm_id_from=pageDriver&vd_source=e69adc4cbcbf14d298fc66f0ae53c5c8)
 1. 数据库事务：要么全部成功，要么全部失败
 2. 自动化：启动、提交以及回滚事务
 3. 当一段使用EFCore进行数据库操作的代码放到TransactionScope时自动标记为支持事务
@@ -69,4 +69,82 @@ using(TransactionScope tx = new(TransactionScopeOption.Enabled))
     tx.Complete();
 }
 ```
+自定义attribute
+```csharp
+// NotTransactionalAttribute.cs
+[AttributeUsage(AttributeTargets.Method)]
+public class NotTransactionalAttribute : Attribute
+{
+}
+```
+```csharp
+// TransactionScopeFilter.cs
+public class TransactionScopeFilter : IAsyncActionFilter
+{
+    public async Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)
+    {
+        bool hasNotTransactionalAttribute = false;
+        if (context.ActionDescriptor is ControllerActionDescriptor)
+        {
+            var actionDesc = (ControllerActionDescriptor)context.ActionDescriptor;
+            hasNotTransactionalAttribute = actionDesc.MethodInfo
+                .IsDefined(typeof(NotTransactionalAttribute));
+        }
+        if (hasNotTransactionalAttribute)
+        {
+            await next();
+            return;
+        }
+        using var txScope = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled);
+        var result = await next();
+        if (result.Exception == null)
+        {
+            txScope.Complete();
+        }
+    }
+}
+```
+```csharp
+[HttpPost]
+// 不执行事务
+[NotTransactionalAttribute]
+Public async Task<ActionResult> Post([FromBody] Book book)
+{
+    _ctx.Books.Add(book);
+    await _ctx.SaveChangesAsync();
+    return Ok();
+}
+```
+
+
+### [案例：限流器filter](https://www.bilibili.com/video/BV1pK41137He/?p=137&spm_id_from=pageDriver&vd_source=e69adc4cbcbf14d298fc66f0ae53c5c8)
+1. Action Filter可以在满足条件的时候终止请求
+2. 在Action Filter中，如果不调用`await next()`，则请求将不会继续传递
+3. 为了避免恶意请求，实现“一秒钟只允许同一个IP一次请求”
+```csharp
+// RateLimitFilter.cs
+Public async Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)
+{
+    var ip = context.HttpContext.Connection.RemoteIpAddress.ToString();
+    var cacheKey = $"rate-limit:{ip}";
+    var cacheValue = await _cache.GetStringAsync(cacheKey);
+    if (string.IsNullOrEmpty(cacheValue))
+    {
+        await _cache.SetStringAsync(cacheKey, "1", new DistributedCacheEntryOptions
+        {
+            AbsoluteExpirationRelativeToNow = TimeSpan.FromSeconds(1)
+        });
+        await next();
+    }
+    else
+    {
+        context.Result = new ContentResult
+        {
+            Content = "Try again later"
+        };
+    }
+}
+```
+
+
 
