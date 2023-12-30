@@ -17,3 +17,4 @@ type: note
 9.  [缓存](/posts/Dotnet/Cache)
 10. [Filter](/posts/Dotnet/Filter)
 11. [中间件](/posts/Dotnet/Middleware)
+12. [Identity框架](/posts/Dotnet/Identity)
