@@ -19,3 +19,4 @@ type: note
 11. [中间件](/posts/Dotnet/Middleware)
 12. [Identity框架](/posts/Dotnet/Identity)
 13. [HostedService](/posts/Dotnet/HostedService)
+14. [SignalR](/posts/Dotnet/SignalR)
