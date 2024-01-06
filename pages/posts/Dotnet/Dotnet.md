@@ -20,3 +20,4 @@ type: note
 12. [Identity框架](/posts/Dotnet/Identity)
 13. [HostedService](/posts/Dotnet/HostedService)
 14. [SignalR](/posts/Dotnet/SignalR)
+15. [Microservice](/posts/Dotnet/Microservice)
