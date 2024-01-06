@@ -32,3 +32,12 @@ app.MapHub<ChatHub>("/chatHub"); // 启用Cors
 
 > SignalR协议协商 支持多种服务器推送方式，如WebSocket、Server-Sent Events、Long Polling
 
+## SignalR的分布式
+解决方案：所有服务器连接到消息中间件上。使用粘性会话或跳过协商。
+### redis backplane
+```csharp
+services.AddSignalR().AddStackExchangeRedis("redis connection string", options =>
+{
+    options.Configuration.ChannelPrefix = "ChatApp";
+});
+```
