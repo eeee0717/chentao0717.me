@@ -52,4 +52,18 @@ public class TestMiddleware
 }
 ```
 
+## 中间件扩展
+```csharp
+public static class TestMiddlewareExtensions
+{
+  public static IApplicationBuilder UseTest(this IApplicationBuilder builder)
+  {
+    return builder.UseMiddleware<TestMiddleware>();
+  }
+}
+```
+```csharp
+app.UseTest();
+```
+
 
