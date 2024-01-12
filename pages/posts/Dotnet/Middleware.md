@@ -66,4 +66,4 @@ public static class TestMiddlewareExtensions
 app.UseTest();
 ```
 
-
+![](https://raw.githubusercontent.com/eeee0717/chentaoImg/master/Middleware.png)
