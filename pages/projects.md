@@ -29,6 +29,12 @@ projects:
       desc: 'Precision Control of Lathe Movement'
       icon: 'i-carbon-ibm-z-cloud-mod-stack'
   
+  Avalonia:
+    - name: 'Subtitle Translator'
+      link: 'https://github.com/eeee0717/SubtitleTranslator'
+      desc: 'A Tool to translate subtitle files'
+      icon: 'i-carbon-translate'
+  
   Productivity:
     - name: 'Workspace'
       link: https://github.com/eeee0717/raycast-workspace

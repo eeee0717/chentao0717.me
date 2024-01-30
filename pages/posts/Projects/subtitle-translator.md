@@ -67,3 +67,8 @@ string tencentcloudRequestBodyString = JsonConvert.SerializeObject(tencentcloudR
 4. 将分割后的结果与原来的字幕内容进行拼接，得到翻译后的字幕内容。
 > 性能待优化
 
+#### 问题记录1
+分割时由于使用了"\n"，导致分割后的结果中存在空字符串，导致翻译后的字幕内容中存在多余的换行符。
+```csharp
+string.TrimEnd('\n');
+```
