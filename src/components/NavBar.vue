@@ -16,7 +16,7 @@ const { y: scroll } = useWindowScroll()
       to="/"
       focusable="false"
     >
-      <Logo />
+      <!-- <Logo /> -->
     </RouterLink>
     <button
       title="Scroll to top"
