@@ -1,0 +1,38 @@
+---
+title: Chen Tao
+description: Chen Tao's Portfolio
+image: https://antfu.me/og.png
+art: random
+---
+
+Hey, I am Chen Tao.
+
+A student from **ZSTU** and I am now admitted to **BJUT**.
+
+Team menber of {MicaApps}<br>
+Contributor of {Leetcode-master} {CS-base} {Leetcode-extension}
+
+Dreaming up ideas and making them come true is where my passion lies. You can find my [full projects list here](/projects). I also share some technical [articles](/posts) on Blog.
+
+Occasionally, I also do some coding projects on [哔哩哔哩](https://space.bilibili.com/52423255).
+
+Outside of programming, I enjoy doing photography and traveling. Some of my photos can be found on [Instgram](https://www.instagram.com/eeee0717_/). If you happen to be in the same city I live (currently in Hangzhou), maybe we can hang out and take some photos or code together.
+
+<div flex-auto />
+
+---
+
+Find me on
+
+<p flex="~ gap-2 wrap" class="mt--2!">
+  <a href="https://github.com/eeee0717" target="_blank"><span op75 i-simple-icons-github /> GitHub</a>
+  <a href="https://www.twitter.com/chentao_007" target="_blank"><span op75 i-ri-twitter-x-fill /> Twitter</a>
+  <a href="https://www.instagram.com/eeee0717_/" target="_blank"><span op75 i-simple-icons-instagram /> Instagram</a>
+  <a href="https://space.bilibili.com/52423255" target="_blank"><span op75 i-simple-icons-bilibili /> 哔哩哔哩</a>
+</p>
+
+---
+
+<!-- Or mail me at <span font-mono>hi<span i-carbon-at/>antfu.me</span> -->
+<!--
+--- -->
