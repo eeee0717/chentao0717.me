@@ -3,5 +3,5 @@ import logoSvg from '/logo.svg'
 </script>
 
 <template>
-  <img class="h-5 " :src="logoSvg" alt="logo">
+  <img class="h-7 rounded " :src="logoSvg" alt="logo">
 </template>
