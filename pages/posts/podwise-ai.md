@@ -24,6 +24,7 @@ type: blog
 
 - 工作流1: 下载音频文件 -> 探测语言 -> 预采样音频内容 -> whisper 转录音频 -> 生成分段 -> 优化 transcript -> 写入 db。
 - 工作流2: load transcript -> 分段（split）-> 总结章节，抽取 highlights和关键词 -> 基于章节生成全文总结 -> 解释关键词 -> 基于章节生成 mindmap -> 写入 db。
+- 开放api接口，手机可以通过快捷指令的方式将播客发送待处理列表。
 
 ## LLM模型选择
 
