@@ -29,3 +29,7 @@ type: blog
 ## LLM模型选择
 
 由于最近qwen-long的价格大幅度下降,可以以qwen-long为首选,但是为了保证后续模型的可替换性,以OpenAI接口格式为标准。可用的模型可包括:kimi, deepseek, gpt3.5。
+
+## 获取小宇宙podcast和episode
+
+1. 需要需要先获取access token，通过抓包获取第一个refresh token 和 access token，然后post `https://api.xiaoyuzhoufm.com/app_auth_tokens.refresh`这个url即可获取新的access token。
