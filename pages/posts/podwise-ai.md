@@ -30,6 +30,39 @@ type: blog
 
 由于最近qwen-long的价格大幅度下降,可以以qwen-long为首选,但是为了保证后续模型的可替换性,以OpenAI接口格式为标准。可用的模型可包括:kimi, deepseek, gpt3.5。
 
-## 获取小宇宙podcast和episode
+## 开发日志
+
+### 获取小宇宙podcast和episode
 
 1. 需要需要先获取access token，通过抓包获取第一个refresh token 和 access token，然后post `https://api.xiaoyuzhoufm.com/app_auth_tokens.refresh`这个url即可获取新的access token。
+2. 获取episode，通过`https://api.xiaoyuzhoufm.com/v1/episode/get?eid=${episode.eid}`获取单集的信息
+3. 获取podcast，通过`https://api.xiaoyuzhoufm.com/v1/podcast/get?pid=${podcast.pid}`获取单个podcast的信息
+4. 获取episode列表，使用post请求`https://api.xiaoyuzhoufm.com/v1/episode/list`,参数为`{"pid":"pid", "loadMoreKey":"loadMoreKey"}`
+
+### 数据库设计
+
+> 使用数据库存放导入的播客的信息
+
+1. podcast表
+
+| id  | pid | title | author | description | picUrl |
+| --- | --- | ----- | ------ | ----------- | ------ |
+
+2. episods表
+
+| id  | pid | eid | title | datePublished | duration | description | mediaUrl | picUrl |
+| --- | --- | --- | ----- | ------------- | -------- | ----------- | -------- | ------ |
+
+### 2024-6-5小结
+
+1. 目前实现的功能有：
+
+- 导入podcast链接，获取所有的episods
+- 将podcast和episods信息存入pgsql数据库
+- 展示episods列表
+- 可进行episods的排序
+
+2. 下一步计划：
+
+- 实现导入episode链接，输出至/episode页面
+- 在制作episode页面详情页之前进行重构设计，完善代码逻辑
