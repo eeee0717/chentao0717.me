@@ -65,4 +65,5 @@ type: blog
 2. 下一步计划：
 
 - 实现导入episode链接，输出至/episode页面
-- 在制作episode页面详情页之前进行重构设计，完善代码逻辑
+- ✅ 在制作episode页面详情页之前进行重构设计，完善代码逻辑
+- mindmap(组件)[https://vueflow.dev/guide/getting-started.html]
