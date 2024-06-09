@@ -53,7 +53,7 @@ type: blog
 | id  | pid | eid | title | datePublished | duration | description | mediaUrl | picUrl |
 | --- | --- | --- | ----- | ------------- | -------- | ----------- | -------- | ------ |
 
-### 2024-6-5小结
+### 2024-06-05小结
 
 1. 目前实现的功能有：
 
@@ -67,3 +67,11 @@ type: blog
 - 实现导入episode链接，输出至/episode页面
 - ✅ 在制作episode页面详情页之前进行重构设计，完善代码逻辑
 - mindmap[组件](https://vueflow.dev/guide/getting-started.html)
+
+### 2024-06-09小结
+
+1. 目前完成了音频的转录和页面的优化工作
+2. 下一步计划：
+
+- 学习分段算法，实现分段
+- 编写prompt，完成总结（章节总结->全文总结->关键词解释->mindmap）
