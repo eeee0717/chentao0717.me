@@ -10,8 +10,8 @@ projects:
       link: 'https://github.com/eeee0717/Toolkits'
       desc: 'A collection of useful tools for daily use'
       icon: 'i-carbon-campsite'
-    - name: 'Cast Summary AI'
-      link: 'https://github.com/eeee0717/CastSummaryAI'
+    - name: 'Podwise AI'
+      link: 'https://github.com/eeee0717/podwise-ai'
       desc: 'A platform to summarize podcast episodes'
       icon: 'i-carbon-microphone'
 
