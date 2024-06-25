@@ -39,6 +39,12 @@ projects:
       desc: 'A Tool to translate subtitle files'
       icon: 'i-carbon-translate'
 
+  Rust:
+    - name : 'Subtitle Translator Cli'
+      link: 'https://github.com/eeee0717/subtitle-translator-cli'
+      desc: 'A Command Line Tool to translate subtitle files'
+      icon: 'i-carbon-translate'
+
   Productivity:
     - name: 'Workspace'
       link: https://github.com/eeee0717/raycast-workspace
