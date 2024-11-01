@@ -6,7 +6,7 @@ duration: 5min
 type: blog
 ---
 
-## 项目简介
+## 项目介绍
 
 ### 构建一个Newsletter程序
 
@@ -27,3 +27,9 @@ type: blog
 在每次修改代码运行`cargo test`时，会向数据库添加一个测试用例，而反复添加则会使测试中断，因此可以在每次测试时创建一个逻辑数据库，以UUID为name，在执行完测试后可以批量删除，而不影响主库。
 
 同时，为了保证数据库的异步操作，可以使用线程池来防止数据库堵塞。
+
+> i will try to use english to explain something i have learned.
+
+## Observability
+
+### Logging
