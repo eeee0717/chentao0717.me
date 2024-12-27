@@ -182,12 +182,5 @@ export default defineConfig({
 
   ssgOptions: {
     formatting: 'minify',
-    includedRoutes(paths) {
-      return [
-        '/', // 根路径
-        '/posts/claas-software-2024', // 静态化这个路由
-        // 更多具体的路径...
-      ]
-    },
   },
 })

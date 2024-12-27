@@ -24,6 +24,7 @@ import App from './App.vue'
 export const createApp = ViteSSG(
   App,
   {
+    base: '/',
     routes,
   },
   ({ router, app, isClient }) => {
