@@ -24,6 +24,8 @@ declare module 'vue-router/auto-routes' {
     '/demos': RouteRecordInfo<'/demos', '/demos', Record<never, never>, Record<never, never>>,
     '/notes': RouteRecordInfo<'/notes', '/notes', Record<never, never>, Record<never, never>>,
     '/posts/': RouteRecordInfo<'/posts/', '/posts', Record<never, never>, Record<never, never>>,
+    '/posts/2024final': RouteRecordInfo<'/posts/2024final', '/posts/2024final', Record<never, never>, Record<never, never>>,
+    '/posts/claas-software-2024': RouteRecordInfo<'/posts/claas-software-2024', '/posts/claas-software-2024', Record<never, never>, Record<never, never>>,
     '/posts/comfyui-furry': RouteRecordInfo<'/posts/comfyui-furry', '/posts/comfyui-furry', Record<never, never>, Record<never, never>>,
     '/posts/csharp-event-and-delegate': RouteRecordInfo<'/posts/csharp-event-and-delegate', '/posts/csharp-event-and-delegate', Record<never, never>, Record<never, never>>,
     '/posts/efcore-migration': RouteRecordInfo<'/posts/efcore-migration', '/posts/efcore-migration', Record<never, never>, Record<never, never>>,
