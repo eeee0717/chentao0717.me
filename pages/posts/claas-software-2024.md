@@ -8,7 +8,8 @@ type: blog
 
 # Subtitle-Translator-CLI使用说明书
 
-> Blog地址: [Subtitle-Translator-CLI](https://www.chentao0717.cn/posts/subtitle-translator-cli)
+> Blog地址: [Subtitle-Translator-CLI](/posts/subtitle-translator-cli)
+
 > GitHub地址: [Subtitle-Translator-CLI](https://github.com/eeee0717/subtitle-translator-cli)
 
 ## 工具简介
@@ -110,7 +111,7 @@ type: blog
 
 > Bilibili视频链接: [Subtitle-Translator-GUI](https://www.bilibili.com/video/BV1Cg4y127NP/?spm_id_from=333.999.0.0&vd_source=e69adc4cbcbf14d298fc66f0ae53c5c8)
 
-> GitHub地址: [Subtitle-Translator-GUI](https://www.chentao0717.cn/posts/subtitle-translator-cli)
+> GitHub地址: [Subtitle-Translator-GUI](https://github.com/eeee0717/SubtitleTranslator)
 
 ## 工具简介
 
