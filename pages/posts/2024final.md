@@ -33,3 +33,5 @@ type: blog
 明年也是研一下学期了，可能会有导师安排任务，希望在完成任务之余依旧能够继续精进代码水平，这也是我的一种取悦自己的方式。
 
 > Always Coding, Always Learning.
+
+<FinalPhotos/>
