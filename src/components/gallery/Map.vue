@@ -1,11 +1,11 @@
 <template>
-  <Box :rows="2" :cols="4">
+  <Box class="col-span-4 row-span-2">
     <div class="location-card w-full h-full rounded-2xl">
       <div flex flex-row items-center text-white>
         <div m-2 i-carbon-location />
         <span>现居</span>
       </div>
-      <div m-2 class="absolute">
+      <div id="address" m-2 class="absolute hover:display:block hidden">
         <h3 class="text-white">
           北京市<br>朝阳区
         </h3>
