@@ -19,8 +19,7 @@ const props = defineProps<{
         <img
           :src="item.image"
           :alt="item.id"
-          loading="lazy"
-          :class="cn('rounded-2xl  w-full object-cover', item.title ? '' : 'h-full')"
+          :class="cn('rounded-2xl  w-full ', item.title ? '' : 'h-full')"
         >
         <div v-if="item.title" class="flex justify-center">
           {{ item.title }}
