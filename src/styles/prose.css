@@ -216,8 +216,8 @@
   margin-bottom: 1.25em;
 }
 .prose img {
-  margin-top: 2em;
-  margin-bottom: 2em;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 .prose video {
   margin-top: 2em;
