@@ -17,7 +17,7 @@
         <img class="rounded-2xl h-full" src="/avatar.png">
       </Box>
       <Box class="bg-coolGray bg-op-20 col-span-2 row-span-3 ">
-        <div class="flex-row justify-center ">
+        <div class="flex-row justify-center items-center">
           <img class="rounded-2xl" src="/images/2024final/2024-book-funny.jpg">
           <div class="flex justify-center">
             年度有趣书籍
