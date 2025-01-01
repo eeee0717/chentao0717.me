@@ -1,3 +1,4 @@
+<!-- TODO: 抽成一个可复用的组件 -->
 <script setup lang="ts">
 export interface GridItem {
   id: string

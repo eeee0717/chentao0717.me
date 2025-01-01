@@ -9,7 +9,8 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@vueuse/core": "^10.9.0",
+    "@vueuse/core": "^12.2.0",
+    "@vueuse/integrations": "^12.2.0",
     "clsx": "^2.1.1",
     "colorthief": "^2.6.0",
     "dayjs": "^1.11.11",
@@ -17,10 +18,11 @@
     "matter-attractors": "^0.1.6",
     "matter-js": "^0.19.0",
     "nprogress": "^0.2.0",
+    "qrcode": "^1",
     "shiki-magic-move": "^0.4.0",
     "tailwind-merge": "^2.6.0",
-    "vue": "^3.4.27",
-    "vue-router": "4.2.5",
+    "vue": "^3.5.13",
+    "vue-router": "^4.5.0",
     "vue-router-better-scroller": "^0.0.0"
   },
   "devDependencies": {

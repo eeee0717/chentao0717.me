@@ -7,14 +7,14 @@ const { frontmatter } = defineProps({
     required: true,
   },
 })
-
+const showShareCard = ref(true)
 const router = useRouter()
 const route = useRoute()
 const content = ref<HTMLDivElement>()
 
-const base = 'https://antfu.me'
-const tweetUrl = computed(() => `https://twitter.com/intent/tweet?text=${encodeURIComponent(`Reading @antfu7\'s ${base}${route.path}\n\nI think...`)}`)
-const elkUrl = computed(() => `https://elk.zone/intent/post?text=${encodeURIComponent(`Reading @antfu@m.webtoo.ls\'s ${base}${route.path}\n\nI think...`)}`)
+function share() {
+  showShareCard.value = !showShareCard.value
+}
 
 onMounted(() => {
   const navigate = () => {
@@ -134,10 +134,8 @@ const ArtComponent = computed(() => {
   <div v-if="route.path !== '/'" class="prose m-auto mt-8 mb-8 slide-enter animate-delay-500 print:hidden">
     <template v-if="frontmatter.duration">
       <span font-mono op50>> </span>
-      <span op50>comment on </span>
-      <a :href="elkUrl" target="_blank" op50>mastodon</a>
-      <span op25> / </span>
-      <a :href="tweetUrl" target="_blank" op50>twitter</a>
+      <span op50>share with</span>
+      <button m-l-2 w-16px hover:op75 i-material-symbols-light-ios-share @click="share" />
     </template>
     <br>
     <span font-mono op50>> </span>
@@ -147,4 +145,5 @@ const ArtComponent = computed(() => {
       v-text="'cd ..'"
     />
   </div>
+  <ShareCard v-if="showShareCard && content" :route="route.fullPath" :content="content" />
 </template>

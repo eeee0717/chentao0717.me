@@ -32,7 +32,6 @@ export const createApp = ViteSSG(
 
     app.use(FloatingVue)
     app.use(createPinia())
-
     if (isClient) {
       const html = document.querySelector('html')!
       setupRouterScroller(router, {
