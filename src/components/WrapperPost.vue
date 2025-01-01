@@ -7,7 +7,7 @@ const { frontmatter } = defineProps({
     required: true,
   },
 })
-const showShareCard = ref(true)
+const showShareCard = ref(false)
 const router = useRouter()
 const route = useRoute()
 const content = ref<HTMLDivElement>()
