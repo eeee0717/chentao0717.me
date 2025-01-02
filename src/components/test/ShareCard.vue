@@ -120,8 +120,8 @@ function save() {
           </div>
         </div>
       </div>
-      <p class="flex justify-center line-clamp-1" text-gray>
-        {{ props.content.textContent }}...
+      <p class="flex justify-center" text-gray>
+        {{ props.content.textContent?.slice(0, 15) }}...
       </p>
       <div flex flex-row justify-between items-end h-full>
         <div class="flex flex-col h-full justify-end">
