@@ -145,7 +145,7 @@ const ArtComponent = computed(() => {
       v-text="'cd ..'"
     />
   </div>
-  <div v-if="frontmatter.duration">
+  <div v-if="frontmatter.duration" class="flex justify-center">
     <ShareCard v-if="showShareCard && content" :route="route.fullPath" :content="content" :frontmatter="frontmatter" />
   </div>
 </template>

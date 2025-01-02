@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useQRCode } from '@vueuse/integrations/useQRCode'
 import { ref } from 'vue'
+import * as htmlToImage from 'html-to-image'
 
 const props = defineProps<{
   route: string
@@ -14,10 +15,28 @@ const qrcode = useQRCode(text, {
   margin: 1,
 
 })
+function save() {
+  const elemment = document.getElementById('share-card')
+  const filter = (node: HTMLElement) => {
+    return node.id !== 'skip'
+  }
+
+  if (elemment) {
+    htmlToImage.toJpeg(elemment, { filter }).then((dataUrl) => {
+      const link = document.createElement('a')
+      link.download = `${props.frontmatter.title}.jpeg`
+      link.href = dataUrl
+      link.click()
+    })
+  }
+}
 </script>
 
 <template>
-  <div class="share-card rounded-xl w-575px h-325px p-40px">
+  <div id="share-card" class="relative share-card rounded-xl w-575px h-325px p-40px">
+    <button id="skip" class="absolute z-10 top-4 right-4" @click="save">
+      <span i-carbon-save />
+    </button>
     <div class="w-full h-full grid  grid-cols-[1fr_2.5fr] gap-2">
       <div class="flex flex-col h-243px">
         <img class="h-125px w-125px rounded-xl" src="/avatar.png">
@@ -67,11 +86,6 @@ const qrcode = useQRCode(text, {
 
 <style scoped>
 .share-card {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  z-index: 100;
-  transform: translate(-50%, -50%);
   border: 1px solid #000;
   background: #fff;
 }
