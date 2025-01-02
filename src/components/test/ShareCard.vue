@@ -47,7 +47,7 @@ function save() {
 
 <template>
   <div id="share-card" class="relative share-card rounded-xl w-310px h-496px p-30px" md="w-575px h-325px p-40px">
-    <button id="skip" class="absolute z-10 top-4 right-4" @click="save">
+    <button id="skip" class="w-40px h-40px absolute z-10 top-4 right-4" @click="save">
       <span i-carbon-save />
     </button>
     <div v-if="!isSmallScreen" class="w-full h-full grid  grid-cols-[1fr_2.5fr] gap-2">
