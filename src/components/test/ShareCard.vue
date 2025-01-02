@@ -8,8 +8,20 @@ const props = defineProps<{
   frontmatter: Record<string, any>
   content: HTMLDivElement
 }>()
-const isSmallScreen = window.innerWidth < 768
 const base = 'https://chentao0717.cn'
+const isSmallScreen = ref(window.innerWidth < 768)
+
+onMounted(() => {
+  window.addEventListener('resize', () => {
+    isSmallScreen.value = window.innerWidth < 768
+  })
+})
+
+onUnmounted(() => {
+  window.removeEventListener('resize', () => {
+    isSmallScreen.value = window.innerWidth < 768
+  })
+})
 const text = ref(`${base}${props.route}`)
 const qrcode = useQRCode(text, {
   errorCorrectionLevel: 'L',
@@ -34,7 +46,7 @@ function save() {
 </script>
 
 <template>
-  <div id="share-card" class="relative share-card rounded-xl w-310px h-496px p-30px" lg="w-575px h-325px p-40px">
+  <div id="share-card" class="relative share-card rounded-xl w-310px h-496px p-30px" md="w-575px h-325px p-40px">
     <button id="skip" class="absolute z-10 top-4 right-4" @click="save">
       <span i-carbon-save />
     </button>
