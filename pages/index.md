@@ -1,7 +1,6 @@
 ---
 title: Chen Tao
 description: Chen Tao's Portfolio
-image: https://antfu.me/og.png
 art: random
 ---
 
@@ -32,7 +31,3 @@ Find me on
 </p>
 
 ---
-
-<!-- Or mail me at <span font-mono>hi<span i-carbon-at/>antfu.me</span> -->
-<!--
---- -->
