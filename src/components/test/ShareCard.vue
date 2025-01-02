@@ -8,6 +8,7 @@ const props = defineProps<{
   frontmatter: Record<string, any>
   content: HTMLDivElement
 }>()
+const isSmallScreen = window.innerWidth < 768
 const base = 'https://chentao0717.cn'
 const text = ref(`${base}${props.route}`)
 const qrcode = useQRCode(text, {
@@ -33,11 +34,11 @@ function save() {
 </script>
 
 <template>
-  <div id="share-card" class="relative share-card rounded-xl w-575px h-325px p-40px">
+  <div id="share-card" class="relative share-card rounded-xl w-310px h-496px p-30px" lg="w-575px h-325px p-40px">
     <button id="skip" class="absolute z-10 top-4 right-4" @click="save">
       <span i-carbon-save />
     </button>
-    <div class="w-full h-full grid  grid-cols-[1fr_2.5fr] gap-2">
+    <div v-if="!isSmallScreen" class="w-full h-full grid  grid-cols-[1fr_2.5fr] gap-2">
       <div class="flex flex-col h-243px">
         <img class="h-125px w-125px rounded-xl" src="/avatar.png">
         <div class="flex flex-col h-full justify-end">
@@ -78,6 +79,49 @@ function save() {
         <p text-gray>
           {{ props.content.textContent?.slice(0, 40) }}...
         </p>
+        <img v-if="text" class="rounded w-80px mt-auto self-end" :src="qrcode" alt="QR Code">
+      </div>
+    </div>
+    <div v-else class="flex flex-col w-full h-full justify-center gap-2">
+      <div class="flex justify-center w-full">
+        <img class=" h-230px w-230px rounded-xl" src="/avatar.png">
+      </div>
+      <h1 class="flex justify-center" text-2xl>
+        {{ props.frontmatter.title }}
+      </h1>
+      <div flex justify-between m-x-2>
+        <p class="text-sm font-bold">
+          槑囿脑袋
+        </p>
+        <div class="flex flex-row text-xs text-gray gap-2">
+          <div class="flex flex-row items-center gap-1">
+            <span i-carbon-calendar />
+            <p>
+              {{ new Date(props.frontmatter.date).toISOString().split('T')[0] }}
+            </p>
+          </div>
+          <div class="flex flex-row items-center gap-1">
+            <span i-carbon-time />
+            <p>
+              {{ props.frontmatter.duration }}
+            </p>
+          </div>
+        </div>
+      </div>
+      <p class="flex justify-center" text-gray>
+        {{ props.content.textContent?.slice(0, 15) }}...
+      </p>
+      <div flex flex-row justify-between items-end h-full>
+        <div class="flex flex-col h-full justify-end">
+          <div class="flex flex-row text-sm items-center">
+            <p>Powered by</p>
+            <img class="m-1 w-16px" src="/vue.svg">
+            <p>Vue</p>
+          </div>
+          <p class="text-sm text-gray">
+            长按扫码查看内容
+          </p>
+        </div>
         <img v-if="text" class="rounded w-80px mt-auto self-end" :src="qrcode" alt="QR Code">
       </div>
     </div>
