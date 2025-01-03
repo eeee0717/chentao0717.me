@@ -1,53 +1,55 @@
 ---
-title: Mac使用指南
-date: 2023-12-11T16:00:00.000+00:00
+title: My Mac
+date: 2025-01-03 14:05:34
 lang: zh
 duration: 5min
 type: blog
 ---
-## 必备软件分享
-在必备软件方面，我主要分享一些非常实用的工具，可以说这些软件基本上都内嵌在我平时的工作流当中了。
 
-### Raycast 
-[raycast网址](https://www.raycast.com/)
+距离我从Win党转换到Mac党已经有两年多的时间了，从一开始的不熟悉到现在已经无法离开macos，也经历了需要折腾的过程，🛠工具也在不断地更新迭代，分享一些目前我常用的工具。
 
-作为一款效率软件，Raycast可以替代MacOS自带的聚焦搜索。并且通过配置插件实现一个软件替代多个软件的效果。例如剪切板，屏幕分屏工具，Snippet等等。
+## 🖥 Coding相关
 
-### Bartender 5
-[Bartender 5网址](https://www.macbartender.com/)
+作为一个"全栈"工程师，使用到的工具也是五花八门。
 
-Bartender 5 是一个大名鼎鼎、鼎鼎大名的状态栏管理软件，尤其是对于刘海屏的 Mac 来说，这是一个必装软件。
+### Vue/Nuxt
 
-![](https://raw.githubusercontent.com/eeee0717/chentaoImg/master/Bartender4.png)
+#### VsCode
 
-在这个软件中可以设置状态栏：
+由于vue生态对vscode插件的支持比较好(例如unocss)，因此使用vscode对vue/nuxt开发具有一个比较舒适的体验，但是最近在户外开发的时候发现vscode的占用和耗电还是比较高，但因为插件的捆绑，也无法转向使用nvim。
 
-第一栏是永久保留的软件；第二栏是空间不足时隐藏的软件
+#### Zen Browser
 
-### CleanShotX
-[CleanShotX网址](https://cleanshot.com/)
+前端开发的第二大重要组成部分就是浏览器，一个好的浏览器还是比较重要的，之前使用Chrome的时候，偶尔会遇到卡死的情况，其原因可能是chromium内核的问题，后来使用了mozilla内核的套壳Firefox，也就是Zen Browser，发现卡死的情况减少了。而且颜值即正义，通过一些配置就可以让Zen Browser变得外观像Arc浏览器一样(虽然Arc现在停止开发了，悲😢)。
 
-CleanShotX是一款非常好用的截图软件，它可以实现区域截图、全屏截图、滚动截图以及录制屏幕等操作，是一款非常好用的截图软件。
+![zen browser](/images/mac-zen-browser.png)
 
-### Keka
-[Keka网址](https://www.keka.io/)
+### Rust
 
-Keka是一款轻量的解压缩软件，几乎可以实现所有常见的解压缩操作。
+#### Nvim
 
-### IINA
-[IINA网址](https://iina.io/)
+2024年的大部分时间都是使用VsCode进行Rust开发，在年底的时候，由于在B站多次刷到nvim，便忍不住去尝试了一下nvim的神奇之处，使用[LazyVim](https://www.lazyvim.org/)进行nvim的基础配置，减少了很多配置的负担，开箱即用。目前也通过一些插件的安装基本达到了VSCode的开发体验。而最令我惊喜的是，使用nvim可以全键盘操作，大大减少了在鼠标和键盘间来回切换的繁琐，这也是我如此坚持使用nvim的原因之一。
 
-一款界面好看的视频播放软件，支持字幕、弹幕、画中画等功能。
+### 终端
 
-![](https://raw.githubusercontent.com/eeee0717/chentaoImg/master/IINA.png)
+#### Wezterm
 
-### Bob
-[Bob网址](https://bobtranslate.com/)
+在接触到Rust之后，便逐渐对Rust编写的程序有了一些好感，而Wezterm就是使用Rust编写的终端应用，相比于iTerm2，Wezterm的占用更低，启动速度更快，而且配合`yazi`，堪称神器。
 
-Bob是一款翻译软件，可以实现划词翻译、OCR翻译、截图翻译等功能。可以通过快捷键呼出的方式实现全局翻译。
+#### Yazi
 
-### 沉浸式翻译
-[沉浸式翻译网址](https://chromewebstore.google.com/detail/%E6%B2%89%E6%B5%B8%E5%BC%8F%E7%BF%BB%E8%AF%91-%E5%8F%8C%E8%AF%AD%E5%AF%B9%E7%85%A7%E7%BD%91%E9%A1%B5%E7%BF%BB%E8%AF%91-pdf%E6%96%87%E6%A1%A3%E7%BF%BB%E8%AF%91/bpoadfkcbjbfhfodiogcnhhhpibjhbnh?hl=zh-CN)
+Yazi也是一款基础Rust开发的终端文件管理工具，相较于访达，Yazi支持vim操作，而且也能实现文件的预览，而且也非常美观(逼格很高)。
 
-沉浸式网页双语翻译扩展，可以将翻译结果直接嵌入网页，实现无感阅读。
-![](https://raw.githubusercontent.com/eeee0717/chentaoImg/master/沉浸式翻译.png)
+## 效率工具
+
+### Raycast
+
+连续使用了两年Raycast，Raycast绝对是无法离开macos的原因之一，在偶尔使用win的时候，无论是uTools还是Listary，都无法做到像Raycast这样集美观、实用、快捷于一身的效率工具。
+![raycast](/images/mac-raycast.png)
+
+### Aerospace
+
+Aerospace是一款使用Rust编写的窗口管理工具，相比于yabai，Aerospace的设计十分巧妙，通过将窗口应用缩小成一个小窗口来实现，不需要对mac进行SIP关闭，也不需要对窗口进行特殊的设置，只需要在Aerospace中设置好快捷键即可。
+也可以设定规则实现窗口的自动布局，非常方便。美中不足的地方在与添加新窗口只能平铺展开，希望后续能够支持窗口的堆叠展开。
+
+> 就先分享这么多吧，后续有更多体会再更新🥳。
