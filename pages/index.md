@@ -1,7 +1,7 @@
 ---
 title: Chen Tao
 description: Chen Tao's Portfolio
-image: https://chentao0717.cn/avatar.png
+image: https://chentao0717.cn/og.png
 art: random
 ---
 
