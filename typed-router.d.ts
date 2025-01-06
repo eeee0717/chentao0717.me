@@ -32,6 +32,7 @@ declare module 'vue-router/auto-routes' {
     '/posts/macos-software': RouteRecordInfo<'/posts/macos-software', '/posts/macos-software', Record<never, never>, Record<never, never>>,
     '/posts/net-json-convenient': RouteRecordInfo<'/posts/net-json-convenient', '/posts/net-json-convenient', Record<never, never>, Record<never, never>>,
     '/posts/podwise-ai': RouteRecordInfo<'/posts/podwise-ai', '/posts/podwise-ai', Record<never, never>, Record<never, never>>,
+    '/posts/rust-in-depth': RouteRecordInfo<'/posts/rust-in-depth', '/posts/rust-in-depth', Record<never, never>, Record<never, never>>,
     '/posts/subtitle-translator-cli': RouteRecordInfo<'/posts/subtitle-translator-cli', '/posts/subtitle-translator-cli', Record<never, never>, Record<never, never>>,
     '/posts/yazi': RouteRecordInfo<'/posts/yazi', '/posts/yazi', Record<never, never>, Record<never, never>>,
     '/posts/zero2rust': RouteRecordInfo<'/posts/zero2rust', '/posts/zero2rust', Record<never, never>, Record<never, never>>,
