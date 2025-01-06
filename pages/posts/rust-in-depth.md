@@ -92,4 +92,17 @@ let y = Box::new(32);
 println!("x = {}, y = {}", x, y); // this will occur an error❌, because y is moved to z
 ```
 
+## Borrowing and Lifetime
+
+### Shared Reference
+
+A variable can have multiple shared references, but it can't the value of the variable can't be changed.
+
+```rust
+fn cache(input: &u32, sum: &mut u32){
+  *sum = *input + *input;
+  assert_eq!(*sum, 2*(*input)); // This assert will always pass
+}
+```
+
 > This is the first time I try to write a blog in English, so maybe there are some grammatical errors. If you find any, please let me know. Thank you!
