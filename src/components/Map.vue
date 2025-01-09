@@ -4,7 +4,7 @@ import PhotoData from '../../script/photo.json'
 
 let map: any = null
 
-function loadPugins(AMap: any, map: any) {
+function loadPugins(AMap: any) {
   const toolbar = new AMap.ToolBar({
     offset: [10, 60],
     position: 'RB',
@@ -22,20 +22,34 @@ function loadPugins(AMap: any, map: any) {
   map.addControl(geolocation)
 }
 
-function loadMarker(AMap: any, map: any, photos: any) {
+function loadMarker(AMap: any, photos: any) {
   const markers: any[] = []
   photos.forEach((p: any) => {
-    const icon = new AMap.Icon({
-      size: new AMap.Size(36, 36), // 图标尺寸
-      image: p.file_path, // Icon 的图像
-    })
+    //  点标记
+    const markerContent
+      = `<div class="w-36px h-36px">
+          <img class="w-36px h-36px"  src="${p.file_path}">
+        </div>`
+
+    // const icon = new AMap.Icon({
+    //   size: new AMap.Size(36, 36), // 图标尺寸
+    //   image: p.file_path, // Icon 的图像
+    // })
     const marker = new AMap.Marker({
       position: new AMap.LngLat(p.gps[0], p.gps[1]), // 点标记的位置
-      icon, // 添加 Icon 实例
+      // icon,
+      content: markerContent,
       title: p.file_name,
-      zooms: [2, 20], // 点标记显示的层级范围，超过范围不显示
+      offset: new AMap.Pixel(-13, -30), // 相对于基点的偏移位置
     })
     markers.push(marker)
+    // 未关闭按钮添加点击事件
+    const closeBtn = document.querySelector('.close-btn')
+    if (closeBtn) {
+      closeBtn.addEventListener('click', () => {
+        clearMarker(marker) // 移除 marker
+      })
+    }
   })
   markers.forEach((m) => {
     map.add(m)
@@ -59,8 +73,8 @@ onMounted(() => {
         zoom: 4, // 改变地图显示的默认级别
         center: [116.397428, 39.90923],
       })
-      loadPugins(AMap, map)
-      loadMarker(AMap, map, photos)
+      loadPugins(AMap)
+      loadMarker(AMap, photos)
     })
     .catch((e) => {
       console.log(e)
@@ -79,5 +93,31 @@ onUnmounted(() => {
 #container {
   width: 100%;
   height: 400px;
+}
+.custom-content-marker {
+  width: 64px;
+  height: 64px;
+}
+.custom-content-marker img {
+  width: 100%;
+  height: 100%;
+}
+.custom-content-marker .close-btn {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+  width: 15px;
+  height: 15px;
+  font-size: 12px;
+  background: #ccc;
+  border-radius: 50%;
+  color: #fff;
+  text-align: center;
+  line-height: 15px;
+  box-shadow: -1px 1px 1px rgba(10, 10, 10, 0.2);
+}
+
+.custom-content-marker .close-btn:hover {
+  background: red;
 }
 </style>
