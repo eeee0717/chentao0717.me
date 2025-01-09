@@ -4,11 +4,12 @@
   "packageManager": "pnpm@9.1.1",
   "scripts": {
     "build": "cross-env NODE_ENV=production vite-ssg build",
-    "dev": "vite --port 3333",
+    "dev": "vite --port 3333 --mode dev",
     "preview": "vite preview",
     "lint": "eslint ."
   },
   "dependencies": {
+    "@amap/amap-jsapi-loader": "^1.0.1",
     "@vueuse/core": "^12.2.0",
     "@vueuse/integrations": "^12.2.0",
     "clsx": "^2.1.1",

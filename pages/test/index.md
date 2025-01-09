@@ -7,3 +7,5 @@ type: blog
 ---
 
 hi
+
+<Map/>
