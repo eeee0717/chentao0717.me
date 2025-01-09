@@ -12,6 +12,5 @@ sponsors.*
 drafts
 *.log
 src/data/sponsors-circles.json
-script/photo.json
 .env
 .env.dev

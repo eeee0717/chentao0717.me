@@ -6,6 +6,4 @@ duration: 10min
 type: blog
 ---
 
-hi
-
 <Map/>
