@@ -1,131 +1,182 @@
 <script setup lang="ts">
 import AMapLoader from '@amap/amap-jsapi-loader'
 import PhotoData from '../../script/photo.json'
+import type { GroupedPhotos, MapInstance, Photo } from '../types/map'
 
-let map: any = null
+const mapInstance = ref<MapInstance>({ map: null, AMap: null })
 
-function loadPugins(AMap: any) {
-  const toolbar = new AMap.ToolBar({
-    offset: [10, 60],
-    position: 'RB',
-  })
+// 地图配置
+const MAP_CONFIG = {
+  zoom: 4,
+  center: [116.397428, 39.90923],
+  viewMode: '2D',
+}
+
+// 工具栏配置
+const TOOLBAR_CONFIG = {
+  offset: [10, 60],
+  position: 'RB',
+}
+
+// 定位配置
+const GEOLOCATION_CONFIG = {
+  enableHighAccuracy: true,
+  timeout: 10000,
+  offset: [10, 20],
+  zoomToAccuracy: true,
+  position: 'RB',
+}
+
+// 加载地图插件
+function initPlugins(): void {
+  const { map, AMap } = mapInstance.value
+
+  const toolbar = new AMap.ToolBar(TOOLBAR_CONFIG)
+  const geolocation = new AMap.Geolocation(GEOLOCATION_CONFIG)
+
   map.addControl(toolbar)
-  const geolocation = new AMap.Geolocation(
-    {
-      enableHighAccuracy: true, // 是否使用高精度定位，默认：true
-      timeout: 10000, // 设置定位超时时间，默认：无穷大
-      offset: [10, 20], // 定位按钮的停靠位置的偏移量
-      zoomToAccuracy: true, //  定位成功后调整地图视野范围使定位位置及精度范围视野内可见，默认：false
-      position: 'RB', //  定位按钮的排放位置,  RB表示右下
-    },
-  )
   map.addControl(geolocation)
 }
 
-function loadMarker(AMap: any, photos: any) {
-  const groupedPoints: { [key: string]: any[] } = {}
+// 创建标记内容
+function createMarkerContent(photo: Photo): string {
+  return `
+    <div class="w-48px h-36px b b-3 b-emerald rounded-sm">
+      <img class="w-full h-full" 
+        style="pointer-events: none" 
+        src="${photo.file_path}" 
+        crossorigin="anonymous" 
+        @click.prevent
+      />
+    </div>`
+}
 
-  photos.forEach((p: any) => {
-    const key = `${p.gps[0]},${p.gps[1]}`
-    if (!groupedPoints[key])
-      groupedPoints[key] = []
-    groupedPoints[key].push(p)
-  })
-  Object.keys(groupedPoints).forEach((key) => {
-    const p = groupedPoints[key]
-    const markerContent
-      = `<div class="w-48px h-36px b b-3 b-emerald rounded-sm">
-          <img class="w-full h-full" style="pointer-events: none" src="${p[0].file_path}" crossorigin="anonymous" @click.prevent/>
-        </div>`
-    const marker = new AMap.Marker({
-      position: new AMap.LngLat(p[0].gps[0], p[0].gps[1]), // 点标记的位置
-      // icon,
-      content: markerContent,
-      title: p[0].file_name,
-      offset: new AMap.Pixel(-13, -30), // 相对于基点的偏移位置
-    })
-    map.add(marker)
-    marker.on('click', () => {
-      // Show all images in p array when clicked
-      const content = `
-        <div class="w-auto h-auto overflow-auto">
-          <div class="flex flex-wrap gap-2">
-        ${p.map(photo => `
+// 创建信息窗口内容
+function createInfoWindowContent(photos: Photo[]): string {
+  return `
+    <div class="w-auto h-auto overflow-auto">
+      <div class="flex flex-wrap gap-2">
+        ${photos.map(photo => `
           <div>
             <img class="w-64px h-36px object-cover rounded" 
-             src="${photo.file_path}" 
-             alt="${photo.file_name}"
-             crossorigin="anonymous"
+              src="${photo.file_path}" 
+              alt="${photo.file_name}"
+              crossorigin="anonymous"
             />
           </div>
         `).join('')}
-          </div>
-        </div>
-      `
+      </div>
+    </div>
+  `
+}
+
+// 加载标记
+function initMarkers(photos: Photo[]): void {
+  const { map, AMap } = mapInstance.value
+  const groupedPoints: GroupedPhotos = {}
+
+  // 按位置分组照片
+  photos.forEach((photo: Photo) => {
+    const key = `${photo.gps[0]},${photo.gps[1]}`
+    if (!groupedPoints[key])
+      groupedPoints[key] = []
+    groupedPoints[key].push(photo)
+  })
+
+  // 创建标记
+  Object.entries(groupedPoints).forEach(([_, photos]) => {
+    const firstPhoto = photos[0]
+    const marker = new AMap.Marker({
+      position: new AMap.LngLat(firstPhoto.gps[0], firstPhoto.gps[1]),
+      content: createMarkerContent(firstPhoto),
+      title: firstPhoto.file_name,
+      offset: new AMap.Pixel(-13, -30),
+    })
+
+    map.add(marker)
+
+    // 点击事件处理
+    marker.on('click', () => {
       const infoWindow = new AMap.InfoWindow({
         isCustom: true,
-        content, // 传入字符串拼接的 DOM 元素
+        content: createInfoWindowContent(photos),
         anchor: 'bottom-center',
         offset: new AMap.Pixel(0, -35),
       })
-      infoWindow.open(map, p[0].gps)
-      console.log(p)
+      infoWindow.open(map, firstPhoto.gps)
     })
   })
 }
 
-function closeInfoWindow() {
-  map.clearInfoWindow()
-}
-onMounted(() => {
-  const photos = PhotoData
+// 初始化地图
+async function initMap(): Promise<void> {
+  try {
+    window._AMapSecurityConfig = {
+      securityJsCode: import.meta.env.VITE_AMAP_SECURITY_CODE,
+    }
 
-  window._AMapSecurityConfig = {
-    securityJsCode: import.meta.env.VITE_AMAP_SECURITY_CODE,
+    const AMap = await AMapLoader.load({
+      key: import.meta.env.VITE_AMAP_KEY,
+      version: '2.0',
+      plugins: ['AMap.Scale', 'AMap.ToolBar', 'AMap.Geolocation', 'AMap.MarkerCluster'],
+    })
+
+    mapInstance.value.AMap = AMap
+    mapInstance.value.map = new AMap.Map('container', MAP_CONFIG)
+
+    initPlugins()
+    initMarkers(PhotoData as Photo[])
   }
-  AMapLoader.load({
-    key: import.meta.env.VITE_AMAP_KEY,
-    version: '2.0',
-    plugins: ['AMap.Scale', 'AMap.ToolBar', 'AMap.Geolocation', 'AMap.MarkerCluster'],
-  })
-    .then((AMap) => {
-      map = new AMap.Map('container', {
-        viewMode: '2D',
-        zoom: 4, // 改变地图显示的默认级别
-        center: [116.397428, 39.90923],
-      })
-      loadPugins(AMap)
-      loadMarker(AMap, photos)
-    })
-    .catch((e) => {
-      console.log(e)
-    })
+  catch (error) {
+    console.error('地图初始化失败:', error)
+  }
+}
+
+const closeInfoWindow = () => mapInstance.value.map?.clearInfoWindow()
+
+onMounted(() => {
+  initMap()
 })
+
 onUnmounted(() => {
-  map?.destroy()
+  mapInstance.value.map?.destroy()
 })
 </script>
 
 <template>
-  <div>
+  <div class="map-container">
     <div id="container" />
-    <button @click="closeInfoWindow">
-      close
+    <button
+      class="close-button"
+      @click="closeInfoWindow"
+    >
+      关闭
     </button>
   </div>
 </template>
 
 <style scoped>
+.map-container {
+  position: relative;
+}
+
 #container {
   width: 100%;
   height: 400px;
 }
-.custom-content-marker {
-  width: 64px;
-  height: 64px;
+/*
+.close-button {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  padding: 8px 16px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
 }
-.custom-content-marker img {
-  width: 100%;
-  height: 100%;
-}
+
+.close-button:hover {
+  background-color: #f5f5f5;
+} */
 </style>
