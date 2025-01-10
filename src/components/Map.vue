@@ -23,36 +23,31 @@ function loadPugins(AMap: any) {
 }
 
 function loadMarker(AMap: any, photos: any) {
-  const markers: any[] = []
-  photos.forEach((p: any) => {
-    //  点标记
-    const markerContent
-      = `<div class="w-36px h-36px">
-          <img class="w-36px h-36px"  src="${p.file_path}">
-        </div>`
+  const groupedPoints: { [key: string]: any[] } = {}
 
-    // const icon = new AMap.Icon({
-    //   size: new AMap.Size(36, 36), // 图标尺寸
-    //   image: p.file_path, // Icon 的图像
-    // })
+  photos.forEach((p: any) => {
+    const key = `${p.gps[0]},${p.gps[1]}`
+    if (!groupedPoints[key])
+      groupedPoints[key] = []
+    groupedPoints[key].push(p)
+  })
+  Object.keys(groupedPoints).forEach((key) => {
+    const p = groupedPoints[key]
+    const markerContent
+      = `<div class="w-48px h-36px b b-3 b-amber rounded-sm">
+          <img class="w-full h-full" src="${p[0].file_path}">
+        </div>`
     const marker = new AMap.Marker({
-      position: new AMap.LngLat(p.gps[0], p.gps[1]), // 点标记的位置
+      position: new AMap.LngLat(p[0].gps[0], p[0].gps[1]), // 点标记的位置
       // icon,
       content: markerContent,
-      title: p.file_name,
+      title: p[0].file_name,
       offset: new AMap.Pixel(-13, -30), // 相对于基点的偏移位置
     })
-    markers.push(marker)
-    // 未关闭按钮添加点击事件
-    const closeBtn = document.querySelector('.close-btn')
-    if (closeBtn) {
-      closeBtn.addEventListener('click', () => {
-        clearMarker(marker) // 移除 marker
-      })
-    }
-  })
-  markers.forEach((m) => {
-    map.add(m)
+    map.add(marker)
+    marker.on('click', () => {
+      console.log(p)
+    })
   })
 }
 
@@ -65,7 +60,7 @@ onMounted(() => {
   AMapLoader.load({
     key: import.meta.env.VITE_AMAP_KEY,
     version: '2.0',
-    plugins: ['AMap.Scale', 'AMap.ToolBar', 'AMap.Geolocation'],
+    plugins: ['AMap.Scale', 'AMap.ToolBar', 'AMap.Geolocation', 'AMap.MarkerCluster'],
   })
     .then((AMap) => {
       map = new AMap.Map('container', {
