@@ -46,16 +46,27 @@ function loadMarker(AMap: any, photos: any) {
     })
     map.add(marker)
     marker.on('click', () => {
+      // Show all images in p array when clicked
       const content = `
-        <div class="w-200px h-150px">
-          <img class="w-full h-128px" src="${p[0].file_path}" crossorigin="anonymous" />
+        <div class="w-auto h-auto overflow-auto">
+          <div class="flex flex-wrap gap-2">
+        ${p.map(photo => `
+          <div>
+            <img class="w-64px h-36px object-cover rounded" 
+             src="${photo.file_path}" 
+             alt="${photo.file_name}"
+             crossorigin="anonymous"
+            />
+          </div>
+        `).join('')}
+          </div>
         </div>
       `
       const infoWindow = new AMap.InfoWindow({
         isCustom: true,
         content, // 传入字符串拼接的 DOM 元素
         anchor: 'bottom-center',
-        offset: new AMap.Pixel(16, -45),
+        offset: new AMap.Pixel(0, -35),
       })
       infoWindow.open(map, p[0].gps)
       console.log(p)
@@ -98,7 +109,7 @@ onUnmounted(() => {
 <template>
   <div>
     <div id="container" />
-    <button @click="closeInfoWindow()">
+    <button @click="closeInfoWindow">
       close
     </button>
   </div>
