@@ -34,8 +34,8 @@ function loadMarker(AMap: any, photos: any) {
   Object.keys(groupedPoints).forEach((key) => {
     const p = groupedPoints[key]
     const markerContent
-      = `<div class="w-48px h-36px b b-3 b-amber rounded-sm">
-          <img class="w-full h-full" src="${p[0].file_path}">
+      = `<div class="w-48px h-36px b b-3 b-emerald rounded-sm">
+          <img class="w-full h-full" style="pointer-events: none" src="${p[0].file_path}" crossorigin="anonymous" @click.prevent/>
         </div>`
     const marker = new AMap.Marker({
       position: new AMap.LngLat(p[0].gps[0], p[0].gps[1]), // 点标记的位置
