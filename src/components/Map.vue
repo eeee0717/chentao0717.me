@@ -46,11 +46,26 @@ function loadMarker(AMap: any, photos: any) {
     })
     map.add(marker)
     marker.on('click', () => {
+      const content = `
+        <div class="w-200px h-150px">
+          <img class="w-full h-128px" src="${p[0].file_path}" crossorigin="anonymous" />
+        </div>
+      `
+      const infoWindow = new AMap.InfoWindow({
+        isCustom: true,
+        content, // 传入字符串拼接的 DOM 元素
+        anchor: 'bottom-center',
+        offset: new AMap.Pixel(16, -45),
+      })
+      infoWindow.open(map, p[0].gps)
       console.log(p)
     })
   })
 }
 
+function closeInfoWindow() {
+  map.clearInfoWindow()
+}
 onMounted(() => {
   const photos = PhotoData
 
@@ -81,7 +96,12 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div id="container" />
+  <div>
+    <div id="container" />
+    <button @click="closeInfoWindow()">
+      close
+    </button>
+  </div>
 </template>
 
 <style scoped>
@@ -96,23 +116,5 @@ onUnmounted(() => {
 .custom-content-marker img {
   width: 100%;
   height: 100%;
-}
-.custom-content-marker .close-btn {
-  position: absolute;
-  top: -6px;
-  right: -8px;
-  width: 15px;
-  height: 15px;
-  font-size: 12px;
-  background: #ccc;
-  border-radius: 50%;
-  color: #fff;
-  text-align: center;
-  line-height: 15px;
-  box-shadow: -1px 1px 1px rgba(10, 10, 10, 0.2);
-}
-
-.custom-content-marker .close-btn:hover {
-  background: red;
 }
 </style>
