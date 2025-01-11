@@ -3,6 +3,7 @@ from typing import Optional
 from exif import Image
 import json
 from datetime import datetime
+from PIL import Image as Im
 
 
 class Photos:
@@ -99,6 +100,8 @@ if __name__ == "__main__":
                             # 更新照片对象中的文件信息
                             photo.file_name = new_filename
                             photo.file_path = os.path.join("photos", new_filename)
+                            im = Im.open(new_full_path)
+                            im.save(new_full_path, quality=80)
                         except (ValueError, OSError) as e:
                             print(f"重命名文件 {filename} 时出错: {str(e)}")
 

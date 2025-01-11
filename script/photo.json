@@ -1,0 +1,338 @@
+[
+    {
+        "file_name": "20241201_162150_1.jpg",
+        "file_path": "photos/20241201_162150_1.jpg",
+        "date_time": "2024:12:01 16:21:50",
+        "gps": [
+            116.45419,
+            39.9108
+        ],
+        "f_number": 1.6,
+        "make": "Apple",
+        "focal_length_in_35mm_film": 45
+    },
+    {
+        "file_name": "20241224_134736_1.jpg",
+        "file_path": "photos/20241224_134736_1.jpg",
+        "date_time": "2024:12:24 13:47:36",
+        "gps": [
+            116.48106,
+            39.88689
+        ],
+        "f_number": 1.6,
+        "make": "Apple",
+        "focal_length_in_35mm_film": 26
+    },
+    {
+        "file_name": "20241103_144307_1.jpg",
+        "file_path": "photos/20241103_144307_1.jpg",
+        "date_time": "2024:11:03 14:43:07",
+        "gps": [
+            116.41083,
+            39.88191
+        ],
+        "f_number": 8.0,
+        "make": "NIKON CORPORATION",
+        "focal_length_in_35mm_film": 156
+    },
+    {
+        "file_name": "20240915_140836_1.jpg",
+        "file_path": "photos/20240915_140836_1.jpg",
+        "date_time": "2024:09:15 14:08:36",
+        "gps": [
+            116.3918,
+            39.92877
+        ],
+        "f_number": 10.0,
+        "make": "NIKON CORPORATION",
+        "focal_length_in_35mm_film": 75
+    },
+    {
+        "file_name": "20241230_111843_1.jpg",
+        "file_path": "photos/20241230_111843_1.jpg",
+        "date_time": "2024:12:30 11:18:43",
+        "gps": [
+            116.85706,
+            40.33404
+        ],
+        "f_number": 1.6,
+        "make": "Apple",
+        "focal_length_in_35mm_film": 26
+    },
+    {
+        "file_name": "20241112_150117_1.jpg",
+        "file_path": "photos/20241112_150117_1.jpg",
+        "date_time": "2024:11:12 15:01:17",
+        "gps": [
+            116.48198,
+            39.89013
+        ],
+        "f_number": 1.6,
+        "make": "Apple",
+        "focal_length_in_35mm_film": 41
+    },
+    {
+        "file_name": "20250105_174114_1.jpg",
+        "file_path": "photos/20250105_174114_1.jpg",
+        "date_time": "2025:01:05 17:41:14",
+        "gps": [
+            116.41329,
+            39.94678
+        ],
+        "f_number": 6.3,
+        "make": "NIKON CORPORATION",
+        "focal_length_in_35mm_film": 75
+    },
+    {
+        "file_name": "20241112_155730_1.jpg",
+        "file_path": "photos/20241112_155730_1.jpg",
+        "date_time": "2024:11:12 15:57:30",
+        "gps": [
+            116.48183,
+            39.88989
+        ],
+        "f_number": 1.6,
+        "make": "Apple",
+        "focal_length_in_35mm_film": 40
+    },
+    {
+        "file_name": "20250105_171727_1.jpg",
+        "file_path": "photos/20250105_171727_1.jpg",
+        "date_time": "2025:01:05 17:17:27",
+        "gps": [
+            116.40239,
+            39.93718
+        ],
+        "f_number": 5.3,
+        "make": "NIKON CORPORATION",
+        "focal_length_in_35mm_film": 55
+    },
+    {
+        "file_name": "20241103_151025_1.jpg",
+        "file_path": "photos/20241103_151025_1.jpg",
+        "date_time": "2024:11:03 15:10:25",
+        "gps": [
+            116.41083,
+            39.88191
+        ],
+        "f_number": 14.0,
+        "make": "NIKON CORPORATION",
+        "focal_length_in_35mm_film": 217
+    },
+    {
+        "file_name": "20241112_150139_1.jpg",
+        "file_path": "photos/20241112_150139_1.jpg",
+        "date_time": "2024:11:12 15:01:39",
+        "gps": [
+            116.48187,
+            39.88992
+        ],
+        "f_number": 1.6,
+        "make": "Apple",
+        "focal_length_in_35mm_film": 39
+    },
+    {
+        "file_name": "20240915_140049_1.jpg",
+        "file_path": "photos/20240915_140049_1.jpg",
+        "date_time": "2024:09:15 14:00:49",
+        "gps": [
+            116.3918,
+            39.92877
+        ],
+        "f_number": 9.0,
+        "make": "NIKON CORPORATION",
+        "focal_length_in_35mm_film": 30
+    },
+    {
+        "file_name": "20241217_131904_1.jpg",
+        "file_path": "photos/20241217_131904_1.jpg",
+        "date_time": "2024:12:17 13:19:04",
+        "gps": [
+            116.48106,
+            39.88689
+        ],
+        "f_number": 1.6,
+        "make": "Apple",
+        "focal_length_in_35mm_film": 26
+    },
+    {
+        "file_name": "20241230_115956_1.jpg",
+        "file_path": "photos/20241230_115956_1.jpg",
+        "date_time": "2024:12:30 11:59:56",
+        "gps": [
+            116.85677,
+            40.33364
+        ],
+        "f_number": 1.6,
+        "make": "Apple",
+        "focal_length_in_35mm_film": 26
+    },
+    {
+        "file_name": "20241103_150732_1.jpg",
+        "file_path": "photos/20241103_150732_1.jpg",
+        "date_time": "2024:11:03 15:07:32",
+        "gps": [
+            116.41083,
+            39.88191
+        ],
+        "f_number": 8.0,
+        "make": "NIKON CORPORATION",
+        "focal_length_in_35mm_film": 292
+    },
+    {
+        "file_name": "20241112_160625_1.jpg",
+        "file_path": "photos/20241112_160625_1.jpg",
+        "date_time": "2024:11:12 16:06:25",
+        "gps": [
+            116.48189,
+            39.89012
+        ],
+        "f_number": 1.6,
+        "make": "Apple",
+        "focal_length_in_35mm_film": 43
+    },
+    {
+        "file_name": "20240717_184806_1.jpg",
+        "file_path": "photos/20240717_184806_1.jpg",
+        "date_time": "2024:07:17 18:48:06",
+        "gps": [
+            119.75855,
+            25.44038
+        ],
+        "f_number": 1.6,
+        "make": "Apple",
+        "focal_length_in_35mm_film": 59
+    },
+    {
+        "file_name": "20250108_130148_1.jpg",
+        "file_path": "photos/20250108_130148_1.jpg",
+        "date_time": "2025:01:08 13:01:48",
+        "gps": [
+            120.21159,
+            30.2574
+        ],
+        "f_number": 1.6,
+        "make": "Apple",
+        "focal_length_in_35mm_film": 26
+    },
+    {
+        "file_name": "20241201_172724.jpg",
+        "file_path": "photos/20241201_172724.jpg",
+        "date_time": "2024:12:01 17:27:24",
+        "gps": [
+            116.46433,
+            39.9153
+        ],
+        "f_number": 9.0,
+        "make": "NIKON CORPORATION",
+        "focal_length_in_35mm_film": null
+    },
+    {
+        "file_name": "20240915_135637_1.jpg",
+        "file_path": "photos/20240915_135637_1.jpg",
+        "date_time": "2024:09:15 13:56:37",
+        "gps": [
+            116.3918,
+            39.92877
+        ],
+        "f_number": 9.0,
+        "make": "NIKON CORPORATION",
+        "focal_length_in_35mm_film": 75
+    },
+    {
+        "file_name": "20241112_163211_1.jpg",
+        "file_path": "photos/20241112_163211_1.jpg",
+        "date_time": "2024:11:12 16:32:11",
+        "gps": [
+            116.48186,
+            39.88995
+        ],
+        "f_number": 1.6,
+        "make": "Apple",
+        "focal_length_in_35mm_film": 50
+    },
+    {
+        "file_name": "20241112_164219_1.jpg",
+        "file_path": "photos/20241112_164219_1.jpg",
+        "date_time": "2024:11:12 16:42:19",
+        "gps": [
+            116.48193,
+            39.89012
+        ],
+        "f_number": 1.6,
+        "make": "Apple",
+        "focal_length_in_35mm_film": 42
+    },
+    {
+        "file_name": "20241201_181355.jpg",
+        "file_path": "photos/20241201_181355.jpg",
+        "date_time": "2024:12:01 18:13:55",
+        "gps": [
+            116.46433,
+            39.9153
+        ],
+        "f_number": 6.3,
+        "make": "NIKON CORPORATION",
+        "focal_length_in_35mm_film": null
+    },
+    {
+        "file_name": "20240915_150544_1.jpg",
+        "file_path": "photos/20240915_150544_1.jpg",
+        "date_time": "2024:09:15 15:05:44",
+        "gps": [
+            116.3918,
+            39.92877
+        ],
+        "f_number": 8.0,
+        "make": "NIKON CORPORATION",
+        "focal_length_in_35mm_film": 34
+    },
+    {
+        "file_name": "20241201_173028.jpg",
+        "file_path": "photos/20241201_173028.jpg",
+        "date_time": "2024:12:01 17:30:28",
+        "gps": [
+            116.46474,
+            39.91216
+        ],
+        "f_number": 6.3,
+        "make": "NIKON CORPORATION",
+        "focal_length_in_35mm_film": null
+    },
+    {
+        "file_name": "20241103_143853_1.jpg",
+        "file_path": "photos/20241103_143853_1.jpg",
+        "date_time": "2024:11:03 14:38:53",
+        "gps": [
+            116.41083,
+            39.88191
+        ],
+        "f_number": 8.0,
+        "make": "NIKON CORPORATION",
+        "focal_length_in_35mm_film": 375
+    },
+    {
+        "file_name": "20240717_103101_1.jpg",
+        "file_path": "photos/20240717_103101_1.jpg",
+        "date_time": "2024:07:17 10:31:01",
+        "gps": [
+            119.78989,
+            25.49877
+        ],
+        "f_number": 1.6,
+        "make": "Apple",
+        "focal_length_in_35mm_film": 62
+    },
+    {
+        "file_name": "20241112_160734_1.jpg",
+        "file_path": "photos/20241112_160734_1.jpg",
+        "date_time": "2024:11:12 16:07:34",
+        "gps": [
+            116.48193,
+            39.89013
+        ],
+        "f_number": 1.6,
+        "make": "Apple",
+        "focal_length_in_35mm_film": 41
+    }
+]
