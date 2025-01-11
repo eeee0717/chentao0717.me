@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import AMapLoader from '@amap/amap-jsapi-loader'
+// import AMapLoader from '@amap/amap-jsapi-loader'
 import PhotoData from '../../script/photo.json'
 import type { GroupedPhotos, MapInstance, Photo } from '../types/map'
 
+let AMapLoader: any
 const mapInstance = ref<MapInstance>({ map: null, AMap: null })
 
 // 地图配置
@@ -145,8 +146,9 @@ async function initMap(): Promise<void> {
 
 const closeInfoWindow = () => mapInstance.value.map?.clearInfoWindow()
 
-onMounted(() => {
+onMounted(async () => {
   if (typeof window !== 'undefined') {
+    AMapLoader = await import('@amap/amap-jsapi-loader')
     window._AMapSecurityConfig = {
       securityJsCode: import.meta.env.VITE_AMAP_SECURITY_CODE,
     }
