@@ -42,6 +42,10 @@ const { y: scroll } = useWindowScroll()
           <span class="lt-md:hidden">Demos</span>
           <div i-ri-screenshot-line class="md:hidden" />
         </RouterLink>
+        <RouterLink to="/map" title="Map">
+          <span class="lt-md:hidden">Map</span>
+          <div i-carbon-map class="md:hidden" />
+        </RouterLink>
         <a href="https://x.com/chentao_007" target="_blank" title="Twitter" class="lt-md:hidden">
           <div i-ri-twitter-x-fill />
         </a>

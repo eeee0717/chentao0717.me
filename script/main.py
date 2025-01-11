@@ -97,11 +97,12 @@ if __name__ == "__main__":
 
                             # 重命名文件
                             os.rename(full_path, new_full_path)
+                            print(new_full_path)
                             # 更新照片对象中的文件信息
                             photo.file_name = new_filename
-                            photo.file_path = os.path.join("photos", new_filename)
-                            im = Im.open(new_full_path)
-                            im.save(new_full_path, quality=80)
+                            photo.file_path = os.path.join("/photos", new_filename)
+                            # im = Im.open(new_full_path)
+                            # im.save(new_full_path, quality=80)
                         except (ValueError, OSError) as e:
                             print(f"重命名文件 {filename} 时出错: {str(e)}")
 

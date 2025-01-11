@@ -75,6 +75,21 @@ function initMarkers(photos: Photo[]): void {
   const { map, AMap } = mapInstance.value
   const groupedPoints: GroupedPhotos = {}
 
+  // test
+  // const marker = new AMap.Marker({
+  //   position: new AMap.LngLat(photos[0].gps[0], photos[0].gps[1]),
+  //   content: `<div class="w-48px h-36px b b-3 b-emerald rounded-sm">
+  //     <img class="w-full h-full"
+  //       style="pointer-events: none"
+  //       src="/photos/20250105_174114_2.jpg"
+  //       crossorigin="anonymous"
+  //       @click.prevent
+  //     />
+  //   </div>`,
+  //   title: 'test1.jpg',
+  //   offset: new AMap.Pixel(-13, -30),
+  // })
+  // map.add(marker)
   // 按位置分组照片
   photos.forEach((photo: Photo) => {
     const key = `${photo.gps[0]},${photo.gps[1]}`
@@ -162,7 +177,7 @@ onUnmounted(() => {
 
 #container {
   width: 100%;
-  height: 400px;
+  height: 600px;
 }
 
 .close-button {
