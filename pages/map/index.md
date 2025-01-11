@@ -1,10 +1,8 @@
 ---
 title: Map - Chen Tao
-display: ''
+display: 像素长街🏮
+wrapperClass: 'text-center'
 ---
 
-# Map
-
-This is a map of my photos.
-
+<!-- @layout-full-width -->
 <Map/>

@@ -1,5 +1,4 @@
 <script setup lang="ts">
-// import AMapLoader from '@amap/amap-jsapi-loader'
 import PhotoData from '../../script/photo.json'
 import type { GroupedPhotos, MapInstance, Photo } from '../types/map'
 
@@ -42,7 +41,7 @@ function initPlugins(): void {
 // 创建标记内容
 function createMarkerContent(photo: Photo): string {
   return `
-    <div class="w-48px h-36px b b-3 b-emerald rounded-sm">
+    <div class="w-64px h-auto b b-3 b-white b-op-80 rounded-sm shadow-md" onclick="event.stopPropagation()">
       <img class="w-full h-full" 
         style="pointer-events: none" 
         src="${photo.file_path}" 
@@ -58,11 +57,13 @@ function createInfoWindowContent(photos: Photo[]): string {
     <div class="max-w-[520px] min-w-[60px] overflow-auto">
       <div class="grid grid-auto-cols-30 grid-auto-flow-col gap-2 justify-center">
         ${photos.map(photo => `
-            <img class="max-w-[120px]  min-w-[60px]  w-auto h-auto object-contain rounded" 
+          <div class="max-w-[120px] min-w-[60px]">
+            <img class="max-w-[120px] min-w-[60px]  w-auto h-auto object-contain rounded" 
               src="${photo.file_path}" 
               alt="${photo.file_name}"
               crossorigin="anonymous"
             />
+          </div>
         `).join('')}
       </div>
     </div>
@@ -145,14 +146,19 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="map-container">
-    <div id="container" />
-    <button
-      class="close-button b b-0.1 b-black"
-      @click="closeInfoWindow"
-    >
-      <div class="bg-black" i-carbon-close-outline />
-    </button>
+  <div class="max-w-300 mx-auto prose">
+    <p text-center mt--6 mb5 op50 text-lg italic>
+      欢迎来到像素📷长街~
+    </p>
+    <div class="map-container" @click="closeInfoWindow">
+      <div id="container" />
+      <button
+        class="close-button b b-0.1 b-black"
+        @click.stop="closeInfoWindow"
+      >
+        <div class="bg-black" i-carbon-close-outline />
+      </button>
+    </div>
   </div>
 </template>
 

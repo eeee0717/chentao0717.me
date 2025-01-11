@@ -55,9 +55,45 @@ class Photos:
             ]
 
 
+def reset_photo_directory(source_dir: str, target_dir: str):
+    """
+    重置照片目录：删除目标目录下所有文件，并从源目录复制文件
+    :param source_dir: 源目录路径（basic_photos）
+    :param target_dir: 目标目录路径（photos）
+    """
+    # 确保目标目录存在
+    if not os.path.exists(target_dir):
+        os.makedirs(target_dir)
+
+    # 删除目标目录中的所有文件
+    for filename in os.listdir(target_dir):
+        file_path = os.path.join(target_dir, filename)
+        try:
+            if os.path.isfile(file_path):
+                os.unlink(file_path)
+                print(f"已删除: {filename}")
+        except Exception as e:
+            print(f"删除文件 {filename} 时出错: {e}")
+
+    # 从源目录复制文件到目标目录
+    for filename in os.listdir(source_dir):
+        if filename.lower().endswith(".jpg"):
+            source_path = os.path.join(source_dir, filename)
+            target_path = os.path.join(target_dir, filename)
+            try:
+                with open(source_path, "rb") as src, open(target_path, "wb") as dst:
+                    dst.write(src.read())
+                print(f"已复制: {filename}")
+            except Exception as e:
+                print(f"复制文件 {filename} 时出错: {e}")
+
+
 if __name__ == "__main__":
     photos = []
+    basic_file_path = os.path.join("..", "public", "basic_photos")
     file_path = os.path.join("..", "public", "photos")
+    reset_photo_directory(basic_file_path, file_path)
+
     for filename in os.listdir(file_path):
         if filename.lower().endswith(".jpg"):
             full_path = os.path.join(file_path, filename)
@@ -77,35 +113,35 @@ if __name__ == "__main__":
                         ),
                     )
                     # 尝试重命名文件
-                    if photo.date_time:
-                        try:
-                            # 解析日期时间
-                            date_obj = datetime.strptime(
-                                photo.date_time, "%Y:%m:%d %H:%M:%S"
-                            )
-                            # 生成新文件名
-                            new_filename = date_obj.strftime("%Y%m%d_%H%M%S") + ".jpg"
+                    if photo.date_time is None:
+                        photo.date_time = datetime.now().strftime("%Y:%m:%d %H:%M:%S")
+                    try:
+                        # 解析日期时间
+                        date_obj = datetime.strptime(
+                            photo.date_time, "%Y:%m:%d %H:%M:%S"
+                        )
+                        # 生成新文件名
+                        new_filename = date_obj.strftime("%Y%m%d_%H%M%S") + ".jpg"
+                        new_full_path = os.path.join(file_path, new_filename)
+
+                        # 如果目标文件名已存在，添加序号
+                        base_name = date_obj.strftime("%Y%m%d_%H%M%S")
+                        counter = 1
+                        while os.path.exists(new_full_path):
+                            new_filename = f"{base_name}_{counter}.jpg"
                             new_full_path = os.path.join(file_path, new_filename)
+                            counter += 1
 
-                            # 如果目标文件名已存在，添加序号
-                            base_name = date_obj.strftime("%Y%m%d_%H%M%S")
-                            counter = 1
-                            while os.path.exists(new_full_path):
-                                new_filename = f"{base_name}_{counter}.jpg"
-                                new_full_path = os.path.join(file_path, new_filename)
-                                counter += 1
-
-                            # 重命名文件
-                            os.rename(full_path, new_full_path)
-                            print(new_full_path)
-                            # 更新照片对象中的文件信息
-                            photo.file_name = new_filename
-                            photo.file_path = os.path.join("/photos", new_filename)
-                            # im = Im.open(new_full_path)
-                            # im.save(new_full_path, quality=80)
-                        except (ValueError, OSError) as e:
-                            print(f"重命名文件 {filename} 时出错: {str(e)}")
-
+                        # 重命名文件
+                        os.rename(full_path, new_full_path)
+                        print(new_full_path)
+                        # 更新照片对象中的文件信息
+                        photo.file_name = new_filename
+                        photo.file_path = os.path.join("/photos", new_filename)
+                        im = Im.open(new_full_path)
+                        im.save(new_full_path, quality=80)
+                    except (ValueError, OSError) as e:
+                        print(f"重命名文件 {filename} 时出错: {str(e)}")
                     photos.append(photo)
             except Exception as e:
                 print(f"处理图片 {filename} 时出错: {str(e)}")
