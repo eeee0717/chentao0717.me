@@ -55,16 +55,14 @@ function createMarkerContent(photo: Photo): string {
 // 创建信息窗口内容
 function createInfoWindowContent(photos: Photo[]): string {
   return `
-    <div class="w-auto h-auto overflow-auto">
-      <div class="flex flex-wrap gap-2">
+    <div class="max-w-[520px] min-w-[60px] overflow-auto">
+      <div class="grid grid-auto-cols-30 grid-auto-flow-col gap-2 justify-center">
         ${photos.map(photo => `
-          <div>
-            <img class="w-64px h-36px object-cover rounded" 
+            <img class="max-w-[120px]  min-w-[60px]  w-auto h-auto object-contain rounded" 
               src="${photo.file_path}" 
               alt="${photo.file_name}"
               crossorigin="anonymous"
             />
-          </div>
         `).join('')}
       </div>
     </div>
@@ -76,21 +74,6 @@ function initMarkers(photos: Photo[]): void {
   const { map, AMap } = mapInstance.value
   const groupedPoints: GroupedPhotos = {}
 
-  // test
-  // const marker = new AMap.Marker({
-  //   position: new AMap.LngLat(photos[0].gps[0], photos[0].gps[1]),
-  //   content: `<div class="w-48px h-36px b b-3 b-emerald rounded-sm">
-  //     <img class="w-full h-full"
-  //       style="pointer-events: none"
-  //       src="/photos/20250105_174114_2.jpg"
-  //       crossorigin="anonymous"
-  //       @click.prevent
-  //     />
-  //   </div>`,
-  //   title: 'test1.jpg',
-  //   offset: new AMap.Pixel(-13, -30),
-  // })
-  // map.add(marker)
   // 按位置分组照片
   photos.forEach((photo: Photo) => {
     const key = `${photo.gps[0]},${photo.gps[1]}`
