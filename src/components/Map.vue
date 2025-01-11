@@ -147,10 +147,10 @@ onUnmounted(() => {
   <div class="map-container">
     <div id="container" />
     <button
-      class="close-button"
+      class="close-button b b-0.1 b-black"
       @click="closeInfoWindow"
     >
-      关闭
+      <div class="bg-black" i-carbon-close-outline />
     </button>
   </div>
 </template>
@@ -164,19 +164,19 @@ onUnmounted(() => {
   width: 100%;
   height: 400px;
 }
-/*
+
 .close-button {
   position: absolute;
-  bottom: 20px;
-  right: 20px;
-  padding: 8px 16px;
+  width: 30px;
+  height: 30px;
+  bottom: 130px;
+  right: 10px;
   background-color: #fff;
-  border: 1px solid #ddd;
   border-radius: 4px;
   cursor: pointer;
 }
 
 .close-button:hover {
-  background-color: #f5f5f5;
-} */
+  background-color: #f0f0f0;
+}
 </style>
