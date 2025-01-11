@@ -126,10 +126,6 @@ function initMarkers(photos: Photo[]): void {
 // 初始化地图
 async function initMap(): Promise<void> {
   try {
-    window._AMapSecurityConfig = {
-      securityJsCode: import.meta.env.VITE_AMAP_SECURITY_CODE,
-    }
-
     const AMap = await AMapLoader.load({
       key: import.meta.env.VITE_AMAP_KEY,
       version: '2.0',
@@ -150,6 +146,11 @@ async function initMap(): Promise<void> {
 const closeInfoWindow = () => mapInstance.value.map?.clearInfoWindow()
 
 onMounted(() => {
+  if (typeof window !== 'undefined') {
+    window._AMapSecurityConfig = {
+      securityJsCode: import.meta.env.VITE_AMAP_SECURITY_CODE,
+    }
+  }
   initMap()
 })
 
