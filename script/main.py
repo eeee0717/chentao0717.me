@@ -4,6 +4,7 @@ from exif import Image
 import json
 from datetime import datetime
 from PIL import Image as Im
+import pandas as pd
 
 
 class Photos:
@@ -55,6 +56,27 @@ class Photos:
             ]
 
 
+def get_gps_from_csv(current_dir, date_obj):
+    csv_filename = date_obj.strftime("%Y-%m-%d-0000 0000.csv")
+    csv_path = os.path.join(current_dir, csv_filename)
+    gps_longitude = None
+    gps_latitude = None
+    if os.path.exists(csv_path):
+        df = pd.read_csv(csv_path)
+        # 将date_time转化成时间戳，和csv中的时间戳进行比较，选取最接近的时间戳，并获取经纬度
+        # df中的dataTime列为csv中的时间戳
+        date_timestamp = date_obj.timestamp()
+        df["diff"] = abs(df["dataTime"] - date_timestamp)
+        df = df.sort_values(by="diff")
+        select_row = df.head(1)
+        if not select_row.empty:
+            # Assuming CSV has longitude and latitude columns
+            gps_longitude = [select_row["longitude"].iloc[0], 0, 0]
+            gps_latitude = [select_row["latitude"].iloc[0], 0, 0]
+
+    return gps_longitude, gps_latitude
+
+
 def reset_photo_directory(source_dir: str, target_dir: str):
     """
     重置照片目录：删除目标目录下所有文件，并从源目录复制文件
@@ -103,7 +125,7 @@ if __name__ == "__main__":
                     photo = Photos(
                         file_name=filename,
                         file_path=os.path.join("photos", filename),
-                        date_time=my_image.get("datetime"),
+                        date_time=my_image.get("datetime_original"),
                         gps_longitude=my_image.get("gps_longitude"),
                         gps_latitude=my_image.get("gps_latitude"),
                         f_number=my_image.get("f_number"),
@@ -115,11 +137,17 @@ if __name__ == "__main__":
                     # 尝试重命名文件
                     if photo.date_time is None:
                         photo.date_time = datetime.now().strftime("%Y:%m:%d %H:%M:%S")
+                    date_obj = datetime.strptime(photo.date_time, "%Y:%m:%d %H:%M:%S")
+                    if (photo.gps_latitude and photo.gps_longitude) is None:
+                        try:
+                            gps_longitude, gps_latitude = get_gps_from_csv(
+                                basic_file_path, date_obj
+                            )
+                            photo.gps_latitude = gps_latitude
+                            photo.gps_longitude = gps_longitude
+                        except (ValueError, OSError) as e:
+                            print(f"获取经纬度{filename} 时出错: {str(e)}")
                     try:
-                        # 解析日期时间
-                        date_obj = datetime.strptime(
-                            photo.date_time, "%Y:%m:%d %H:%M:%S"
-                        )
                         # 生成新文件名
                         new_filename = date_obj.strftime("%Y%m%d_%H%M%S") + ".jpg"
                         new_full_path = os.path.join(file_path, new_filename)
