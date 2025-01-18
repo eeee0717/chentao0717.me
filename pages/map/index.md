@@ -1,7 +1,7 @@
 ---
 title: Map - Chen Tao
-display: 像素长街🏮
-wrapperClass: 'text-center'
+display: Pixel Avenue🏮
+wrapperClass: "text-center"
 ---
 
 <!-- @layout-full-width -->
