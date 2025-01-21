@@ -36,6 +36,30 @@
         "focal_length_in_35mm_film": null
     },
     {
+        "file_name": "20250120_165009.jpg",
+        "file_path": "/photos/20250120_165009.jpg",
+        "date_time": "2025:01:20 16:50:09",
+        "gps": [
+            120.15847,
+            30.25402
+        ],
+        "f_number": 5.6,
+        "make": "NIKON CORPORATION",
+        "focal_length_in_35mm_film": 94
+    },
+    {
+        "file_name": "20250120_145547.jpg",
+        "file_path": "/photos/20250120_145547.jpg",
+        "date_time": "2025:01:20 14:55:47",
+        "gps": [
+            120.14266,
+            30.21658
+        ],
+        "f_number": 7.1,
+        "make": "NIKON CORPORATION",
+        "focal_length_in_35mm_film": 270
+    },
+    {
         "file_name": "20240915_150544.jpg",
         "file_path": "/photos/20240915_150544.jpg",
         "date_time": "2024:09:15 15:05:44",
@@ -144,9 +168,9 @@
         "focal_length_in_35mm_film": 156
     },
     {
-        "file_name": "20250117_215011.jpg",
-        "file_path": "/photos/20250117_215011.jpg",
-        "date_time": "2025:01:17 21:50:11",
+        "file_name": "20250121_095103.jpg",
+        "file_path": "/photos/20250121_095103.jpg",
+        "date_time": "2025:01:21 09:51:03",
         "gps": [
             121.50196,
             31.24224
@@ -216,9 +240,9 @@
         "focal_length_in_35mm_film": 375
     },
     {
-        "file_name": "20250117_215013.jpg",
-        "file_path": "/photos/20250117_215013.jpg",
-        "date_time": "2025:01:17 21:50:13",
+        "file_name": "20250121_095105.jpg",
+        "file_path": "/photos/20250121_095105.jpg",
+        "date_time": "2025:01:21 09:51:05",
         "gps": [
             121.50112,
             31.2381
@@ -444,6 +468,18 @@
         "focal_length_in_35mm_film": 45
     },
     {
+        "file_name": "20250120_145450.jpg",
+        "file_path": "/photos/20250120_145450.jpg",
+        "date_time": "2025:01:20 14:54:50",
+        "gps": [
+            120.14266,
+            30.21658
+        ],
+        "f_number": 7.1,
+        "make": "NIKON CORPORATION",
+        "focal_length_in_35mm_film": 81
+    },
+    {
         "file_name": "20240717_103101.jpg",
         "file_path": "/photos/20240717_103101.jpg",
         "date_time": "2024:07:17 10:31:01",
@@ -454,6 +490,18 @@
         "f_number": 1.6,
         "make": "Apple",
         "focal_length_in_35mm_film": 62
+    },
+    {
+        "file_name": "20250120_165213.jpg",
+        "file_path": "/photos/20250120_165213.jpg",
+        "date_time": "2025:01:20 16:52:13",
+        "gps": [
+            120.15916,
+            30.2552
+        ],
+        "f_number": 5.6,
+        "make": "NIKON CORPORATION",
+        "focal_length_in_35mm_film": 156
     },
     {
         "file_name": "20250105_144000.jpg",

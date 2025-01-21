@@ -4,6 +4,7 @@
   "packageManager": "pnpm@9.1.1",
   "scripts": {
     "build": "cross-env NODE_ENV=production vite-ssg build",
+    "py": "cd ./script && python3 main.py",
     "dev": "vite --port 3333 --mode dev",
     "preview": "vite preview",
     "lint": "eslint ."
