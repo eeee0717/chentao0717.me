@@ -1,0 +1,63 @@
+---
+title: Rust in Depth - Chapter 2
+date: 2025-01-22 14:49:24
+lang: en
+duration: 10min
+type: blog
+---
+
+## Monomorphization
+
+Today, we are going to talk about monomorphization. It is an important concept in Rust, which is used to optimize the performance of the code.
+
+Let's show the example:
+
+```rust
+pub fn strlen(s: impl AsRef<str>) -> usize {
+    s.as_ref().len()
+}
+
+fn main() {
+    strlen("Hello");
+    strlen(String::from("hello"));
+}
+```
+
+In this example, `strlen` function have a parameter which implements the `AsRef<str>` trait. When `main` function calls it in two different ways, the Rust compiler will generate two different functions for each call. It is different from other languages, such as C/C++.
+
+Monomorphization actually helps the Rust compiler to improve the performance of the code. But it have a problem in distributing the binary file. The binary file will be larger than other languages, and the most important is the compile function **only** can be generated **when the function is called**.
+
+## Static Dispatch
+
+Static dispatch means Rust compiler can generate the code at compile time.
+
+```rust
+pub trait Hei{
+    fn hei(&self);
+}
+impl Hei for &str{
+  fn hei(&self){
+    println!("Hei, {}", self);
+  }
+}
+pub fn foo(h: impl Hei){
+  h.hei();
+}
+```
+
+In this example, the `foo` function have a parameter which implements the `Hei` trait. This is a generic function, and the Rust compiler will generate the code at compile time. Actually, the compiler do not know the type of `h` at compile time, and this is where _monomorphization_ comes into play.
+
+such as this:
+
+```rust
+// compiler generate
+pub fn foo_str(h: &str){
+  h.hei();
+}
+
+fn main(){
+  foo("world");
+}
+```
+
+So, this is Static Dispatch.
