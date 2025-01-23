@@ -61,3 +61,79 @@ fn main(){
 ```
 
 So, this is Static Dispatch.
+
+## Dynamic Dispatch
+
+Here we have an idea.
+
+```rust
+fn bar(s: &[dyn Hei]){
+  for i in s{
+    i.hei();
+  }
+}
+fn main(){
+  let v = vec!["world", "hello"];
+  bar(&v);
+  let error = vec![String::from("world"), "hello"]; // This will cause an error
+}
+```
+
+Imagine that we have a multiple elements implements the `Hei` trait, and we want to use `bar` function to call the `hei` function. But the Rust compiler will cause an error, because the `s` parameter don't have `Sized`.
+
+Why? Static Dispatch don't need to Sized the type of parameter, but Dynamic Dispatch need to Sized the type of parameter.
+
+Here is an example i think it can well explain the difference between Static Dispatch and Dynamic Dispatch.
+
+```rust
+trait Plugin {
+    fn execute(&self);
+}
+
+struct PluginA;
+impl Plugin for PluginA {
+    fn execute(&self) {}
+}
+
+struct PluginB;
+impl Plugin for PluginB {
+    fn execute(&self) {}
+}
+
+fn run_plugin(plugin: &dyn Plugin) {
+    plugin.execute();
+}
+
+fn main() {
+    let plugin_a = PluginA;
+    let plugin_b = PluginB;
+
+    run_plugin(&plugin_a);
+    run_plugin(&plugin_b);
+}
+```
+
+The Plugin System is a good example to show why we need Dynamic Dispatch. Because we actually don't know the size of the plugin at compile time. And Rust compiler must know all the size of the type at compile time.
+
+So, how to fix the error of the first example? Here are two ways:
+
+```rust
+// use `&`
+fn bar(s: &[&dyn Hei]){
+  for i in s{
+    i.hei();
+  }
+}
+
+// use `Box`
+fn bar(s: &[Box<dyn Hei>]){
+  for i in s{
+    i.hei();
+  }
+}
+fn main(){
+let v = vec![String::from("world"), "hello"];
+bar(&v);
+}
+
+```
