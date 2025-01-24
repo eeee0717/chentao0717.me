@@ -137,3 +137,78 @@ bar(&v);
 }
 
 ```
+
+## Fat Pointer(VTables)
+
+Next, I want to show you how the Rust compiler find the function of the trait.
+
+```rust
+pub trait Hei{
+    fn hei(&self);
+}
+impl Hei for &str{
+  fn hei(&self){
+    println!("Hei, {}", self);
+  }
+}
+
+fn main(){
+  let s = "world";
+  s.hei();
+}
+```
+
+Here is an example. The Rust compiler will generate a _Fat Pointer_ for the `&str` type. The _Fat Pointer_ contains two parts: the first part is the pointer to the data, and the second part is the pointer to the VTable.
+
+```rust
+// compiler generate
+// &str -> &dyn Hei
+// 1. pointer to the &str
+// 2. &HeiVtable{
+//  hei: &<str as Hei>::hei
+// }
+
+fn main(){
+  let s = "world";
+  s.hei();
+  // s.vtable.hei(s.pointer);
+}
+```
+
+### Multiple Traits
+
+If we want to use multiple traits, did the Rust compiler generate multiple VTables?
+
+The answer is _Yes_.
+
+```rust
+// ignore this bug
+pub fn baz(s: &dyn Hei + dyn Hei2){
+  s.hei();
+  s.hei2();
+}
+```
+
+The Rust compiler will generate two VTables for the `s`.
+
+```rust
+// compiler generate
+// &str -> &dyn Hei + dyn Hei2
+// 1. pointer to the &str
+// 2. &HeiVtable{
+//  hei: &<str as Hei>::hei
+// }
+// 3. &Hei2Vtable{
+//  hei2: &<str as Hei2>::hei2
+// }
+```
+
+And Rust give us a way to optimize the VTables which means make them into one VTable.
+
+```rust
+pub trait HeiAsRef: Hei + Hei2 {}
+pub fn barz<T: HeiAsRef>(s: &T) {
+  s.hei();
+  s.hei2();
+}
+```
