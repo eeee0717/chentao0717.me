@@ -6,10 +6,10 @@ wrapperClass: 'text-center'
 art: plum
 projects:
   Current Focus:
-    - name: 'Toolkits'
-      link: 'https://github.com/eeee0717/Toolkits'
-      desc: 'A collection of useful tools for daily use'
-      icon: 'i-carbon-campsite'
+    - name: 'Cherry-Studio'
+      link: 'https://github.com/CherryHQ/cherry-studio'
+      desc: '🍒 Cherry Studio is a desktop client '
+      icon: 🍒
     - name: 'Podwise AI'
       link: 'https://github.com/eeee0717/podwise-ai'
       desc: 'A platform to summarize podcast episodes'
@@ -50,6 +50,10 @@ projects:
       link: https://github.com/eeee0717/raycast-workspace
       desc: A Raycast extension that helps you to manage your workspace
       icon: 'i-carbon-workspace'
+    - name: 'Toolkits'
+      link: 'https://github.com/eeee0717/Toolkits'
+      desc: 'A collection of useful tools for daily use'
+      icon: 'i-carbon-campsite'
 
   Contributor:
     - name: 'LeetCode Master'
