@@ -4,6 +4,7 @@ date: 2025-01-22 14:49:24
 lang: en
 duration: 10min
 type: blog
+inperson: true
 ---
 
 ## Monomorphization

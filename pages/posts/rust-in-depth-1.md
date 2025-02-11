@@ -1,6 +1,6 @@
 ---
 title: Rust in Depth - Chapter 1
-date: 2025-01-06 09:31:52
+date: 2025-02-11 20:06:33
 lang: en
 duration: 10min
 type: blog
