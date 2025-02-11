@@ -9,7 +9,7 @@ Hey, I am Chen Tao.
 
 A student from **ZSTU** and I am now admitted to **BJUT**.
 
-Team menber of {MicaApps}<br>
+Team menber of {CherryStudio}, {MicaApps}<br>
 Contributor of {Leetcode-master} {CS-base} {Leetcode-extension}
 
 Dreaming up ideas and making them come true is where my passion lies. You can find my [full projects list here](/projects). I also share some technical [articles](/posts) on Blog.

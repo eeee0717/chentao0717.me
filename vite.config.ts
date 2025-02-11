@@ -120,6 +120,7 @@ export default defineConfig({
 
         md.use(MarkdownItMagicLink, {
           linksMap: {
+            'CherryStudio': 'https://github.com/CherryHQ/cherry-studio',
             'MicaApps': 'https://github.com/MicaApps',
             'Leetcode-master': 'https://github.com/youngyangyang04/leetcode-master',
             'CS-base': 'https://github.com/xiaolincoder/CS-Base',
