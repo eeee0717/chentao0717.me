@@ -1,10 +1,9 @@
 ---
 title: Rust in Depth - Chapter 2
-date: 2025-01-22 14:49:24
+date: 2025-02-11 20:24:00
 lang: en
 duration: 10min
 type: blog
-inperson: true
 ---
 
 ## Monomorphization
