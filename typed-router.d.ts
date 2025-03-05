@@ -31,6 +31,7 @@ declare module 'vue-router/auto-routes' {
     '/posts/csharp-event-and-delegate': RouteRecordInfo<'/posts/csharp-event-and-delegate', '/posts/csharp-event-and-delegate', Record<never, never>, Record<never, never>>,
     '/posts/efcore-migration': RouteRecordInfo<'/posts/efcore-migration', '/posts/efcore-migration', Record<never, never>, Record<never, never>>,
     '/posts/macos-software': RouteRecordInfo<'/posts/macos-software', '/posts/macos-software', Record<never, never>, Record<never, never>>,
+    '/posts/mcp': RouteRecordInfo<'/posts/mcp', '/posts/mcp', Record<never, never>, Record<never, never>>,
     '/posts/net-json-convenient': RouteRecordInfo<'/posts/net-json-convenient', '/posts/net-json-convenient', Record<never, never>, Record<never, never>>,
     '/posts/nvim-shortcuts': RouteRecordInfo<'/posts/nvim-shortcuts', '/posts/nvim-shortcuts', Record<never, never>, Record<never, never>>,
     '/posts/podwise-ai': RouteRecordInfo<'/posts/podwise-ai', '/posts/podwise-ai', Record<never, never>, Record<never, never>>,
