@@ -4,6 +4,7 @@ date: 2025-03-18 18:07:57
 lang: zh
 duration: 8min
 type: blog
+image: https://chentao0717.cn/og/rag.png
 ---
 
 ## RAG (Retrieval Augmented Generation)检索增强生成
@@ -52,4 +53,5 @@ To Be Continue...
 ### 相关材料
 
 [1] [基礎RAG退散，小模型Reranker來來](https://medium.com/@bohachu/%E5%9F%BA%E7%A4%8Erag%E9%80%80%E6%95%A3-reranker%E4%BE%86%E4%BE%86-5c2304d1b87d)
+
 [2] [Dify 重排序](https://docs.dify.ai/zh-hans/learn-more/extended-reading/retrieval-augment/rerank)
