@@ -36,6 +36,7 @@ declare module 'vue-router/auto-routes' {
     '/posts/net-json-convenient': RouteRecordInfo<'/posts/net-json-convenient', '/posts/net-json-convenient', Record<never, never>, Record<never, never>>,
     '/posts/nvim-shortcuts': RouteRecordInfo<'/posts/nvim-shortcuts', '/posts/nvim-shortcuts', Record<never, never>, Record<never, never>>,
     '/posts/podwise-ai': RouteRecordInfo<'/posts/podwise-ai', '/posts/podwise-ai', Record<never, never>, Record<never, never>>,
+    '/posts/rag': RouteRecordInfo<'/posts/rag', '/posts/rag', Record<never, never>, Record<never, never>>,
     '/posts/rust-in-depth-1': RouteRecordInfo<'/posts/rust-in-depth-1', '/posts/rust-in-depth-1', Record<never, never>, Record<never, never>>,
     '/posts/rust-in-depth-2': RouteRecordInfo<'/posts/rust-in-depth-2', '/posts/rust-in-depth-2', Record<never, never>, Record<never, never>>,
     '/posts/subtitle-translator-cli': RouteRecordInfo<'/posts/subtitle-translator-cli', '/posts/subtitle-translator-cli', Record<never, never>, Record<never, never>>,
