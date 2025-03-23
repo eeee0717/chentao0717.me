@@ -7,7 +7,7 @@ art: random
 
 Hey, I am Chen Tao.
 
-A student from **ZSTU** and I am now admitted to **BJUT**.
+A student from **BJUT**.
 
 Team menber of {CherryStudio} {MicaApps}<br>
 Contributor of {Leetcode-master} {CS-base} {Leetcode-extension}
