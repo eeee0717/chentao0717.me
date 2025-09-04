@@ -4,7 +4,7 @@ date: 2025-09-04 20:40:34
 lang: zh
 duration: 10min
 type: blog
-image: https://chentao0717.cn/og/cherry-knowledge-1.6.0.jpg
+image: https://chentao0717.cn/og/cherry-knowledge.jpg
 ---
 
 Cherry Studio 在1.6.0版本对知识库进行了重构，为后续更丰富的功能更新打下了基础。
