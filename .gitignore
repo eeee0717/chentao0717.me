@@ -15,3 +15,7 @@ src/data/sponsors-circles.json
 .env
 .env.dev
 public/basic_photos
+
+# Private content - not committed to Git
+pages/private/
+**/*.private.md
