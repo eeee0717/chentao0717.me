@@ -32,37 +32,37 @@ image: https://chentao0717.cn/og/cherry-knowledge-v2.jpg
 
 1. 基础RAG能力
 
-- 文档预处理
-- 混合检索(BM25+向量检索) + 重排序
-- 筛选检索(根据来源、时间、标签等条件进行过滤)
+   - 文档预处理
+   - 混合检索(BM25+向量检索) + 重排序
+   - 筛选检索(根据来源、时间、标签等条件进行过滤)
 
 2. 知识维护
 
-- Agent在对话中可以直接对知识库进行嵌入
-- Agent在对话中发现文档中存在错误或过时信息时可以直接修改知识库
+   - Agent在对话中可以直接对知识库进行嵌入
+   - Agent在对话中发现文档中存在错误或过时信息时可以直接修改知识库
 
 3. 智能标注[^2]
 
-- Agent可以对chunk块的metadata进行标注，例如添加标签、来源、时间等信息
-- Agent也可以给高质量的chunk打分，检索时可以提高检索权重
+   - Agent可以对chunk块的metadata进行标注，例如添加标签、来源、时间等信息
+   - Agent也可以给高质量的chunk打分，检索时可以提高检索权重
 
 ## 原子化RAG的百变能力
 
 1. 原子化RAG -> Modular RAG
    当你把 `search` 接口内部集成了 Hybrid Search 和 Rerank，并且 Agent 在调用前自己做了一步 Query Rewrite（查询重写）时：
 
-- 动作流：Agent (Rewrite) -> MCP Tool (Hybrid Search + Rerank) -> Agent (Synthesis)。
-- 本质：这就是标准的 Modular RAG 流程。
-- 区别：传统 Modular RAG 在代码**写死**把这些模块串起来；而你的架构里，Agent 根据需要自己决定要不要 rewrite，要不要 rerank。
+   - 动作流：Agent (Rewrite) -> MCP Tool (Hybrid Search + Rerank) -> Agent (Synthesis)。
+   - 本质：这就是标准的 Modular RAG 流程。
+   - 区别：传统 Modular RAG 在代码**写死**把这些模块串起来；而你的架构里，Agent 根据需要自己决定要不要 rewrite，要不要 rerank。
 
 2. 原子化RAG -> Graph RAG
    当你在 metadata 中存储了关联信息（如 {"links": ["doc_id_123"]}），并且 Agent 懂得顺藤摸瓜时：
 
-- 动作流：Agent 搜到文档 A -> 发现 Metadata 里有关联文档 B -> Agent 主动调用 read_document(B) -> 综合 A 和 B 回答。
-- 本质：这就是图谱检索中的“邻居节点遍历”。
-- 区别：
-  - 硬图谱 (Hard Graph)：Neo4j 等数据库，关系是物理存在的，查询快但构建极贵。
-  - 软图谱 (Soft Graph)：关系存在 Metadata 里，由 Agent 的注意力（Attention）来"脑补"连接。虽然速度慢一点，但构建成本几乎为零，且极其灵活。
+   - 动作流：Agent 搜到文档 A -> 发现 Metadata 里有关联文档 B -> Agent 主动调用 read_document(B) -> 综合 A 和 B 回答。
+   - 本质：这就是图谱检索中的“邻居节点遍历”。
+   - 区别：
+     - 硬图谱 (Hard Graph)：Neo4j 等数据库，关系是物理存在的，查询快但构建极贵。
+     - 软图谱 (Soft Graph)：关系存在 Metadata 里，由 Agent 的注意力（Attention）来"脑补"连接。虽然速度慢一点，但构建成本几乎为零，且极其灵活。
 
 你的 Agent 会根据用户的问题，动态坍缩成最适合的架构：
 
