@@ -5,6 +5,7 @@ lang: zh
 duration: 10min
 type: blog
 ---
+
 记录一下今天新开的项目中遇到的问题，VNext是新开的英语听力网站项目，在使用EFCore对Mysql数据迁移的过程中目前遇到两个问题。
 
 1. Mysql版本为8.0时，EFCore迁移报错，StackOverflow上说目前Pomelo.EntityFrameworkCore.MySql还有些bug，可以等待正式版，所以将数据库降级为5.7版本，问题解决。

@@ -2,7 +2,7 @@
 title: 槑囿脑袋
 description: 槑囿脑袋's Portfolio
 image: https://chentao0717.cn/og.png
-art: random
+art: connections
 ---
 
 Hey, I am 槑囿脑袋.

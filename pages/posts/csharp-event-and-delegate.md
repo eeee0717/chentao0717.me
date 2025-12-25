@@ -5,17 +5,16 @@ lang: zh
 duration: 20min
 type: blog
 ---
+
 [原文链接](https://csharpindepth.com/Articles/Events)
 
 ## 委托与事件
-
 
 人们常常发现很难区分事件和代表之间的区别。 C# 允许您声明类似字段的事件，这些事件由同名的委托变量自动支持，这对解决问题没有帮助。
 
 本文旨在为您澄清这个问题。另一个造成混淆的原因是「委托」一词的过多使用。有时它用于表示委托类型，有时它可用于表示委托类型的实例。我将使用“委托类型”和“委托实例”来区分它们，并在一般意义上谈论整个主题时使用「委托」。
 
 ## 委托类型
-
 
 在某些方面，您可以将委托类型视为有点像具有单个方法的接口。它指定方法的签名，当您有委托实例时，您可以调用它，就好像它是具有相同签名的方法一样。
 
@@ -29,7 +28,7 @@ type: blog
 namespace DelegateArticle
 {
     public delegate string FirstDelegate (int x);
-    
+
     public class Sample
     {
         public delegate void SecondDelegate (char a, char b);
@@ -37,10 +36,9 @@ namespace DelegateArticle
 }
 ```
 
-
 此代码声明了两种委托类型。第一个是 `DelegateArticle.FirstDelegate` ，它有一个 `int` 类型的参数并返回 `string` 。第二个是 `DelegateArticle.Sample.SecondDelegate` ，它有两个 `char` 参数，并且不返回任何内容（因为返回类型被指定为 `void` ）。
-> 请注意， `delegate` 关键字并不总是意味着正在声明委托类型。使用匿名方法创建委托类型的实例时，会使用相同的关键字。
 
+> 请注意， `delegate` 关键字并不总是意味着正在声明委托类型。使用匿名方法创建委托类型的实例时，会使用相同的关键字。
 
 此处声明的类型派生自 `System.MulticastDelegate` ，而 `System.MulticastDelegate` 又派生自 `System.Delegate` 。实际上，您只会看到派生自 `MulticastDelegate` 的委托类型。 `Delegate` 和 `MulticastDelegate` 之间的差异很大程度上是历史性的；在 .NET 1.0 的测试版中，差异非常显着（而且很烦人） - Microsoft 考虑将这两种类型合并在一起，但认为在发布周期中进行如此重大的更改为时已晚。
 
@@ -54,18 +52,15 @@ public System.IAsyncResult BeginInvoke(int x, System.AsyncCallback callback, obj
 public string EndInvoke(IAsyncResult result);
 ```
 
-
 正如您所看到的， `Invoke` 和 `EndInvoke` 的返回类型与声明签名的返回类型匹配， `Invoke` 的参数和 。我们将在下一节中了解 `Invoke` 的用途，并在高级用法部分中介绍 `BeginInvoke` 和 `EndInvoke` 。然而，当我们不知道如何创建实例时，谈论调用方法还为时过早。我们将在下一节中介绍这一点（以及更多内容）。
 
 ## 委托实例：基础知识
-
 
 现在我们知道了委托类型是如何声明的以及它包含什么，让我们看看如何创建此类类型的实例以及我们可以用它做什么。
 
 ### 创建委托实例
 
 > 注意：本文不介绍 C# 2.0 和 3.0 用于创建委托实例的功能，也不介绍 C# 4.0 中引入的通用委托变体。我关于闭包的文章讨论了 C# 2.0 和 3.0 的功能 - 或者，请阅读 C# 深入研究的第 5、9 和 13 章以获取更多详细信息。通过专注于 C# 1.0/1.1 中创建实例的显式方式，我相信会更容易理解幕后发生的事情。
-
 
 当您了解基础知识时，显然值得了解这些后续版本提供的功能 - 但如果您在没有牢牢掌握基础知识的情况下尝试使用它们，您很可能会感到困惑。
 
@@ -99,7 +94,6 @@ FirstDelegate d5 = new FirstDelegate(StaticMethod);
 FirstDelegate d6 = new FirstDelegate(OtherClass.OtherStaticMethod);
 ```
 
-
 我们之前提到的构造函数有两个参数 - `object` 和 `IntPtr` 。 `object` 是对目标的引用（或静态方法的 `null` ）， `IntPtr` 是指向方法本身的指针。
 
 需要注意的一点是，委托实例可以引用在实际调用时通常不可见的方法和目标。
@@ -110,13 +104,11 @@ FirstDelegate d6 = new FirstDelegate(OtherClass.OtherStaticMethod);
 
 ### 调用委托实例
 
-
 调用委托实例就像调用方法本身一样。例如，要调用上面变量 `d1` 引用的委托，我们可以编写：
 
 ```cs
 string result = d1(10);
 ```
-
 
 在目标对象（如果有）上调用委托实例引用的方法，并返回结果。生成一个完整的程序来演示这一点而不包含大量看似不相关的代码是很棘手的。
 
@@ -126,23 +118,23 @@ string result = d1(10);
 using System;
 
 public delegate string FirstDelegate (int x);
-    
+
 class DelegateTest
-{    
+{
     string name;
-    
+
     static void Main()
     {
         FirstDelegate d1 = new FirstDelegate(DelegateTest.StaticMethod);
-        
+
         DelegateTest instance = new DelegateTest();
         instance.name = "My instance";
         FirstDelegate d2 = new FirstDelegate(instance.InstanceMethod);
-        
+
         Console.WriteLine (d1(10)); // Writes out "Static method: 10"
         Console.WriteLine (d2(5));  // Writes out "My instance: 5"
     }
-    
+
     static string StaticMethod (int i)
     {
         return string.Format ("Static method: {0}", i);
@@ -157,9 +149,7 @@ class DelegateTest
 
 > C# 语法只是调用每个委托类型提供的 `Invoke` 方法的简写。如果委托提供 `BeginInvoke` / `EndInvoke` 方法，也可以异步运行。这些稍后会解释。
 
-
 ### 合并委托
-
 
 可以组合委托，这样当您调用委托时，就会调用整个方法列表 - 可能具有不同的目标。当我之前说过委托包含一个目标和一个方法时，这是一个轻微的简化。
 
@@ -168,24 +158,23 @@ class DelegateTest
 重要的是要理解委托实例始终是不可变的。任何将它们组合在一起（或将其中一个从另一个中分离出来）的东西都会创建一个新的委托实例来表示要调用的新目标/方法列表。这就像字符串一样：例如，如果您调用 `String.PadLeft` ，它实际上不会更改您调用它的字符串 - 它只是返回一个具有适当填充的新字符串。
 
 通常使用加法运算符组合两个委托实例，就好像委托实例是字符串或数字一样。一个与另一个相减通常使用减法运算符来完成。
+
 > 请注意，当您从一个组合委托中减去另一个组合委托时，减法将按照列表进行。如果在原始列表中找不到要减去的列表，则结果只是原始列表。否则，列表中最后出现的位置将被删除。通过一些例子可以很好地说明这一点。下面使用简单委托列表 `d1` 、 `d2` 等代替实际代码。例如， `[d1, d2, d3]` 是一个组合委托，在执行时会调用 `d1` 然后 `d2` 然后 `d3` 。空列表由 `null` 表示，而不是实际的委托实例。
 
-
-
-| **Expression表达**   | **Result 结果**    |
-|        :----:       |      :----:        |
-| null + d1 空+d1                          |    d1                                  |
-| d1 + null d1 + 空                        |    d1                                  |
-| d1 + d2                                  |    [d1, d2] [d1，d2]                   |
-| d1 + [d2, d3]                            |    [d1, d2, d3] [d1、d2、d3]           |
-| [d1, d2] + [d2, d3]                      |    [d1, d2, d2, d3] [d1、d2、d2、d3]    |
-| [d1, d2] - d1                            |    d2                                  |
-| [d1, d2] - d2                            |    d1                                  |
-| [d1, d2, d1] - d1                        |    [d1, d2] [d1，d2]                    |
-| [d1, d2, d3] - [d1, d2]                  |    d3                                  |
-| [d1, d2, d3] - [d2, d1]                  |    [d1, d2, d3] [d1、d2、d3]            |
-| [d1, d2, d3, d1, d2] - [d1, d2]          |    [d1, d2, d3] [d1、d2、d3]            |
-| [d1, d2] - [d1, d2]                      |    null 无效的|
+|       **Expression表达**        |          **Result 结果**          |
+| :-----------------------------: | :-------------------------------: |
+|         null + d1 空+d1         |                d1                 |
+|        d1 + null d1 + 空        |                d1                 |
+|             d1 + d2             |         [d1, d2] [d1，d2]         |
+|          d1 + [d2, d3]          |     [d1, d2, d3] [d1、d2、d3]     |
+|       [d1, d2] + [d2, d3]       | [d1, d2, d2, d3] [d1、d2、d2、d3] |
+|          [d1, d2] - d1          |                d2                 |
+|          [d1, d2] - d2          |                d1                 |
+|        [d1, d2, d1] - d1        |         [d1, d2] [d1，d2]         |
+|     [d1, d2, d3] - [d1, d2]     |                d3                 |
+|     [d1, d2, d3] - [d2, d1]     |     [d1, d2, d3] [d1、d2、d3]     |
+| [d1, d2, d3, d1, d2] - [d1, d2] |     [d1, d2, d3] [d1、d2、d3]     |
+|       [d1, d2] - [d1, d2]       |            null 无效的            |
 
 委托实例还可以与静态 `Delegate.Combine` 方法组合，并且可以使用静态 `Delegate.Remove` 方法将一个实例从另一个实例中减去。 C# 编译器将加法和减法运算符转换为对这些方法的调用。因为它们是静态方法，所以它们可以轻松地使用 `null` 引用。
 
@@ -197,10 +186,9 @@ class DelegateTest
 
 ## 事件
 
-
 首先，事件不是委托实例。让我们再重复一次。
-> **事件不是委托实例。**
 
+> **事件不是委托实例。**
 
 从某些方面来说不幸的是，C# 允许您在某些情况下以相同的方式使用它们，但理解其中的差异非常重要。
 
@@ -225,27 +213,26 @@ class Test
         {
             Console.WriteLine ("add operation");
         }
-        
+
         remove
         {
             Console.WriteLine ("remove operation");
         }
-    }       
-    
+    }
+
     static void Main()
     {
         Test t = new Test();
-        
+
         t.MyEvent += new EventHandler (t.DoNothing);
         t.MyEvent -= null;
     }
-    
+
     void DoNothing (object sender, EventArgs e)
     {
     }
 }
 ```
-
 
 虽然以这种方式忽略该值的情况很少见，但有时您不想使用简单的委托变量来支持事件。
 
@@ -255,13 +242,11 @@ class Test
 
 ## 捷径：类似字段的事件
 
-
 C# 提供了一种同时声明委托变量和事件的简单方法。这称为类似字段的事件，并且声明非常简单 - 它与“普通”事件声明相同，但没有“主体”部分：
 
 ```cs
 public event EventHandler MyEvent;
 ```
-
 
 这将创建一个委托变量和一个事件，两者具有相同的类型。对事件的访问由事件声明决定（例如，上面的示例创建了一个公共事件），但委托变量始终是私有的。
 
@@ -269,7 +254,7 @@ public event EventHandler MyEvent;
 
 ```cs
 private EventHandler _myEvent;
-    
+
 public event EventHandler MyEvent
 {
     add
@@ -285,10 +270,9 @@ public event EventHandler MyEvent
         {
             _myEvent -= value;
         }
-    }        
+    }
 }
 ```
-
 
 这是针对实例成员的。对于声明为静态的事件，该变量也是静态的，并且在 `typeof(XXX)` 上获取锁，其中 `XXX` 是声明该事件的类的名称。
 
@@ -300,13 +284,11 @@ public event EventHandler MyEvent
 
 ## 重点是什么？
 
-
 现在我们知道它们是什么了，同时拥有代表和事件有什么意义呢？答案是封装。假设事件在 C#/.NET 中不作为概念存在。另一个类如何订阅事件？三个选项：
 
-
-	1. 公共委托变量
-	2. 由属性支持的委托变量
-	3. 具有 `AddXXXHandler` 和 `RemoveXXXHandler` 方法的委托变量
+    1. 公共委托变量
+    2. 由属性支持的委托变量
+    3. 具有 `AddXXXHandler` 和 `RemoveXXXHandler` 方法的委托变量
 
 选项 1 显然是可怕的，因为我们厌恶公共变量的所有正常原因。选项 2 稍好一些，但允许订阅者有效地相互覆盖 - 编写 `someInstance.MyEvent = eventHandler;` 太容易了，它会替换任何现有的事件处理程序，而不是添加新的事件处理程序。此外，您还需要编写属性。
 
@@ -315,7 +297,6 @@ public event EventHandler MyEvent
 订阅和取消订阅事件被封装，不允许任意访问事件处理程序列表，并且语言可以通过提供声明和订阅的语法来使事情变得更简单。
 
 ## 线程安全事件
-
 
 之前我们谈到了添加/删除操作期间的类字段事件锁定。这是为了提供一定程度的线程安全性。不幸的是，它并不是很有用。首先，即使在 2.0 中，规范也允许锁是对 `this` 对象的引用，或者静态事件的类型本身。这违背了锁定私有引用以避免意外死锁的原则。
 
@@ -376,7 +357,6 @@ protected virtual void OnSomeEvent(EventArgs e)
 }
 ```
 
-
 您可以对所有事件使用一个锁，甚至也可以对其他事件使用一个锁 - 这取决于您的情况。请注意，您需要将当前值分配给锁内的局部变量（以获取最新值），然后测试它是否为空并在锁外执行它：在引发事件的同时持有锁是一个非常糟糕的主意，因为你很容易陷入僵局。
 
 （事件处理程序很可能需要等待另一个线程执行某些操作，如果另一个线程要调用事件的添加或删除操作，则会陷入死锁。）
@@ -422,13 +402,11 @@ protected virtual void OnSomeEvent(EventArgs e)
 }
 ```
 
-
 检查无效性是由于当没有任何委托实例可调用时委托变量为 `null` 。使事情变得更简单的一种方法是使用无操作委托实例作为“默认”实例，该实例永远不会被删除。
 
 此时，您只需获取委托变量的值（如果是线程安全的，则在锁内），然后执行委托实例。如果没有“真正的”委托目标可供调用，则无操作目标将执行，这就是将发生的一切。
 
 ## 委托实例：其他方法
-
 
 之前我们看到了对 `someDelegate(10)` 的调用实际上是 `someDelegate.Invoke(10)` 的简写。委托类型还可以允许使用 `BeginInvoke` / `EndInvoke` 对进行异步行为。就 CLI 规范而言，这些是可选的，但 C# 委托类型始终提供它们。
 
@@ -443,31 +421,31 @@ using System;
 using System.Threading;
 
 delegate int SampleDelegate(string data);
-    
+
 class AsyncDelegateExample1
 {
     static void Main()
     {
         SampleDelegate counter = new SampleDelegate(CountCharacters);
         SampleDelegate parser = new SampleDelegate(Parse);
-        
+
         IAsyncResult counterResult = counter.BeginInvoke ("hello", null, null);
         IAsyncResult parserResult = parser.BeginInvoke ("10", null, null);
         Console.WriteLine ("Main thread continuing");
-        
+
         Console.WriteLine ("Counter returned {0}", counter.EndInvoke(counterResult));
         Console.WriteLine ("Parser returned {0}", parser.EndInvoke(parserResult));
-        
+
         Console.WriteLine ("Done");
     }
-    
+
     static int CountCharacters (string text)
     {
         Thread.Sleep (2000);
         Console.WriteLine ("Counting characters in {0}", text);
         return text.Length;
     }
-    
+
     static int Parse (string text)
     {
         Thread.Sleep (100);
@@ -476,7 +454,6 @@ class AsyncDelegateExample1
     }
 }
 ```
-
 
 对 `Thread.Sleep` 的调用只是为了证明执行确实是并行发生的。 `CountCharacters` 中的睡眠时间与强制系统线程池在两个不同线程上运行任务一样大 - 线程池序列化不需要很长时间的请求，以避免创建更多线程比它需要的多。
 
@@ -491,7 +468,6 @@ Parser returned 10
 Done
 ```
 
-
 对 `EndInvoke` 的调用会阻塞，直至委托完成，其方式与对 `Thread.Join` 的调用阻塞直至所涉及的线程终止的方式大致相同。调用 `BeginInvoke` 返回的 `IAsyncResult` 值允许访问作为最后一个参数传递给 `BeginInvoke` 的状态，但这通常不会在样式中使用上面显示的异步调用。
 
 上面的代码相当简单，但通常不如委托完成后使用回调的模型强大。通常，回调将调用 `EndInvoke` 来获取委托的结果。尽管理论上它仍然是一个阻塞调用，但它实际上永远不会阻塞，因为回调仅在委托完成时才会执行。回调很可能使用提供给 `BeginInvoke` 的状态作为额外的上下文信息。下面的示例代码使用与前面的示例相同的计数和解析委托，但具有显示结果的回调。
@@ -504,16 +480,16 @@ using System.Threading;
 using System.Runtime.Remoting.Messaging;
 
 delegate int SampleDelegate(string data);
-    
+
 class AsyncDelegateExample2
 {
     static void Main()
     {
         SampleDelegate counter = new SampleDelegate(CountCharacters);
         SampleDelegate parser = new SampleDelegate(Parse);
-        
+
         AsyncCallback callback = new AsyncCallback (DisplayResult);
-        
+
         counter.BeginInvoke ("hello", callback, "Counter returned {0}");
         parser.BeginInvoke ("10", callback, "Parser returned {0}");
 
@@ -522,23 +498,23 @@ class AsyncDelegateExample2
         Thread.Sleep (3000);
         Console.WriteLine ("Done");
     }
-    
+
     static void DisplayResult(IAsyncResult result)
     {
         string format = (string) result.AsyncState;
         AsyncResult delegateResult = (AsyncResult) result;
         SampleDelegate delegateInstance = (SampleDelegate)delegateResult.AsyncDelegate;
-        
+
         Console.WriteLine (format, delegateInstance.EndInvoke(result));
     }
-    
+
     static int CountCharacters (string text)
     {
         Thread.Sleep (2000);
         Console.WriteLine ("Counting characters in {0}", text);
         return text.Length;
     }
-    
+
     static int Parse (string text)
     {
         Thread.Sleep (100);
@@ -547,7 +523,6 @@ class AsyncDelegateExample2
     }
 }
 ```
-
 
 这次几乎所有的工作都是在线程池线程上完成的。主线程只是启动异步任务，然后休眠足够长的时间以完成所有工作。 （线程池线程是后台线程 - 如果没有额外的 `Sleep` 调用，应用程序将在委托调用完成执行之前终止。）下面是一些示例输出 - 请注意这次的情况，因为没有保证顺序对于 `EndInvoke` 的调用，解析器结果显示在计数器结果之前。在前面的示例中，解析器几乎肯定在计数器之前完成，但主线程首先等待获取计数器的结果。
 
@@ -560,11 +535,9 @@ Counter returned 5
 Done
 ```
 
-
 注意，使用异步执行时必须调用 `EndInvoke` ，以保证不泄漏内存或句柄。有些实现可能不会泄漏，但您不应该依赖于此。请参阅我的线程池文章，了解一些示例代码，以允许“即发即忘”风格的异步行为（如果这不方便的话）。
 
 ## 结论
-
 
 委托提供了一种简单的方式来将方法调用（可能带有目标对象）表示为可以传递的数据片段。
 

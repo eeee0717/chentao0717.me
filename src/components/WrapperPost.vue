@@ -83,6 +83,8 @@ const ArtComponent = computed(() => {
       return defineAsyncComponent(() => import('./ArtPlum.vue'))
     else if (art === 'dots')
       return defineAsyncComponent(() => import('./ArtDots.vue'))
+    else if (art === 'connections')
+      return defineAsyncComponent(() => import('./ArtConnections.vue'))
   }
   return undefined
 })
