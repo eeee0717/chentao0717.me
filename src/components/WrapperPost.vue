@@ -129,6 +129,7 @@ const ArtComponent = computed(() => {
     >
       This is a draft post, the content may be incomplete. Please check back later.
     </p>
+    <AISummary v-if="frontmatter.ai && frontmatter.summary" :summary="frontmatter.summary" />
   </div>
   <article ref="content" :class="[frontmatter.tocAlwaysOn ? 'toc-always-on' : '', frontmatter.class]">
     <slot />
