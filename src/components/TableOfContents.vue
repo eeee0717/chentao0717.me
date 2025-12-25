@@ -43,6 +43,7 @@ function scrollTo(id: string) {
   if (el) {
     const y = window.scrollY + el.getBoundingClientRect().top - 80
     window.scrollTo({ top: y, behavior: 'smooth' })
+    window.history.replaceState({}, '', `#${id}`)
   }
 }
 
