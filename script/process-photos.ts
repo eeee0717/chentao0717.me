@@ -1,22 +1,30 @@
-#!/usr/bin/env node
-
 /* eslint-disable no-console */
 
 /**
  * 处理照片：生成 blurhash 和压缩图片
  *
  * 功能：
- * 1. 遍历 public/photos/ 目录下的图片
+ * 1. 遍历 photos/ 目录下的图片
  * 2. 压缩图片（最大 1440px，JPEG 质量 80）
  * 3. 生成 blurhash 字符串（32x32 采样，4x4 组件）
  * 4. 提取图片尺寸计算 ratio (height/width)
  * 5. 为每张图片生成同名 .json sidecar 文件
  */
 
-const fs = require('node:fs')
-const path = require('node:path')
-const sharp = require('sharp')
-const { encode } = require('blurhash')
+import fs from 'node:fs'
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
+import sharp from 'sharp'
+import { encode } from 'blurhash'
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
+
+interface CompressResult {
+  compressed: boolean
+  savedBytes: number
+}
+
+type ColorName = 'reset' | 'red' | 'yellow' | 'green' | 'cyan' | 'magenta'
 
 const PHOTOS_DIR = path.resolve(__dirname, '../photos')
 const MAX_DIMENSION = 1440
@@ -24,7 +32,7 @@ const JPEG_QUALITY = 80
 const BLURHASH_SIZE = 32
 const BLURHASH_COMPONENTS = 4
 
-const colors = {
+const colors: Record<ColorName, string> = {
   reset: '\x1B[0m',
   red: '\x1B[31m',
   yellow: '\x1B[33m',
@@ -33,11 +41,11 @@ const colors = {
   magenta: '\x1B[35m',
 }
 
-function log(message, color = 'reset') {
+function log(message: string, color: ColorName = 'reset'): void {
   console.log(`${colors[color]}${message}${colors.reset}`)
 }
 
-async function generateBlurhash(imagePath) {
+async function generateBlurhash(imagePath: string): Promise<string> {
   const { data, info } = await sharp(imagePath)
     .resize(BLURHASH_SIZE, BLURHASH_SIZE, { fit: 'inside' })
     .ensureAlpha()
@@ -53,9 +61,9 @@ async function generateBlurhash(imagePath) {
   )
 }
 
-async function compressImage(inputPath) {
+async function compressImage(inputPath: string): Promise<CompressResult> {
   const metadata = await sharp(inputPath).metadata()
-  const needsResize = metadata.width > MAX_DIMENSION || metadata.height > MAX_DIMENSION
+  const needsResize = (metadata.width ?? 0) > MAX_DIMENSION || (metadata.height ?? 0) > MAX_DIMENSION
 
   if (!needsResize) {
     // 检查是否需要压缩
@@ -94,7 +102,7 @@ async function compressImage(inputPath) {
   return { compressed: true, savedBytes: stats.size - newStats.size }
 }
 
-async function processPhotos() {
+async function processPhotos(): Promise<void> {
   log('\n🖼️  处理照片...\n', 'magenta')
 
   // 获取所有图片文件
@@ -123,7 +131,7 @@ async function processPhotos() {
 
       // 获取压缩后的元数据
       const metadata = await sharp(inputPath).metadata()
-      const ratio = metadata.height / metadata.width
+      const ratio = (metadata.height ?? 1) / (metadata.width ?? 1)
 
       // 生成 blurhash
       const blurhash = await generateBlurhash(inputPath)
@@ -137,7 +145,8 @@ async function processPhotos() {
       log(`  ✓ ${file} (${status})`, compressed ? 'green' : 'yellow')
     }
     catch (error) {
-      log(`  ✗ ${file}: ${error.message}`, 'red')
+      const message = error instanceof Error ? error.message : String(error)
+      log(`  ✗ ${file}: ${message}`, 'red')
     }
   }
 
@@ -150,6 +159,7 @@ async function processPhotos() {
 }
 
 processPhotos().catch((error) => {
-  log(`\n✗ 错误: ${error.message}`, 'red')
+  const message = error instanceof Error ? error.message : String(error)
+  log(`\n✗ 错误: ${message}`, 'red')
   process.exit(1)
 })

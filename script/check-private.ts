@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 /* eslint-disable no-console */
 
 /**
@@ -12,43 +10,46 @@
  * If any private files are found, the commit will be blocked.
  */
 
-const { execSync } = require('node:child_process')
-const fs = require('node:fs')
-const matter = require('gray-matter')
+import { execSync } from 'node:child_process'
+import fs from 'node:fs'
+import matter from 'gray-matter'
 
-// ANSI color codes for terminal output
-const colors = {
+interface PrivateFile {
+  file: string
+  reason: string
+}
+
+type ColorName = 'reset' | 'red' | 'yellow' | 'green'
+
+const colors: Record<ColorName, string> = {
   reset: '\x1B[0m',
   red: '\x1B[31m',
   yellow: '\x1B[33m',
   green: '\x1B[32m',
 }
 
-function log(message, color = 'reset') {
+function log(message: string, color: ColorName = 'reset'): void {
   console.log(`${colors[color]}${message}${colors.reset}`)
 }
 
-function getStagedMarkdownFiles() {
+function getStagedMarkdownFiles(): string[] {
   try {
-    // Get all staged files
     const output = execSync('git diff --cached --name-only --diff-filter=ACM', {
       encoding: 'utf-8',
     })
 
-    // Filter for .md files
     return output
       .split('\n')
       .filter(file => file.trim() && file.endsWith('.md'))
   }
-  catch (error) {
-    // If git command fails, allow commit to proceed
+  catch {
     log('⚠️  Warning: Could not get staged files', 'yellow')
     return []
   }
 }
 
-function checkPrivateFiles(files) {
-  const privateFiles = []
+function checkPrivateFiles(files: string[]): PrivateFile[] {
+  const privateFiles: PrivateFile[] = []
 
   for (const file of files) {
     // Check 1: File name contains .private.md
@@ -71,10 +72,8 @@ function checkPrivateFiles(files) {
 
     // Check 3: Frontmatter contains private: true
     try {
-      if (!fs.existsSync(file)) {
-        // File might be deleted, skip
+      if (!fs.existsSync(file))
         continue
-      }
 
       const content = fs.readFileSync(file, 'utf-8')
       const { data } = matter(content)
@@ -87,15 +86,15 @@ function checkPrivateFiles(files) {
       }
     }
     catch (error) {
-      // If we can't parse the file, log warning but allow commit
-      log(`⚠️  Warning: Could not parse ${file}: ${error.message}`, 'yellow')
+      const message = error instanceof Error ? error.message : String(error)
+      log(`⚠️  Warning: Could not parse ${file}: ${message}`, 'yellow')
     }
   }
 
   return privateFiles
 }
 
-function main() {
+function main(): void {
   log('\n🔍 Checking for private files...\n')
 
   const stagedFiles = getStagedMarkdownFiles()
@@ -131,5 +130,4 @@ function main() {
   process.exit(1)
 }
 
-// Run the check
 main()

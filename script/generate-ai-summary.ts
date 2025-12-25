@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 /* eslint-disable no-console */
 
 /**
@@ -12,13 +10,29 @@
  * 如果设置了 OPENAI_API_KEY，则生成摘要并写回 frontmatter
  */
 
-const { execSync } = require('node:child_process')
-const fs = require('node:fs')
-const path = require('node:path')
-const matter = require('gray-matter')
+import { execSync } from 'node:child_process'
+import fs from 'node:fs'
+import path from 'node:path'
+import matter from 'gray-matter'
+
+interface FileNeedingSummary {
+  file: string
+  frontmatter: Record<string, unknown>
+  content: string
+}
+
+interface OpenAIResponse {
+  choices: Array<{
+    message: {
+      content: string
+    }
+  }>
+}
+
+type ColorName = 'reset' | 'red' | 'yellow' | 'green' | 'cyan' | 'magenta'
 
 // 加载 .env 文件
-function loadEnv() {
+function loadEnv(): void {
   const envPath = path.resolve(process.cwd(), '.env')
   if (fs.existsSync(envPath)) {
     const content = fs.readFileSync(envPath, 'utf-8')
@@ -40,8 +54,7 @@ function loadEnv() {
 
 loadEnv()
 
-// 终端输出颜色（与 check-private.cjs 保持一致）
-const colors = {
+const colors: Record<ColorName, string> = {
   reset: '\x1B[0m',
   red: '\x1B[31m',
   yellow: '\x1B[33m',
@@ -50,11 +63,11 @@ const colors = {
   magenta: '\x1B[35m',
 }
 
-function log(message, color = 'reset') {
+function log(message: string, color: ColorName = 'reset'): void {
   console.log(`${colors[color]}${message}${colors.reset}`)
 }
 
-function getStagedMarkdownFiles() {
+function getStagedMarkdownFiles(): string[] {
   try {
     const output = execSync('git diff --cached --name-only --diff-filter=ACM', {
       encoding: 'utf-8',
@@ -69,8 +82,8 @@ function getStagedMarkdownFiles() {
   }
 }
 
-function findFilesNeedingSummary(files) {
-  const needsSummary = []
+function findFilesNeedingSummary(files: string[]): FileNeedingSummary[] {
+  const needsSummary: FileNeedingSummary[] = []
 
   for (const file of files) {
     try {
@@ -84,20 +97,21 @@ function findFilesNeedingSummary(files) {
       if (data.ai === true && !data.summary) {
         needsSummary.push({
           file,
-          frontmatter: data,
+          frontmatter: data as Record<string, unknown>,
           content,
         })
       }
     }
     catch (error) {
-      log(`⚠️  警告：无法解析 ${file}: ${error.message}`, 'yellow')
+      const message = error instanceof Error ? error.message : String(error)
+      log(`⚠️  警告：无法解析 ${file}: ${message}`, 'yellow')
     }
   }
 
   return needsSummary
 }
 
-async function generateSummary(markdownContent, title, lang) {
+async function generateSummary(markdownContent: string, title: string, lang: string): Promise<string> {
   const apiKey = process.env.OPENAI_API_KEY
 
   if (!apiKey)
@@ -135,11 +149,11 @@ async function generateSummary(markdownContent, title, lang) {
     throw new Error(`OpenAI API 错误: ${response.status} - ${error}`)
   }
 
-  const result = await response.json()
+  const result = await response.json() as OpenAIResponse
   return result.choices[0].message.content.trim()
 }
 
-function writeSummaryToFile(file, originalContent, summary) {
+function writeSummaryToFile(file: string, originalContent: string, summary: string): void {
   const { data, content } = matter(originalContent)
   data.summary = summary
 
@@ -147,7 +161,7 @@ function writeSummaryToFile(file, originalContent, summary) {
   fs.writeFileSync(file, newContent, 'utf-8')
 }
 
-async function main() {
+async function main(): Promise<void> {
   log('\n✨ 检查 AI 摘要生成...\n', 'magenta')
 
   const stagedFiles = getStagedMarkdownFiles()
@@ -185,8 +199,8 @@ async function main() {
     try {
       const summary = await generateSummary(
         content,
-        frontmatter.title || 'Untitled',
-        frontmatter.lang || 'en',
+        (frontmatter.title as string) || 'Untitled',
+        (frontmatter.lang as string) || 'en',
       )
 
       writeSummaryToFile(file, content, summary)
@@ -198,7 +212,8 @@ async function main() {
       successCount++
     }
     catch (error) {
-      log(`    ✗ 错误: ${error.message}`, 'red')
+      const message = error instanceof Error ? error.message : String(error)
+      log(`    ✗ 错误: ${message}`, 'red')
       failCount++
     }
   }
@@ -217,6 +232,7 @@ async function main() {
 }
 
 main().catch((error) => {
-  log(`意外错误: ${error.message}`, 'red')
+  const message = error instanceof Error ? error.message : String(error)
+  log(`意外错误: ${message}`, 'red')
   process.exit(0)
 })
