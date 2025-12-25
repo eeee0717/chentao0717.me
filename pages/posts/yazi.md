@@ -4,6 +4,7 @@ date: 2024-12-11 18:28:11
 lang: zh
 duration: 10min
 type: blog
+art: connections
 ---
 
 ## Yazi是什么？

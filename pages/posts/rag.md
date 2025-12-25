@@ -5,6 +5,7 @@ lang: zh
 duration: 8min
 type: blog
 image: https://chentao0717.cn/og/rag.png
+art: connections
 ---
 
 ## RAG (Retrieval Augmented Generation)检索增强生成

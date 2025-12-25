@@ -5,6 +5,7 @@ lang: zh
 duration: 10min
 type: blog
 image: https://chentao0717.cn/og/mcp.png
+art: connections
 ---
 
 其实很早之前就已经听说了mcp了，但是一直没有去了解，借这次[vaayne大佬](https://github.com/vaayne)向Cherry Studio提交了PR的机会，也开始了解并体验了一下mcp。

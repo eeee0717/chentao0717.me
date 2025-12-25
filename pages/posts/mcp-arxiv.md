@@ -5,6 +5,7 @@ lang: zh
 duration: 5min
 type: blog
 image: https://chentao0717.cn/og/mcp-arxiv.png
+art: connections
 ---
 
 今天我们来探索如何使用 Cherry Studio MCP 来实现 Arxiv 论文的下载和总结。

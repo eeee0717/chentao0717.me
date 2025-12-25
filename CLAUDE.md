@@ -54,7 +54,7 @@ duration: 10min # Optional: reading time
 type: blog # Optional: filters post type
 draft: true # Hides from post list
 private: true # Prevents Git commit (see below)
-art: plum|dots|random # Optional: decorative animation
+art: connections|dots|random # Optional: decorative animation
 ---
 ```
 

@@ -4,6 +4,7 @@ date: 2024-12-27 10:49:34
 lang: zh
 duration: 10min
 type: blog
+art: connections
 ---
 
 ## Subtitle-Translator-CLI使用说明书

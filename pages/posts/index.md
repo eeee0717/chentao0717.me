@@ -1,7 +1,7 @@
 ---
 title: Blog - Chen Tao
 display: ''
-art: plum
+art: connections
 ---
 
 <SubNav />

@@ -3,7 +3,7 @@ title: Projects - Chen Tao
 display: Projects
 description: List of projects that I am proud of
 wrapperClass: 'text-center'
-art: plum
+art: connections
 projects:
   Current Focus:
     - name: 'Cherry-Studio'

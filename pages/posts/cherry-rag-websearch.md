@@ -5,6 +5,7 @@ lang: zh
 duration: 10min
 type: blog
 image: https://chentao0717.cn/og/cherry-rag-websearch.jpg
+art: connections
 ---
 
 随着Cherry Studio v1.2.5版本的更新，在知识库和网络搜索方面又有了一些新的进展。为此，打算写一篇Blog来分享一下如何更"聪明"地使用这两个功能。

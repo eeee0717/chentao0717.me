@@ -4,6 +4,7 @@ date: 2025-02-10 20:06:33
 lang: en
 duration: 10min
 type: blog
+art: connections
 ---
 
 ## Variables

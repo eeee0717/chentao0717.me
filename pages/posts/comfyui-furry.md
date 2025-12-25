@@ -4,6 +4,7 @@ date: 2024-05-20 15:11:18
 lang: zh
 duration: 5min
 type: blog
+art: connections
 ---
 
 Hello大家好，今天给大家带来毛茸茸风格的Comfyui工作流的搭建教程。

@@ -5,6 +5,7 @@ lang: zh
 duration: 10min
 type: blog
 image: https://chentao0717.cn/og/cherry-knowledge-v2.jpg
+art: connections
 ---
 
 ## 目标

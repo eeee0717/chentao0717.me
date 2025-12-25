@@ -4,6 +4,7 @@ date: 2025-01-03 14:05:34
 lang: zh
 duration: 5min
 type: blog
+art: connections
 ---
 
 距离我从Win党转换到Mac党已经有两年多的时间了，从一开始的不熟悉到现在已经无法离开macos，也经历了需要折腾的过程，🛠工具也在不断地更新迭代，分享一些目前我常用的工具。

@@ -4,6 +4,7 @@ date: 2023-10-28T16:00:00.000+00:00
 lang: zh
 duration: 25min
 type: blog
+art: connections
 ---
 
 [原文连接](https://devblogs.microsoft.com/dotnet/the-convenience-of-system-text-json/)

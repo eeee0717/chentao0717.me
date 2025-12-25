@@ -3,6 +3,9 @@ import dayjs from 'dayjs'
 export const isDark = useDark()
 export const englishOnly = useStorage('chentao-english-only', false)
 
+const windowSize = useWindowSize()
+export const isMobile = computed(() => windowSize.width.value < 768)
+
 /**
  * Credit to [@hooray](https://github.com/hooray)
  * @see https://github.com/vuejs/vitepress/pull/2347

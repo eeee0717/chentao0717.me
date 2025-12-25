@@ -1,6 +1,6 @@
 ---
 title: Notes - Chen Tao
-art: plum
+art: connections
 display: ''
 ---
 

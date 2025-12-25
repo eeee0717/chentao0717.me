@@ -1,14 +1,17 @@
 <script setup lang="ts">
+import { isMobile } from '~/logics'
+
 const el = ref<HTMLCanvasElement | null>(null)
 const size = reactive(useWindowSize())
 
-const MIN_POINTS = 50
-const MAX_POINTS = 500
 const GROW_DURATION = 8000
 const MAX_DISTANCE = 100
 const SPEED = 0.3
 const LINE_COLOR = '#888888'
 const POINT_RADIUS = 2
+
+const minPoints = computed(() => isMobile.value ? 30 : 50)
+const maxPoints = computed(() => isMobile.value ? 200 : 500)
 
 interface Point {
   x: number
@@ -20,7 +23,7 @@ interface Point {
 const points: Point[] = []
 let animationId: number | null = null
 let startTime = 0
-let activePointCount = MIN_POINTS
+let activePointCount = 0
 
 function initCanvas(canvas: HTMLCanvasElement, width: number, height: number) {
   const ctx = canvas.getContext('2d')!
@@ -35,9 +38,9 @@ function initCanvas(canvas: HTMLCanvasElement, width: number, height: number) {
   return ctx
 }
 
-function createPoints(width: number, height: number) {
+function createPoints(width: number, height: number, count: number) {
   points.length = 0
-  for (let i = 0; i < MAX_POINTS; i++) {
+  for (let i = 0; i < count; i++) {
     points.push({
       x: Math.random() * width,
       y: Math.random() * height,
@@ -99,7 +102,7 @@ function draw(ctx: CanvasRenderingContext2D, width: number, height: number, coun
 onMounted(() => {
   const canvas = el.value!
   let ctx = initCanvas(canvas, size.width, size.height)
-  createPoints(size.width, size.height)
+  createPoints(size.width, size.height, maxPoints.value)
   startTime = Date.now()
 
   function animate() {
@@ -107,7 +110,7 @@ onMounted(() => {
     const elapsed = Date.now() - startTime
     const progress = Math.min(elapsed / GROW_DURATION, 1)
     const eased = Math.sin(progress * Math.PI / 2)
-    activePointCount = Math.floor(MIN_POINTS + (MAX_POINTS - MIN_POINTS) * eased)
+    activePointCount = Math.floor(minPoints.value + (maxPoints.value - minPoints.value) * eased)
 
     updatePoints(size.width, size.height, activePointCount)
     draw(ctx, size.width, size.height, activePointCount)
@@ -118,6 +121,11 @@ onMounted(() => {
 
   watch([() => size.width, () => size.height], () => {
     ctx = initCanvas(canvas, size.width, size.height)
+  })
+
+  watch(isMobile, () => {
+    createPoints(size.width, size.height, maxPoints.value)
+    startTime = Date.now()
   })
 })
 

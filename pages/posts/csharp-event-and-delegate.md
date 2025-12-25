@@ -4,6 +4,7 @@ date: 2023-10-12T16:00:00.000+00:00
 lang: zh
 duration: 20min
 type: blog
+art: connections
 ---
 
 [原文链接](https://csharpindepth.com/Articles/Events)
