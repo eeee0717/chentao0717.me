@@ -40,6 +40,9 @@ export default defineConfig({
       'dayjs/plugin/localizedFormat',
     ],
   },
+  ssr: {
+    noExternal: ['gsap'],
+  },
   plugins: [
     UnoCSS(),
 
