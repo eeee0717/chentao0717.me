@@ -1,12 +1,14 @@
 <script setup lang="ts">
 import { computed, nextTick, onMounted, onUnmounted, ref, useTemplateRef, watchEffect } from 'vue'
 import { gsap } from 'gsap'
+import { blurhashToGradientCssObject } from '@unpic/placeholder'
 
 interface Item {
   id: string
   img: string
   url: string
   ratio: number // height/width ratio
+  blurhash?: string
 }
 
 interface MasonryProps {
@@ -73,17 +75,15 @@ function useMeasure() {
   return [containerRef, size] as const
 }
 
-async function preloadImages(urls: string[]): Promise<void> {
-  await Promise.all(
-    urls.map(
-      src =>
-        new Promise<void>((resolve) => {
-          const img = new Image()
-          img.src = src
-          img.onload = img.onerror = () => resolve()
-        }),
-    ),
-  )
+function getBlurhashStyle(blurhash?: string) {
+  if (!blurhash)
+    return {}
+  try {
+    return blurhashToGradientCssObject(blurhash)
+  }
+  catch {
+    return {}
+  }
 }
 
 const columns = useMedia(
@@ -93,8 +93,8 @@ const columns = useMedia(
 )
 
 const [containerRef, size] = useMeasure()
-const imagesReady = ref(false)
 const hasMounted = ref(false)
+const loadedImages = ref(new Set<string>())
 
 const grid = computed(() => {
   if (!size.value.width)
@@ -193,16 +193,17 @@ function handleMouseLeave(id: string, element: HTMLElement) {
   }
 }
 
-watchEffect(() => {
-  preloadImages(props.items.map(i => i.img)).then(() => {
-    imagesReady.value = true
+function onImageLoad(id: string) {
+  loadedImages.value.add(id)
+  // 图片加载完成后淡入
+  gsap.to(`[data-key="${id}"] .image-layer`, {
+    opacity: 1,
+    duration: 0.5,
+    ease: 'power2.out',
   })
-})
+}
 
 watchEffect(() => {
-  if (!imagesReady.value)
-    return
-
   const currentGrid = grid.value
   void props.items.length
   void columns.value
@@ -266,9 +267,23 @@ watchEffect(() => {
       @mouseleave="e => handleMouseLeave(item.id, e.currentTarget as HTMLElement)"
     >
       <div
-        class="relative w-full h-full bg-cover bg-center rounded-[10px] shadow-[0px_10px_50px_-10px_rgba(0,0,0,0.2)] uppercase text-[10px] leading-[10px]"
-        :style="{ backgroundImage: `url(${item.img})` }"
+        class="relative w-full h-full rounded-[10px] shadow-[0px_10px_50px_-10px_rgba(0,0,0,0.2)] overflow-hidden"
       >
+        <!-- Blurhash placeholder -->
+        <div
+          v-if="item.blurhash"
+          class="absolute inset-0 rounded-[10px]"
+          :style="getBlurhashStyle(item.blurhash)"
+        />
+        <!-- Actual image with lazy loading -->
+        <img
+          :src="item.img"
+          :alt="item.id"
+          loading="lazy"
+          class="image-layer absolute inset-0 w-full h-full object-cover rounded-[10px]"
+          :style="{ opacity: loadedImages.has(item.id) ? 1 : 0, transition: 'opacity 0.5s ease-out' }"
+          @load="onImageLoad(item.id)"
+        >
         <div
           v-if="colorShiftOnHover"
           class="color-overlay absolute inset-0 rounded-[10px] bg-gradient-to-tr from-pink-500/50 to-sky-500/50 opacity-0 pointer-events-none"

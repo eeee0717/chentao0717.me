@@ -7,9 +7,11 @@
     "dev": "vite --port 3333 --mode dev",
     "preview": "vite preview",
     "lint": "eslint .",
-    "summary": "node script/generate-ai-summary.cjs"
+    "summary": "node script/generate-ai-summary.cjs",
+    "photos": "node script/process-photos.cjs"
   },
   "dependencies": {
+    "@unpic/placeholder": "^0.1.2",
     "@vueuse/core": "^12.2.0",
     "@vueuse/integrations": "^12.2.0",
     "clsx": "^2.1.1",
@@ -47,6 +49,7 @@
     "@unhead/vue": "^1.9.10",
     "@unocss/reset": "^0.60.0",
     "@vitejs/plugin-vue": "^5.0.4",
+    "blurhash": "^2.0.5",
     "cheerio": "^1.1.2",
     "cross-env": "^7.0.3",
     "d3-hierarchy": "^3.1.2",
@@ -73,6 +76,7 @@
     "prompts": "^2.4.2",
     "rimraf": "^5.0.5",
     "sass-embedded": "^1.83.0",
+    "sharp": "^0.34.5",
     "shiki": "^3.20.0",
     "simple-git": "^3.24.0",
     "simple-git-hooks": "^2.11.1",
