@@ -1,11 +1,15 @@
 ---
 title: Cherry Studio 知识库V2 提案
-date: 2025-12-21
+date: 2025-12-21T00:00:00.000Z
 lang: zh
-duration: 10min
+duration: 20min
 type: blog
-image: https://chentao0717.cn/og/cherry-knowledge-v2.jpg
+image: 'https://chentao0717.cn/og/cherry-knowledge-v2.jpg'
 art: connections
+ai: true
+summary:
+  本文提出 Cherry Studio 知识库 V2 提案，旨在构建以 Agentic RAG 为核心的原子化架构。通过 MCP 协议赋予 Agent
+  自助阅读、智能标注与动态优化能力，使知识库从静态存储转变为可进化的智能系统。该方案支持多种检索模式动态切换，助力打造真正具备学习能力的“第二大脑”。
 ---
 
 ## 目标
