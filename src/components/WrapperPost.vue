@@ -19,7 +19,9 @@ function share() {
 onMounted(() => {
   const navigate = () => {
     if (location.hash) {
-      const el = document.querySelector(decodeURIComponent(location.hash))
+      const decodedId = decodeURIComponent(location.hash).slice(1)
+      const encodedId = location.hash.slice(1)
+      const el = document.getElementById(decodedId) || document.getElementById(encodedId)
       if (el) {
         const rect = el.getBoundingClientRect()
         const y = window.scrollY + rect.top - 40
