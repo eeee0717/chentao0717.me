@@ -266,3 +266,71 @@ h6:focus .header-anchor {
   width: 1.6em;
   border-radius: 50%;
 }
+
+/* Post container with TOC */
+.post-container {
+  position: relative;
+}
+
+/* Right TOC */
+.toc-right {
+  position: fixed;
+  top: 150px;
+  left: calc(50% + 350px);
+  width: 180px;
+  max-height: calc(100vh - 200px);
+  overflow-y: auto;
+  font-size: 0.85em;
+  opacity: 0.5;
+  transition: opacity 0.3s;
+}
+
+@media (max-width: 900px) {
+  .toc-right {
+    display: none;
+  }
+}
+
+.toc-right:hover {
+  opacity: 1;
+}
+
+.toc-right ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.toc-right li {
+  transition: all 0.2s;
+}
+
+.toc-right a {
+  display: block;
+  padding: 4px 12px;
+  color: inherit;
+  text-decoration: none;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.toc-right a:hover {
+  opacity: 1;
+}
+
+.toc-right li.active > a {
+  opacity: 1;
+  font-weight: 500;
+}
+
+.toc-level-1 {
+  padding-left: 0;
+}
+
+.toc-level-2 {
+  padding-left: 12px;
+}
+
+.toc-level-3 {
+  padding-left: 24px;
+}

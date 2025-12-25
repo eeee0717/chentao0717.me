@@ -10,7 +10,7 @@ const { frontmatter } = defineProps({
 const showShareCard = ref(false)
 const router = useRouter()
 const route = useRoute()
-const content = ref<HTMLDivElement>()
+const content = ref<HTMLDivElement | null>(null)
 
 function share() {
   showShareCard.value = !showShareCard.value
@@ -131,9 +131,12 @@ const ArtComponent = computed(() => {
     </p>
     <AISummary v-if="frontmatter.ai && frontmatter.summary" :summary="frontmatter.summary" />
   </div>
-  <article ref="content" :class="[frontmatter.tocAlwaysOn ? 'toc-always-on' : '', frontmatter.class]">
-    <slot />
-  </article>
+  <div class="post-container">
+    <article ref="content" :class="[frontmatter.tocAlwaysOn ? 'toc-always-on' : '', frontmatter.class]">
+      <slot />
+    </article>
+    <TableOfContents v-if="frontmatter.toc !== false" :content-ref="content" />
+  </div>
   <div v-if="route.path !== '/'" class="prose m-auto mt-8 mb-8 slide-enter animate-delay-500 print:hidden">
     <template v-if="frontmatter.duration">
       <span font-mono op50>> </span>

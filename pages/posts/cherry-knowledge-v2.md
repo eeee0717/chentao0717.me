@@ -95,4 +95,5 @@ summary:
 ## 参考文献
 
 [^1]: [R3-RAG: Learning Step-by-Step Reasoning and Retrieval for LLMs via Reinforcement Learning](https://arxiv.org/abs/2505.23794)
+
 [^2]: [Thinking Forward and Backward:Multi-Objective Reinforcement Learning for Retrieval-Augmented Reasoning](https://arxiv.org/pdf/2511.09109)
