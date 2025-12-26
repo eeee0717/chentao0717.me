@@ -1,9 +1,26 @@
 <script setup lang="ts">
-import type { GithubData, GridItem, LayoutItem, MapData, PersonalityData, RecapData } from '~/types'
+import * as htmlToImage from 'html-to-image'
+import type { GithubData, GridItem, LayoutItem, PersonalityData, RecapData, TravelMapData } from '~/types'
 
 const props = defineProps<{
   data: RecapData
 }>()
+
+const posterRef = ref<HTMLElement>()
+
+async function exportPNG() {
+  if (!posterRef.value)
+    return
+
+  const dataUrl = await htmlToImage.toPng(posterRef.value, {
+    pixelRatio: 2,
+  })
+
+  const link = document.createElement('a')
+  link.download = `${props.data.year}-recap.png`
+  link.href = dataUrl
+  link.click()
+}
 
 // 计算需要的行数
 const rowCount = computed(() => {
@@ -36,8 +53,8 @@ function getGridStyle(item: LayoutItem) {
 function isGridItem(data: LayoutItem['data']): data is GridItem {
   return !!data && 'image' in data && 'id' in data
 }
-function isMapData(data: LayoutItem['data']): data is MapData {
-  return !!data && 'location' in data && 'backgroundImage' in data
+function isTravelMapData(data: LayoutItem['data']): data is TravelMapData {
+  return !!data && 'locations' in data && 'backgroundImage' in data
 }
 function isPersonalityData(data: LayoutItem['data']): data is PersonalityData {
   return !!data && 'type' in data && 'color' in data
@@ -49,8 +66,16 @@ function isGithubData(data: LayoutItem['data']): data is GithubData {
 
 <template>
   <div>
-    <h1>{{ data.year }}年终总结海报</h1>
+    <div class="flex items-center gap-4 mb-4">
+      <h1 class="!mb-0">
+        {{ data.year }}年终总结海报
+      </h1>
+      <button class="hidden lg:block btn" @click="exportPNG">
+        <span class="i-carbon-save" />
+      </button>
+    </div>
     <div
+      ref="posterRef"
       class="hidden lg:grid lg:gap-6 justify-center lg:grid-cols-8"
       :style="{ gridTemplateRows: `repeat(${rowCount}, 4rem)` }"
     >
@@ -74,10 +99,10 @@ function isGithubData(data: LayoutItem['data']): data is GithubData {
           </Box>
         </template>
 
-        <!-- Map -->
-        <template v-else-if="item.type === 'map' && isMapData(item.data)">
+        <!-- Travel Map -->
+        <template v-else-if="item.type === 'travel' && isTravelMapData(item.data)">
           <div :style="getGridStyle(item)">
-            <Map v-bind="item.data" />
+            <TravelMap v-bind="item.data" />
           </div>
         </template>
 

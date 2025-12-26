@@ -30,6 +30,16 @@ export interface MapData {
   backgroundImage: string
 }
 
+export interface TravelLocation {
+  location: string
+  position: { x: number, y: number }
+}
+
+export interface TravelMapData {
+  backgroundImage: string
+  locations: TravelLocation[]
+}
+
 export interface GithubData {
   title: string
   rank: string
@@ -43,7 +53,7 @@ export interface PersonalityData {
 }
 
 // 布局项类型
-export type LayoutItemType = 'grid' | 'map' | 'personality' | 'github' | 'empty'
+export type LayoutItemType = 'grid' | 'map' | 'travel' | 'personality' | 'github' | 'empty'
 
 export interface LayoutItem {
   type: LayoutItemType
@@ -53,7 +63,7 @@ export interface LayoutItem {
   cols: number
   rows: number
   // 根据 type 的不同数据
-  data?: GridItem | MapData | PersonalityData | GithubData
+  data?: GridItem | MapData | TravelMapData | PersonalityData | GithubData
 }
 
 export interface RecapData {
