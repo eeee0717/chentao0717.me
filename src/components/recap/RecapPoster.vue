@@ -76,61 +76,88 @@ function isGithubData(data: LayoutItem['data']): data is GithubData {
     </div>
     <div
       ref="posterRef"
-      class="hidden lg:grid lg:gap-6 justify-center lg:grid-cols-8"
-      :style="{ gridTemplateRows: `repeat(${rowCount}, 4rem)` }"
+      class="poster-frame hidden lg:block"
     >
-      <template v-for="(item, index) in data.layout" :key="index">
-        <!-- Grid Item -->
-        <template v-if="item.type === 'grid' && isGridItem(item.data)">
-          <Box
-            class="bg-coolGray bg-op-20"
-            :style="getGridStyle(item)"
-          >
-            <div class="flex-row justify-center h-full">
-              <img
-                class="rounded-2xl"
-                :class="item.data.title ? '' : 'h-full'"
-                :src="item.data.image"
-              >
-              <div v-if="item.data.title" class="flex justify-center">
-                {{ item.data.title }}
+      <div
+        class="grid gap-6 justify-center grid-cols-8"
+        :style="{ gridTemplateRows: `repeat(${rowCount}, 4rem)` }"
+      >
+        <template v-for="(item, index) in data.layout" :key="index">
+          <!-- Grid Item -->
+          <template v-if="item.type === 'grid' && isGridItem(item.data)">
+            <Box
+              class="bg-coolGray bg-op-20"
+              :style="getGridStyle(item)"
+            >
+              <div class="flex-row justify-center h-full">
+                <img
+                  class="rounded-2xl"
+                  :class="item.data.title ? '' : 'h-full'"
+                  :src="item.data.image"
+                >
+                <div v-if="item.data.title" class="flex justify-center">
+                  {{ item.data.title }}
+                </div>
               </div>
+            </Box>
+          </template>
+
+          <!-- Travel Map -->
+          <template v-else-if="item.type === 'travel' && isTravelMapData(item.data)">
+            <div :style="getGridStyle(item)">
+              <TravelMap v-bind="item.data" />
             </div>
-          </Box>
-        </template>
+          </template>
 
-        <!-- Travel Map -->
-        <template v-else-if="item.type === 'travel' && isTravelMapData(item.data)">
-          <div :style="getGridStyle(item)">
-            <TravelMap v-bind="item.data" />
-          </div>
-        </template>
+          <!-- Personality -->
+          <template v-else-if="item.type === 'personality' && isPersonalityData(item.data)">
+            <div :style="getGridStyle(item)">
+              <Personality v-bind="item.data" />
+            </div>
+          </template>
 
-        <!-- Personality -->
-        <template v-else-if="item.type === 'personality' && isPersonalityData(item.data)">
-          <div :style="getGridStyle(item)">
-            <Personality v-bind="item.data" />
-          </div>
-        </template>
+          <!-- Github -->
+          <template v-else-if="item.type === 'github' && isGithubData(item.data)">
+            <div :style="getGridStyle(item)">
+              <Github v-bind="item.data" />
+            </div>
+          </template>
 
-        <!-- Github -->
-        <template v-else-if="item.type === 'github' && isGithubData(item.data)">
-          <div :style="getGridStyle(item)">
-            <Github v-bind="item.data" />
-          </div>
+          <!-- Empty placeholder -->
+          <template v-else-if="item.type === 'empty'">
+            <Box
+              class="bg-coolGray bg-op-20"
+              :style="getGridStyle(item)"
+            />
+          </template>
         </template>
-
-        <!-- Empty placeholder -->
-        <template v-else-if="item.type === 'empty'">
-          <Box
-            class="bg-coolGray bg-op-20"
-            :style="getGridStyle(item)"
-          />
-        </template>
-      </template>
+      </div>
     </div>
     <div class="lg:hidden">
       手机分辨率过低，请使用电脑查看！
     </div>
   </div>
 </template>
+
+<style scoped>
+.poster-frame {
+  border-radius: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  box-shadow:
+    inset 0 2px 8px rgba(0, 0, 0, 0.12),
+    inset 0 0 0 1px rgba(0, 0, 0, 0.05);
+  background: rgba(0, 0, 0, 0.04);
+  padding: 1.5rem;
+}
+
+.dark .poster-frame {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow:
+    inset 0 2px 12px rgba(0, 0, 0, 0.5),
+    inset 0 -2px 8px rgba(0, 0, 0, 0.3),
+    inset 2px 0 8px rgba(0, 0, 0, 0.3),
+    inset -2px 0 8px rgba(0, 0, 0, 0.3),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+</style>
