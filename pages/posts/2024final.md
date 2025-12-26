@@ -35,4 +35,8 @@ art: connections
 
 > Always Coding, Always Learning.
 
-<FinalPhotos/>
+<script setup>
+import { recapData } from '~/data/2024'
+</script>
+
+<RecapPoster :data="recapData" />
