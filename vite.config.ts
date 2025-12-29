@@ -20,6 +20,7 @@ import MarkdownItMagicLink from 'markdown-it-magic-link'
 import MarkdownItFootnote from 'markdown-it-footnote'
 import VueRouter from 'unplugin-vue-router/vite'
 import { VueRouterAutoImports } from 'unplugin-vue-router'
+import Yaml from 'unplugin-yaml/vite'
 
 // @ts-expect-error missing types
 import TOC from 'markdown-it-table-of-contents'
@@ -168,6 +169,8 @@ export default defineConfig({
       svgo: false,
       defaultImport: 'url',
     }),
+
+    Yaml(),
 
     {
       name: 'await',

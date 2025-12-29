@@ -70,3 +70,18 @@ export interface RecapData {
   year: number
   layout: LayoutItem[]
 }
+
+// Footprints 足迹地图类型
+export interface FootprintPlace {
+  label: string
+  coords: [number, number] | `${number},${number}`
+  current?: boolean
+}
+
+export interface FootprintCategory {
+  label: string
+  color: string
+  places: FootprintPlace[]
+}
+
+export type FootprintsData = FootprintCategory[]

@@ -39,6 +39,8 @@ export default defineConfig({
   ],
   safelist: [
     'i-ri-menu-2-fill',
+    'i-ph-globe-hemisphere-east-duotone',
+    'i-ph-map-trifold-duotone',
     'col-span-1',
     'col-span-2',
     'col-span-3',

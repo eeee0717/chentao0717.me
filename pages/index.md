@@ -18,6 +18,10 @@ Occasionally, I also do some coding projects on [哔哩哔哩](https://space.bil
 
 Outside of programming, I enjoy doing photography and traveling. Some of my photos can be found on [Photos](/photos). If you happen to be in the same city I live (currently in Hangzhou), maybe we can hang out and take some photos or code together.
 
+<ClientOnly>
+  <FootprintsMap class="footprints-embed" :zoom="1.3" auto-rotate/>
+</ClientOnly>
+
 <div flex-auto />
 
 ---
@@ -32,3 +36,12 @@ Find me on
 </p>
 
 ---
+
+<style scoped>
+.footprints-embed {
+  height: 400px;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  margin: 1.5rem 0;
+}
+</style>

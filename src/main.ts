@@ -8,6 +8,7 @@ import 'shiki-magic-move/style.css'
 import './styles/main.css'
 import './styles/prose.css'
 import './styles/markdown.css'
+import './styles/mapbox.css'
 
 import 'uno.css'
 

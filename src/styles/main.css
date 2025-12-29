@@ -225,3 +225,8 @@ html:not(.dark) [img-dark] {
 .fade-leave-to {
   opacity: 0;
 }
+
+/* Hide footer on specific pages */
+body.hide-footer footer {
+  display: none !important;
+}

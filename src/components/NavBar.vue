@@ -10,7 +10,7 @@ const { y: scroll } = useWindowScroll()
 </script>
 
 <template>
-  <header class="header z-40">
+  <header class="header z-40 relative">
     <button
       title="Scroll to top"
       fixed right-3 bottom-3 w-10 h-10 hover:op100 rounded-full
@@ -43,6 +43,9 @@ const { y: scroll } = useWindowScroll()
         </RouterLink>
         <RouterLink to="/photos" title="Photos">
           <div i-ri-camera-3-line />
+        </RouterLink>
+        <RouterLink to="/footprints" title="Footprints">
+          <div i-ri-map-pin-line />
         </RouterLink>
         <a href="https://x.com/chentao_007" target="_blank" title="Twitter" class="lt-md:hidden">
           <div i-ri-twitter-x-fill />
