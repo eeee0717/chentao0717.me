@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import mapboxgl, { Map } from 'mapbox-gl'
+import mapboxgl from 'mapbox-gl'
+import type { Map } from 'mapbox-gl'
 import MapboxLanguage from '@mapbox/mapbox-gl-language'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import { isDark } from '~/logics'

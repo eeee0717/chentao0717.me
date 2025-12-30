@@ -1,11 +1,14 @@
 <script setup lang="ts">
-import { type Map, Marker, Popup } from 'mapbox-gl'
+import mapboxgl from 'mapbox-gl'
+import type { Map } from 'mapbox-gl'
 import type { FootprintPlace } from '~/types'
 
 const props = defineProps<{
   color: string
   place: FootprintPlace
 }>()
+
+const { Marker, Popup } = mapboxgl
 
 const map = inject<Ref<Map | undefined>>('mapbox-map')
 
