@@ -40,7 +40,7 @@ onMounted(() => {
 
   mapboxgl.accessToken = import.meta.env.VITE_MAPBOX_TOKEN
 
-  const mapInstance = new Map({
+  const mapInstance = new mapboxgl.Map({
     container: mapContainer.value,
     style: mapStyle.value,
     center: props.center,

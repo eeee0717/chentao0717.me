@@ -32,19 +32,19 @@ onUnmounted(() => {
 })
 
 // Active legend categories (default: Visited, Residence, and Wishlist)
-const activeLegends = reactive(new Set(['Visited', 'Residence', 'Wishlist']))
+const activeLegends = ref(new Set(['Visited', 'Residence', 'Wishlist']))
 
 // Filtered data based on active legends
 const filteredData = computed(() =>
-  data.filter(category => activeLegends.has(category.label)),
+  data.filter(category => activeLegends.value.has(category.label)),
 )
 
 function handleLegendToggle(label: string, value: boolean) {
   if (value)
-    activeLegends.add(label)
+    activeLegends.value.add(label)
 
   else
-    activeLegends.delete(label)
+    activeLegends.value.delete(label)
 }
 </script>
 
