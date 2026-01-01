@@ -38,7 +38,7 @@ Configured markdown-it plugins provide:
 - **Anchor links** with `#` symbols inside headers
 - **Table of contents** via `[[toc]]` directive (levels 1-4)
 - **GitHub Alerts** for callouts/admonitions
-- **Magic Links**: Shortcuts like `CherryStudio`, `MicaApps` expand to full URLs (see `vite.config.ts:121-129`)
+- **Magic Links**: Shortcuts like `CherryStudio`expand to full URLs (see `vite.config.ts:121-129`)
 - **Auto external links**: External URLs get `target="_blank" rel="noopener"`
 
 ### Frontmatter Schema

@@ -7,9 +7,9 @@ art: connections
 
 Hey, I am 槑囿脑袋.
 
-A student from **BJUT**.
+Currently studying for a graduate degree 😢.
 
-Team menber of {CherryStudio} {MicaApps}<br>
+Team member of {CherryStudio}<br>
 Contributor of {Leetcode-master} {CS-base} {Leetcode-extension}
 
 Dreaming up ideas and making them come true is where my passion lies. You can find my [full projects list here](/projects). I also share some technical [articles](/posts) on Blog.
