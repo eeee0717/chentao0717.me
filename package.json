@@ -8,7 +8,8 @@
     "preview": "vite preview",
     "lint": "eslint .",
     "summary": "tsx script/generate-ai-summary.ts",
-    "photos": "tsx script/process-photos.ts"
+    "photos": "tsx script/process-photos.ts",
+    "covers": "tsx script/process-collection-covers.ts"
   },
   "dependencies": {
     "@mapbox/mapbox-gl-language": "^1.0.1",

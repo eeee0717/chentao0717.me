@@ -44,8 +44,8 @@ const { y: scroll } = useWindowScroll()
         <RouterLink to="/photos" title="Photos">
           <div i-ri-camera-3-line />
         </RouterLink>
-        <RouterLink to="/footprints" title="Footprints">
-          <div i-ri-map-pin-line />
+        <RouterLink to="/collections" title="Collections">
+          <div i-carbon-explore />
         </RouterLink>
         <a href="https://x.com/chentao_007" target="_blank" title="Twitter" class="lt-md:hidden">
           <div i-ri-twitter-x-fill />

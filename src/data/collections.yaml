@@ -1,0 +1,28 @@
+# Collections: Movies, TV shows and books
+#
+# 字段说明:
+#   name: 名称（使用 _ 分隔可换行显示）
+#   cover: 封面图片路径（/images/collections/{year}/{number}.jpg）
+#   date: 日期（YYYY-MM-DD）
+#   status: 状态
+#     - completed: 已完成（不显示标签）
+#     - in_progress: 进行中（蓝色标签）
+#     - wishlist: 想看/想读（橙色标签）
+
+2026:
+  - name: 辉夜大小姐想让我告白_通往大人的阶梯
+    cover: /images/collections/2026/001.jpg
+    date: 2026-01-01
+    status: completed
+  - name: 架构整洁之道
+    cover: /images/collections/2026/002.jpg
+    date: 2026-01-01
+    status: in_progress
+  - name: 怪奇物语 第五季
+    cover: /images/collections/2026/003.jpg
+    date: 2026-01-02
+    status: wishlist
+  - name: The Immortal Man
+    cover: /images/collections/2026/004.jpg
+    date: 2026-03-06
+    status: wishlist

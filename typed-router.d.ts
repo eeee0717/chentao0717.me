@@ -21,6 +21,7 @@ declare module 'vue-router/auto-routes' {
     '/': RouteRecordInfo<'/', '/', Record<never, never>, Record<never, never>>,
     '/[...404]': RouteRecordInfo<'/[...404]', '/:404(.*)', { 404: ParamValue<true> }, { 404: ParamValue<false> }>,
     '/bookmarks': RouteRecordInfo<'/bookmarks', '/bookmarks', Record<never, never>, Record<never, never>>,
+    '/collections': RouteRecordInfo<'/collections', '/collections', Record<never, never>, Record<never, never>>,
     '/demos': RouteRecordInfo<'/demos', '/demos', Record<never, never>, Record<never, never>>,
     '/notes': RouteRecordInfo<'/notes', '/notes', Record<never, never>, Record<never, never>>,
     '/photos/': RouteRecordInfo<'/photos/', '/photos', Record<never, never>, Record<never, never>>,
@@ -46,6 +47,7 @@ declare module 'vue-router/auto-routes' {
     '/posts/subtitle-translator-cli': RouteRecordInfo<'/posts/subtitle-translator-cli', '/posts/subtitle-translator-cli', Record<never, never>, Record<never, never>>,
     '/posts/yazi': RouteRecordInfo<'/posts/yazi', '/posts/yazi', Record<never, never>, Record<never, never>>,
     '/posts/zero2rust': RouteRecordInfo<'/posts/zero2rust', '/posts/zero2rust', Record<never, never>, Record<never, never>>,
+    '/private/README': RouteRecordInfo<'/private/README', '/private/README', Record<never, never>, Record<never, never>>,
     '/projects': RouteRecordInfo<'/projects', '/projects', Record<never, never>, Record<never, never>>,
     '/test/': RouteRecordInfo<'/test/', '/test', Record<never, never>, Record<never, never>>,
   }

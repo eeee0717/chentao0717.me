@@ -57,7 +57,7 @@ export default defineConfig({
         if (!path)
           return
 
-        if (!path.includes('projects.md') && path.endsWith('.md')) {
+        if (!path.includes('projects.md') && !path.includes('collections.md') && path.endsWith('.md')) {
           const { data } = matter(fs.readFileSync(path, 'utf-8'))
           route.addToMeta({
             frontmatter: data,
