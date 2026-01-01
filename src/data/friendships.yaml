@@ -1,0 +1,23 @@
+# Friendships: Friend links
+#
+# 字段说明:
+#   username: 名称
+#   avatar: 头像链接
+#   website: 网站地址
+#   description: 个人描述
+#   date: 添加时间（YYYY-MM-DD）
+
+- username: Pleasurecruise
+  avatar: https://avatars.githubusercontent.com/u/144885467?v=4
+  website: https://www.yiming1234.cn/
+  date: 2025-01-01
+- username: Hakadao_
+  avatar: https://avatars.githubusercontent.com/u/33394391?v=4
+  website: https://hakadao.cc/
+  description: Now I am become a loser, the destroyer of myself.
+  date: 2025-01-01
+- username: 吐槽大王部落格
+  avatar: https://avatars.githubusercontent.com/u/8687182?v=4
+  website: https://www.tcdw.net/
+  description: 正在学习接受不完美的世界!
+  date: 2025-01-01

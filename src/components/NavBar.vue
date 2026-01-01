@@ -47,6 +47,9 @@ const { y: scroll } = useWindowScroll()
         <RouterLink to="/collections" title="Collections">
           <div i-carbon-explore />
         </RouterLink>
+        <RouterLink to="/friendship" title="Friends">
+          <div i-carbon-friendship />
+        </RouterLink>
         <a href="https://x.com/chentao_007" target="_blank" title="Twitter" class="lt-md:hidden">
           <div i-ri-twitter-x-fill />
         </a>
