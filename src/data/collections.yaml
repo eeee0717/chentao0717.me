@@ -20,9 +20,13 @@
     status: in_progress
   - name: 怪奇物语 第五季
     cover: /images/collections/2026/003.jpg
-    date: 2026-01-02
-    status: wishlist
+    date: 2026-01-03
+    status: in_progress
   - name: The Immortal Man
     cover: /images/collections/2026/004.jpg
     date: 2026-03-06
     status: wishlist
+  - name: 小丑回魂：欢迎来到德里镇
+    cover: /images/collections/2026/005.jpg
+    date: 2026-01-02
+    status: in_progress
