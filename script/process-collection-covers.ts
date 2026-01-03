@@ -55,21 +55,38 @@ async function processYear(yearDir: string): Promise<{ count: number, saved: num
 
   log(`\n  📁 ${yearDir}/`, 'cyan')
 
-  const files = fs.readdirSync(yearPath)
+  const allFiles = fs.readdirSync(yearPath)
     .filter(file => /\.(jpg|jpeg|png|webp)$/i.test(file))
     .sort()
 
-  if (files.length === 0) {
+  if (allFiles.length === 0) {
     log('    (空目录)', 'yellow')
     return { count: 0, saved: 0 }
   }
 
+  // 分离已处理和待处理的文件
+  const processedPattern = /^(\d{3})\.jpg$/
+  const processedFiles = allFiles.filter(f => processedPattern.test(f))
+  const newFiles = allFiles.filter(f => !processedPattern.test(f))
+
+  if (processedFiles.length > 0)
+    log(`    (${processedFiles.length} 张已处理，跳过)`, 'yellow')
+
+  if (newFiles.length === 0)
+    return { count: 0, saved: 0 }
+
+  // 找出已处理文件中的最大编号
+  const maxNumber = processedFiles.reduce((max, f) => {
+    const match = f.match(processedPattern)
+    return match ? Math.max(max, Number.parseInt(match[1], 10)) : max
+  }, 0)
+
   let totalSaved = 0
   const renamedFiles: { from: string, to: string }[] = []
 
-  for (let i = 0; i < files.length; i++) {
-    const file = files[i]
-    const newName = `${String(i + 1).padStart(3, '0')}.jpg`
+  for (let i = 0; i < newFiles.length; i++) {
+    const file = newFiles[i]
+    const newName = `${String(maxNumber + i + 1).padStart(3, '0')}.jpg`
     const inputPath = path.join(yearPath, file)
     const tempPath = path.join(yearPath, `_temp_${newName}`)
 
@@ -105,7 +122,7 @@ async function processYear(yearDir: string): Promise<{ count: number, saved: num
       fs.renameSync(tempPath, finalPath)
   }
 
-  return { count: files.length, saved: totalSaved }
+  return { count: newFiles.length, saved: totalSaved }
 }
 
 async function processCollections(): Promise<void> {

@@ -30,3 +30,7 @@
     cover: /images/collections/2026/005.jpg
     date: 2026-01-02
     status: in_progress
+  - name: 四元馆事件
+    cover: /images/collections/2026/006.jpg
+    date: 2026-01-03
+    status: wishlist
