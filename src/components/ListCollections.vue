@@ -25,6 +25,13 @@ function getStatusLabel(status: string) {
 function formatName(name: string) {
   return name.split('_')
 }
+
+function formatDate(item: any) {
+  if (item.status === 'completed' && item.end_date) {
+    return `${item.start_date} - ${item.end_date}`
+  }
+  return item.start_date || item.date // 向后兼容旧的date字段
+}
 </script>
 
 <template>
@@ -71,7 +78,7 @@ function formatName(name: string) {
               </template>
             </div>
             <div class="date text-xs op50">
-              {{ item.date }}
+              {{ formatDate(item) }}
             </div>
             <div v-if="getStatusLabel(item.status)" class="status text-xs mt-0.5" :class="getStatusLabel(item.status)?.class">
               {{ getStatusLabel(item.status)?.text }}
