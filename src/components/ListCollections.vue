@@ -1,7 +1,15 @@
 <script setup lang="ts">
 import collectionsData from '~/data/collections.yaml'
 
-const collections = collectionsData as Record<string, any[]>
+interface CollectionItem {
+  name: string
+  cover: string
+  status: 'completed' | 'in_progress' | 'wishlist'
+  start_date: string
+  end_date?: string
+}
+
+const collections = collectionsData as Record<string, CollectionItem[]>
 
 const sortedYears = computed(() => {
   return Object.keys(collections).sort((a, b) => Number(b) - Number(a))
@@ -24,6 +32,13 @@ function getStatusLabel(status: string) {
 
 function formatName(name: string) {
   return name.split('_')
+}
+
+function formatDate(item: CollectionItem) {
+  if (item.status === 'completed' && item.end_date)
+    return `${item.start_date} - ${item.end_date}`
+
+  return item.start_date
 }
 </script>
 
@@ -71,7 +86,7 @@ function formatName(name: string) {
               </template>
             </div>
             <div class="date text-xs op50">
-              {{ item.date }}
+              {{ formatDate(item) }}
             </div>
             <div v-if="getStatusLabel(item.status)" class="status text-xs mt-0.5" :class="getStatusLabel(item.status)?.class">
               {{ getStatusLabel(item.status)?.text }}

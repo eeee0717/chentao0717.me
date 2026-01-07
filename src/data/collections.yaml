@@ -3,34 +3,36 @@
 # 字段说明:
 #   name: 名称（使用 _ 分隔可换行显示）
 #   cover: 封面图片路径（/images/collections/{year}/{number}.jpg）
-#   date: 日期（YYYY-MM-DD）
+#   start_date: 开始日期（YYYY-MM-DD）
+#   end_date: 结束日期（YYYY-MM-DD，可选，仅completed状态有）
 #   status: 状态
-#     - completed: 已完成（不显示标签）
-#     - in_progress: 进行中（蓝色标签）
-#     - wishlist: 想看/想读（橙色标签）
+#     - completed: 已完成（显示日期范围）
+#     - in_progress: 进行中（显示开始日期）
+#     - wishlist: 想看/想读（显示添加日期）
 
 2026:
   - name: 辉夜大小姐想让我告白_通往大人的阶梯
     cover: /images/collections/2026/001.jpg
-    date: 2026-01-01
+    start_date: 2026-01-01
+    end_date: 2026-01-01
     status: completed
   - name: 架构整洁之道
     cover: /images/collections/2026/002.jpg
-    date: 2026-01-01
+    start_date: 2026-01-01
     status: in_progress
   - name: 怪奇物语 第五季
     cover: /images/collections/2026/003.jpg
-    date: 2026-01-03
+    start_date: 2026-01-03
     status: in_progress
   - name: The Immortal Man
     cover: /images/collections/2026/004.jpg
-    date: 2026-03-06
+    start_date: 2026-03-06
     status: wishlist
   - name: 小丑回魂：欢迎来到德里镇
     cover: /images/collections/2026/005.jpg
-    date: 2026-01-02
+    start_date: 2026-01-02
     status: in_progress
   - name: 四元馆事件
     cover: /images/collections/2026/006.jpg
-    date: 2026-01-03
-    status: wishlist
+    start_date: 2026-01-03
+    status: in_progress
