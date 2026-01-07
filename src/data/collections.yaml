@@ -13,7 +13,7 @@
 2026:
   - name: 辉夜大小姐想让我告白_通往大人的阶梯
     cover: /images/collections/2026/001.jpg
-    start_date: 2025-12-28
+    start_date: 2026-01-01
     end_date: 2026-01-01
     status: completed
   - name: 架构整洁之道
@@ -35,4 +35,4 @@
   - name: 四元馆事件
     cover: /images/collections/2026/006.jpg
     start_date: 2026-01-03
-    status: wishlist
+    status: in_progress

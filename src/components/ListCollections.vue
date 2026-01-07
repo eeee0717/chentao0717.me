@@ -1,7 +1,15 @@
 <script setup lang="ts">
 import collectionsData from '~/data/collections.yaml'
 
-const collections = collectionsData as Record<string, any[]>
+interface CollectionItem {
+  name: string
+  cover: string
+  status: 'completed' | 'in_progress' | 'wishlist'
+  start_date: string
+  end_date?: string
+}
+
+const collections = collectionsData as Record<string, CollectionItem[]>
 
 const sortedYears = computed(() => {
   return Object.keys(collections).sort((a, b) => Number(b) - Number(a))
@@ -26,11 +34,11 @@ function formatName(name: string) {
   return name.split('_')
 }
 
-function formatDate(item: any) {
-  if (item.status === 'completed' && item.end_date) {
+function formatDate(item: CollectionItem) {
+  if (item.status === 'completed' && item.end_date)
     return `${item.start_date} - ${item.end_date}`
-  }
-  return item.start_date || item.date // 向后兼容旧的date字段
+
+  return item.start_date
 }
 </script>
 
