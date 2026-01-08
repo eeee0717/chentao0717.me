@@ -11,29 +11,29 @@
 # - wishlist:想看/想读（显示添加日期）
 
 2026:
- - name:辉夜大小姐想让我告白_通往大人的阶梯
- cover: /images/collections/2026/001.jpg
- start_date:2026-01-01
- end_date:2026-01-01
- status: completed
- - name:架构整洁之道
- cover: /images/collections/2026/002.jpg
- start_date:2026-01-01
- status: in_progress
- - name:怪奇物语第五季
- cover: /images/collections/2026/003.jpg
- start_date:2026-01-03
- status: in_progress
- - name: The Immortal Man
- cover: /images/collections/2026/004.jpg
- start_date:2026-03-06
- status: wishlist
- - name:小丑回魂：欢迎来到德里镇
- cover: /images/collections/2026/005.jpg
- start_date:2026-01-02
- status: in_progress
- - name:四元馆事件
- cover: /images/collections/2026/006.jpg
- start_date:2026-01-03
- end_date:2026-01-08
- status: completed
+  - name: 辉夜大小姐想让我告白_通往大人的阶梯
+    cover: /images/collections/2026/001.jpg
+    start_date: 2026-01-01
+    end_date: 2026-01-01
+    status: completed
+  - name: 架构整洁之道
+    cover: /images/collections/2026/002.jpg
+    start_date: 2026-01-01
+    status: in_progress
+  - name: 怪奇物语第五季
+    cover: /images/collections/2026/003.jpg
+    start_date: 2026-01-03
+    status: in_progress
+  - name: The Immortal Man
+    cover: /images/collections/2026/004.jpg
+    start_date: 2026-03-06
+    status: wishlist
+  - name: 小丑回魂：欢迎来到德里镇
+    cover: /images/collections/2026/005.jpg
+    start_date: 2026-01-02
+    status: in_progress
+  - name: 四元馆事件
+    cover: /images/collections/2026/006.jpg
+    start_date: 2026-01-03
+    end_date: 2026-01-08
+    status: completed
