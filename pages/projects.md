@@ -10,10 +10,10 @@ projects:
       link: 'https://github.com/CherryHQ/cherry-studio'
       desc: '🍒 Cherry Studio is a desktop client '
       icon: 🍒
-    - name: 'Podwise AI'
-      link: 'https://github.com/eeee0717/podwise-ai'
-      desc: 'A platform to summarize podcast episodes'
-      icon: 'i-carbon-microphone'
+    - name: 'Cherry-Studio App'
+      link: 'https://github.com/CherryHQ/cherry-studio-app'
+      desc: '🍒 Cherry Studio is a app client '
+      icon: 🍒
 
   WPF:
     - name: 'Bosom Friends of IoT'
@@ -44,6 +44,10 @@ projects:
       link: 'https://github.com/eeee0717/subtitle-translator-cli'
       desc: 'A Command Line Tool to translate subtitle files'
       icon: 'i-carbon-translate'
+    - name: 'Podwise AI'
+      link: 'https://github.com/eeee0717/podwise-ai'
+      desc: 'A platform to summarize podcast episodes'
+      icon: 'i-carbon-microphone'
 
   Productivity:
     - name: 'Workspace'
