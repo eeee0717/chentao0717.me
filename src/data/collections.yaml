@@ -1,6 +1,6 @@
 # Collections: Movies, TV shows and books
 #
-#字段说明:
+# 字段说明:
 # name:名称（使用 _分隔可换行显示）
 # cover:封面图片路径（/images/collections/{year}/{number}.jpg）
 # start_date:开始日期（YYYY-MM-DD）
@@ -37,3 +37,15 @@
     start_date: 2026-01-03
     end_date: 2026-01-08
     status: completed
+  - name: 十角馆事件
+    cover: /images/collections/2026/007.jpg
+    start_date: 2026-01-10
+    status: wishlist
+  - name: 钟表馆事件
+    cover: /images/collections/2026/008.jpg
+    start_date: 2026-01-10
+    status: wishlist
+  - name: 无人生还
+    cover: /images/collections/2026/009.jpg
+    start_date: 2026-01-10
+    status: wishlist
