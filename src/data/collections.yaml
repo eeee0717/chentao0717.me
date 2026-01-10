@@ -1,155 +1,664 @@
-2026:
-  - name: 怪奇物语第五季
-    cover: /images/collections/2026/003.jpg
-    start_date: 2026-01-03
-    end_date: 2026-01-10
-    status: completed
-  - name: 黑袍纠察队 最终季
-    cover: /images/collections/2026/004.jpg
-    status: pending
-  - name: 人生切割术 第二季
-    cover: /images/collections/2026/005.jpg
-    status: pending
-  - name: 白莲花度假村 第三季
-    cover: /images/collections/2026/006.jpg
-    status: pending
-  - name: 最后生还者 第二季
-    cover: /images/collections/2026/007.jpg
-    status: pending
-  - name: 和平使者 第二季
-    cover: /images/collections/2026/008.jpg
-    status: pending
-  - name: 战士 第三季
-    cover: /images/collections/2026/009.jpg
-    status: pending
-  - name: 夜魔侠 重生
-    cover: /images/collections/2026/010.jpg
-    status: pending
-  - name: 星际牛仔 真人版
-    cover: /images/collections/2026/011.jpg
-    status: pending
-  - name: 基地 第三季
-    cover: /images/collections/2026/012.jpg
-    status: pending
-2025:
-  - name: 三体
-    cover: /images/collections/2025/001.jpg
-    start_date: 2025-01-03
-    end_date: 2025-01-05
-    status: completed
-  - name: 企鹅人
-    cover: /images/collections/2025/002.jpg
-    start_date: 2025-01-06
-    end_date: 2025-01-08
-    status: completed
-  - name: 洛基 第二季
-    cover: /images/collections/2025/003.jpg
-    start_date: 2025-01-09
-    end_date: 2025-01-11
-    status: completed
-  - name: 星球大战：骨干小队
-    cover: /images/collections/2025/004.jpg
-    start_date: 2025-01-12
-    end_date: 2025-01-14
-    status: completed
-  - name: 英雄联盟：双城之战 第二季
-    cover: /images/collections/2025/005.jpg
-    start_date: 2025-01-15
-    end_date: 2025-01-17
-    status: completed
-  - name: 鱿鱼游戏 第二季
-    cover: /images/collections/2025/006.jpg
-    start_date: 2025-01-18
-    end_date: 2025-01-20
-    status: completed
-  - name: 幕府将军
-    cover: /images/collections/2025/007.jpg
-    start_date: 2025-01-21
-    end_date: 2025-01-23
-    status: completed
-  - name: 真探：夜之国度
-    cover: /images/collections/2025/008.jpg
-    start_date: 2025-01-24
-    end_date: 2025-01-26
-    status: completed
-  - name: 辐射
-    cover: /images/collections/2025/009.jpg
-    start_date: 2025-01-27
-    end_date: 2025-01-29
-    status: completed
-  - name: 史密斯夫妇
-    cover: /images/collections/2025/010.jpg
-    start_date: 2025-01-30
-    end_date: 2025-02-01
-    status: completed
-  - name: 雷普利
-    cover: /images/collections/2025/011.jpg
-    start_date: 2025-02-02
-    end_date: 2025-02-04
-    status: completed
-  - name: 空战群英
-    cover: /images/collections/2025/012.jpg
-    start_date: 2025-02-05
-    end_date: 2025-02-07
-    status: completed
-2024:
-  - name: 最后生还者
-    cover: /images/collections/2024/001.jpg
-    start_date: 2024-01-15
-    end_date: 2024-01-17
-    status: completed
-  - name: 熊家餐馆
-    cover: /images/collections/2024/002.jpg
-    start_date: 2024-01-18
-    end_date: 2024-01-20
-    status: completed
-  - name: 白莲花度假村
-    cover: /images/collections/2024/003.jpg
-    start_date: 2024-01-21
-    end_date: 2024-01-23
-    status: completed
-  - name: 怪奇物语第四季
-    cover: /images/collections/2024/004.jpg
-    start_date: 2024-01-24
-    end_date: 2024-01-26
-    status: completed
-  - name: 安多
-    cover: /images/collections/2024/005.jpg
-    start_date: 2024-01-27
-    end_date: 2024-01-29
-    status: completed
-  - name: 黑袍纠察队第四季
-    cover: /images/collections/2024/006.jpg
-    start_date: 2024-01-30
-    end_date: 2024-02-01
-    status: completed
-  - name: 龙之家族
-    cover: /images/collections/2024/007.jpg
-    start_date: 2024-02-02
-    end_date: 2024-02-04
-    status: completed
-  - name: 指环王：力量之戒
-    cover: /images/collections/2024/008.jpg
-    start_date: 2024-02-05
-    end_date: 2024-02-07
-    status: completed
-  - name: 西部世界第四季
-    cover: /images/collections/2024/009.jpg
-    start_date: 2024-02-08
-    end_date: 2024-02-10
-    status: completed
-  - name: 星际迷航：奇异新世界
-    cover: /images/collections/2024/010.jpg
-    start_date: 2024-02-11
-    end_date: 2024-02-13
-    status: completed
-  - name: 人生切割术
-    cover: /images/collections/2024/011.jpg
-    start_date: 2024-02-14
-    end_date: 2024-02-16
-    status: completed
-  - name: 和平使者
-    cover: /images/collections/2024/012.jpg
-    start_date: 2024-02-17
-    end_date: 2024-02-19
-    status: completed
+- title: '乐队的夏天 第三季'
+  type: show
+  status: finished
+  info:
+    tags: [综艺]
+    rating: 4
+    date: '2023-10-14'
+    url: 'https://movie.douban.com/subject/36040854/'
+- title: '不良执念清除师'
+  type: show
+  status: finished
+  info:
+    tags: [台剧, 奇幻]
+    rating: 5
+    date: '2023-05-24'
+    url: 'https://movie.douban.com/subject/36163387/'
+- title: '漫长的季节'
+  type: show
+  status: finished
+  info:
+    tags: [国产剧, 悬疑]
+    rating: 5
+    date: '2023-05-10'
+    url: 'https://movie.douban.com/subject/36166421/'
+- title: '宿命之环'
+  type: book
+  status: reading
+  info:
+    tags: [网文, 奇幻]
+    rating: 4
+    date: '2023-05-15'
+    url: 'https://www.qidian.com/book/1036329422/'
+- title: '诡秘之主'
+  type: book
+  status: finished
+  info:
+    tags: [网文, 奇幻]
+    rating: 5
+    date: '2023-06-12'
+    url: 'https://www.qidian.com/book/1010868265/'
+- title: '道诡异仙'
+  type: book
+  status: finished
+  info:
+    tags: [网文, 仙侠, 惊悚]
+    rating: 4
+    date: '2023-04-12'
+    url: 'https://www.qidian.com/book/1031911365/'
+- title: '三体'
+  type: book
+  status: finished
+  info:
+    tags: [科幻, 小说]
+    rating: 5
+    date: '2022-08-01'
+    url: 'https://book.douban.com/subject/6520932/'
+- title: '三体III：死神永生'
+  type: book
+  status: finished
+  info:
+    tags: [科幻, 小说]
+    rating: 5
+    date: '2022-09-01'
+    url: 'https://book.douban.com/subject/10574761/'
+- title: '三体II：黑暗森林'
+  type: book
+  status: finished
+  info:
+    tags: [科幻, 小说]
+    rating: 5
+    date: '2022-08-15'
+    url: 'https://book.douban.com/subject/5363767/'
+- title: '狂飙'
+  type: show
+  status: finished
+  info:
+    tags: [国产剧, 犯罪]
+    rating: 5
+    date: '2023-02-01'
+    url: 'https://movie.douban.com/subject/35401015/'
+- title: '去有风的地方'
+  type: show
+  status: finished
+  info:
+    tags: [国产剧, 爱情]
+    rating: 4
+    date: '2023-02-24'
+    url: 'https://movie.douban.com/subject/35731077/'
+- title: '显微镜下的大明之丝绢案'
+  type: show
+  status: finished
+  info:
+    tags: [国产剧, 历史]
+    rating: 4
+    date: '2023-02-26'
+    url: 'https://movie.douban.com/subject/35715104/'
+- title: '人生路不熟'
+  type: show
+  status: finished
+  info:
+    tags: [电影, 喜剧]
+    rating: 4
+    date: '2023-05-06'
+    url: 'https://movie.douban.com/subject/36181978/'
+- title: '流浪地球2'
+  type: show
+  status: finished
+  info:
+    tags: [电影, 科幻]
+    rating: 5
+    date: '2023-02-15'
+    url: 'https://movie.douban.com/subject/35242750/'
+- title: '保你平安'
+  type: show
+  status: finished
+  info:
+    tags: [电影, 喜剧]
+    rating: 4
+    date: '2023-03-20'
+    url: 'https://movie.douban.com/subject/35300371/'
+- title: '铃芽之旅'
+  type: show
+  status: finished
+  info:
+    tags: [电影, 动画]
+    rating: 4
+    date: '2023-03-29'
+    url: 'https://movie.douban.com/subject/35561083/'
+- title: '灌篮高手'
+  type: show
+  status: finished
+  info:
+    tags: [电影, 动画]
+    rating: 5
+    date: '2023-04-20'
+    url: 'https://movie.douban.com/subject/26998670/'
+- title: '长月烬明'
+  type: show
+  status: finished
+  info:
+    tags: [国产剧, 奇幻, 爱情]
+    rating: 3
+    date: '2023-04-28'
+    url: 'https://movie.douban.com/subject/35501483/'
+- title: '怒海救援'
+  type: show
+  status: finished
+  info:
+    tags: [电影, 动作]
+    rating: 4
+    date: '2023-05-12'
+    url: 'https://movie.douban.com/subject/35413152/'
+- title: '蜘蛛侠：纵横宇宙'
+  type: show
+  status: finished
+  info:
+    tags: [电影, 动画]
+    rating: 5
+    date: '2023-06-25'
+    url: 'https://movie.douban.com/subject/26322854/'
+- title: '消失的她'
+  type: show
+  status: finished
+  info:
+    tags: [电影, 悬疑]
+    rating: 3
+    date: '2023-06-30'
+    url: 'https://movie.douban.com/subject/35750150/'
+- title: '长安三万里'
+  type: show
+  status: finished
+  info:
+    tags: [电影, 动画]
+    rating: 5
+    date: '2023-07-20'
+    url: 'https://movie.douban.com/subject/35749712/'
+- title: '封神第一部：朝歌风云'
+  type: show
+  status: finished
+  info:
+    tags: [电影, 奇幻]
+    rating: 4
+    date: '2023-07-28'
+    url: 'https://movie.douban.com/subject/27192291/'
+- title: '奥本海默'
+  type: show
+  status: finished
+  info:
+    tags: [电影, 传记]
+    rating: 5
+    date: '2023-08-30'
+    url: 'https://movie.douban.com/subject/35414172/'
+- title: '金银岛'
+  type: book
+  status: finished
+  info:
+    tags: [小说, 冒险]
+    rating: 4
+    date: '2023-09-01'
+    url: 'https://book.douban.com/subject/1055523/'
+- title: '白鹿原'
+  type: book
+  status: finished
+  info:
+    tags: [小说, 历史]
+    rating: 5
+    date: '2023-09-10'
+    url: 'https://book.douban.com/subject/1255536/'
+- title: '前夜'
+  type: show
+  status: finished
+  info:
+    tags: [国产剧, 谍战]
+    rating: 4
+    date: '2023-09-28'
+    url: 'https://movie.douban.com/subject/35882390/'
+- title: '莫斯科绅士'
+  type: book
+  status: finished
+  info:
+    tags: [小说, 历史]
+    rating: 5
+    date: '2023-09-29'
+    url: 'https://book.douban.com/subject/30352514/'
+- title: '间谍过家家 第二季'
+  type: show
+  status: finished
+  info:
+    tags: [日剧, 动画]
+    rating: 5
+    date: '2023-10-08'
+    url: 'https://movie.douban.com/subject/36486111/'
+- title: '奇迹缔造者 第四季'
+  type: show
+  status: finished
+  info:
+    tags: [美剧, 喜剧]
+    rating: 4
+    date: '2023-10-10'
+    url: 'https://movie.douban.com/subject/36077759/'
+- title: '洛基 第二季'
+  type: show
+  status: finished
+  info:
+    tags: [美剧, 奇幻, 动作]
+    rating: 4
+    date: '2023-10-12'
+    url: 'https://movie.douban.com/subject/35794519/'
+- title: 'V字仇杀队'
+  type: show
+  status: finished
+  info:
+    tags: [电影, 动作, 科幻]
+    rating: 5
+    date: '2023-10-15'
+    url: 'https://movie.douban.com/subject/1418916/'
+- title: '飞马营'
+  type: book
+  status: finished
+  info:
+    tags: [小说, 历史]
+    rating: 4
+    date: '2023-10-16'
+    url: 'https://book.douban.com/subject/36207038/'
+- title: '葬送的芙莉莲'
+  type: show
+  status: watching
+  info:
+    tags: [日剧, 动画, 奇幻]
+    rating: 5
+    date: '2023-10-17'
+    url: 'https://movie.douban.com/subject/35921804/'
+- title: '绝命毒师'
+  type: show
+  status: finished
+  info:
+    tags: [美剧, 犯罪, 剧情]
+    rating: 5
+    date: '2023-10-20'
+    url: 'https://movie.douban.com/subject/3271278/'
+- title: '请回答1988'
+  type: show
+  status: finished
+  info:
+    tags: [韩剧, 剧情, 喜剧]
+    rating: 5
+    date: '2023-10-25'
+    url: 'https://movie.douban.com/subject/26601440/'
+- title: '杀死一只知更鸟'
+  type: book
+  status: finished
+  info:
+    tags: [小说, 经典]
+    rating: 5
+    date: '2023-10-26'
+    url: 'https://book.douban.com/subject/1297521/'
+- title: '隐入尘烟'
+  type: show
+  status: finished
+  info:
+    tags: [电影, 剧情]
+    rating: 4
+    date: '2023-10-27'
+    url: 'https://movie.douban.com/subject/35387658/'
+- title: '心灵猎人 第二季'
+  type: show
+  status: finished
+  info:
+    tags: [美剧, 犯罪, 剧情]
+    rating: 5
+    date: '2023-10-28'
+    url: 'https://movie.douban.com/subject/30349479/'
+- title: '心灵猎人 第一季'
+  type: show
+  status: finished
+  info:
+    tags: [美剧, 犯罪, 剧情]
+    rating: 5
+    date: '2023-10-29'
+    url: 'https://movie.douban.com/subject/26588607/'
+- title: '沉默的真相'
+  type: show
+  status: finished
+  info:
+    tags: [国产剧, 犯罪, 悬疑]
+    rating: 5
+    date: '2023-10-30'
+    url: 'https://movie.douban.com/subject/34897126/'
+- title: '漫威：假如…？ 第二季'
+  type: show
+  status: finished
+  info:
+    tags: [美剧, 动画, 奇幻]
+    rating: 4
+    date: '2023-12-30'
+    url: 'https://movie.douban.com/subject/36203531/'
+- title: '沙丘'
+  type: book
+  status: finished
+  info:
+    tags: [科幻, 小说]
+    rating: 5
+    date: '2024-01-01'
+    url: 'https://book.douban.com/subject/26852261/'
+- title: '繁城之下'
+  type: show
+  status: finished
+  info:
+    tags: [国产剧, 悬疑]
+    rating: 4
+    date: '2023-10-24'
+    url: 'https://movie.douban.com/subject/35798991/'
+- title: '新闻女王'
+  type: show
+  status: finished
+  info:
+    tags: [港剧, 职场]
+    rating: 4
+    date: '2023-12-28'
+    url: 'https://movie.douban.com/subject/36421302/'
+- title: '美剧：我的前半生'
+  type: show
+  status: finished
+  info:
+    tags: [美剧, 喜剧]
+    rating: 4
+    date: '2023-12-29'
+    url: 'https://movie.douban.com/subject/36203531/'
+- title: '莲花楼'
+  type: show
+  status: finished
+  info:
+    tags: [国产剧, 武侠, 悬疑]
+    rating: 4
+    date: '2023-08-26'
+    url: 'https://movie.douban.com/subject/35454652/'
+- title: '哈利·波特与魔法石'
+  type: book
+  status: finished
+  info:
+    tags: [奇幻, 小说]
+    rating: 5
+    date: '2024-01-05'
+    url: 'https://book.douban.com/subject/1051280/'
+- title: '哈利·波特与密室'
+  type: book
+  status: finished
+  info:
+    tags: [奇幻, 小说]
+    rating: 5
+    date: '2024-01-06'
+    url: 'https://book.douban.com/subject/1051279/'
+- title: '哈利·波特与阿兹卡班囚徒'
+  type: book
+  status: finished
+  info:
+    tags: [奇幻, 小说]
+    rating: 5
+    date: '2024-01-07'
+    url: 'https://book.douban.com/subject/1802909/'
+- title: '哈利·波特与火焰杯'
+  type: book
+  status: finished
+  info:
+    tags: [奇幻, 小说]
+    rating: 5
+    date: '2024-01-08'
+    url: 'https://book.douban.com/subject/1802910/'
+- title: '哈利·波特与凤凰社'
+  type: book
+  status: finished
+  info:
+    tags: [奇幻, 小说]
+    rating: 5
+    date: '2024-01-09'
+    url: 'https://book.douban.com/subject/1802911/'
+- title: '哈利·波特与混血王子'
+  type: book
+  status: finished
+  info:
+    tags: [奇幻, 小说]
+    rating: 5
+    date: '2024-01-10'
+    url: 'https://book.douban.com/subject/1802912/'
+- title: '哈利·波特与死亡圣器'
+  type: book
+  status: finished
+  info:
+    tags: [奇幻, 小说]
+    rating: 5
+    date: '2024-01-11'
+    url: 'https://book.douban.com/subject/1802913/'
+- title: '大江大河之岁月如歌'
+  type: show
+  status: finished
+  info:
+    tags: [国产剧, 剧情]
+    rating: 4
+    date: '2024-01-12'
+    url: 'https://movie.douban.com/subject/35721010/'
+- title: '繁花'
+  type: show
+  status: finished
+  info:
+    tags: [国产剧, 剧情]
+    rating: 4
+    date: '2024-01-13'
+    url: 'https://movie.douban.com/subject/35589862/'
+- title: '年会不能停！'
+  type: show
+  status: finished
+  info:
+    tags: [电影, 喜剧]
+    rating: 4
+    date: '2024-01-14'
+    url: 'https://movie.douban.com/subject/36297341/'
+- title: '三大队'
+  type: show
+  status: finished
+  info:
+    tags: [国产剧, 犯罪]
+    rating: 4
+    date: '2024-01-15'
+    url: 'https://movie.douban.com/subject/36552912/'
+- title: '史记'
+  type: book
+  status: reading
+  info:
+    tags: [历史, 纪实]
+    rating: 5
+    date: '2024-01-16'
+    url: 'https://book.douban.com/subject/1005026/'
+- title: '大明王朝1566'
+  type: show
+  status: finished
+  info:
+    tags: [国产剧, 历史]
+    rating: 5
+    date: '2024-01-17'
+    url: 'https://movie.douban.com/subject/2210001/'
+- title: '漫长的告别'
+  type: book
+  status: finished
+  info:
+    tags: [小说, 悬疑]
+    rating: 5
+    date: '2024-01-18'
+    url: 'https://book.douban.com/subject/26841285/'
+- title: '金庸武侠小说全集'
+  type: book
+  status: reading
+  info:
+    tags: [小说, 武侠]
+    rating: 5
+    date: '2024-01-19'
+    url: 'https://book.douban.com/series/18447'
+- title: '教父'
+  type: book
+  status: finished
+  info:
+    tags: [小说, 经典]
+    rating: 5
+    date: '2024-01-20'
+    url: 'https://book.douban.com/subject/1047124/'
+- title: '怒火橄榄球'
+  type: show
+  status: finished
+  info:
+    tags: [电影, 动作]
+    rating: 4
+    date: '2024-01-21'
+    url: 'https://movie.douban.com/subject/35532598/'
+- title: '间谍过家家 代号：白'
+  type: show
+  status: finished
+  info:
+    tags: [电影, 动画]
+    rating: 4
+    date: '2024-01-22'
+    url: 'https://movie.douban.com/subject/36290812/'
+- title: '爱丽丝的失语症'
+  type: book
+  status: finished
+  info:
+    tags: [小说, 悬疑]
+    rating: 4
+    date: '2024-01-23'
+    url: 'https://book.douban.com/subject/36297341/'
+- title: '迷宫饭'
+  type: show
+  status: watching
+  info:
+    tags: [日剧, 动画, 奇幻]
+    rating: 5
+    date: '2024-01-24'
+    url: 'https://movie.douban.com/subject/35882833/'
+- title: '大宅门'
+  type: show
+  status: finished
+  info:
+    tags: [国产剧, 剧情]
+    rating: 5
+    date: '2024-01-25'
+    url: 'https://movie.douban.com/subject/1402231/'
+- title: '沙丘2'
+  type: show
+  status: watching
+  info:
+    tags: [电影, 科幻]
+    rating: 5
+    date: '2024-03-08'
+    url: 'https://movie.douban.com/subject/35212523/'
+- title: '周处除三害'
+  type: show
+  status: finished
+  info:
+    tags: [电影, 犯罪]
+    rating: 5
+    date: '2024-03-10'
+    url: 'https://movie.douban.com/subject/36153771/'
+- title: '哥斯拉大战金刚2：帝国崛起'
+  type: show
+  status: watching
+  info:
+    tags: [电影, 动作, 科幻]
+    rating: 4
+    date: '2024-03-29'
+    url: 'https://movie.douban.com/subject/35728120/'
+- title: '你想活出怎样的人生'
+  type: show
+  status: finished
+  info:
+    tags: [电影, 动画]
+    rating: 4
+    date: '2024-04-03'
+    url: 'https://movie.douban.com/subject/26997084/'
+- title: '雍正王朝'
+  type: show
+  status: finished
+  info:
+    tags: [国产剧, 历史]
+    rating: 5
+    date: '2024-04-04'
+    url: 'https://movie.douban.com/subject/1402230/'
+- title: '追风者'
+  type: show
+  status: finished
+  info:
+    tags: [国产剧, 谍战]
+    rating: 4
+    date: '2024-04-05'
+    url: 'https://movie.douban.com/subject/35759161/'
+- title: '坠落的审判'
+  type: show
+  status: finished
+  info:
+    tags: [电影, 剧情, 悬疑]
+    rating: 4
+    date: '2024-04-06'
+    url: 'https://movie.douban.com/subject/36158142/'
+- title: '俗世奇人'
+  type: book
+  status: finished
+  info:
+    tags: [小说, 短篇]
+    rating: 4
+    date: '2024-04-07'
+    url: 'https://book.douban.com/subject/26860002/'
+- title: '机器人与帝国'
+  type: book
+  status: finished
+  info:
+    tags: [科幻, 小说]
+    rating: 5
+    date: '2024-04-08'
+    url: 'https://book.douban.com/subject/25827828/'
+- title: '天行健'
+  type: show
+  status: finished
+  info:
+    tags: [国产剧, 武侠, 历史]
+    rating: 4
+    date: '2024-04-09'
+    url: 'https://movie.douban.com/subject/35634125/'
+- title: '代码随想录'
+  type: book
+  status: reading
+  info:
+    tags: [编程, 算法]
+    rating: 5
+    date: '2024-04-10'
+    url: 'https://programmercarl.com/'
+- title: '庆余年 第二季'
+  type: show
+  status: watching
+  info:
+    tags: [国产剧, 奇幻, 历史]
+    rating: 4
+    date: '2024-05-11'
+    url: 'https://movie.douban.com/subject/35765737/'
+- title: '我的阿勒泰'
+  type: show
+  status: finished
+  info:
+    tags: [国产剧, 剧情]
+    rating: 5
+    date: '2024-05-12'
+    url: 'https://movie.douban.com/subject/36181114/'
+- title: '黑土无言'
+  type: show
+  status: finished
+  info:
+    tags: [国产剧, 悬疑, 犯罪]
+    rating: 4
+    date: '2024-01-16'
+    url: 'https://movie.douban.com/subject/36552906/'
+- title: '怪奇物语 第五季'
+  type: show
+  status: watching
+  info:
+    tags: [美剧, 奇幻, 悬疑]
+    rating: 5
+    date: '2024-05-15'
+    url: 'https://movie.douban.com/subject/35222934/'
