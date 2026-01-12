@@ -19,7 +19,8 @@
   - name: 架构整洁之道
     cover: /images/collections/2026/002.jpg
     start_date: 2026-01-01
-    status: in_progress
+    end_date: 2026-01-11
+    status: completed
   - name: 怪奇物语第五季
     cover: /images/collections/2026/003.jpg
     start_date: 2026-01-03
