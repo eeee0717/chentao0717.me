@@ -55,3 +55,7 @@
     cover: /images/collections/2026/010.jpg
     start_date: 2026-01-10
     status: in_progress
+  - name: The Pitt
+    cover: /images/collections/2026/011.jpg
+    start_date: 2026-01-12
+    status: wishlist
