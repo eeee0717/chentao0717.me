@@ -33,7 +33,8 @@
   - name: 小丑回魂：欢迎来到德里镇
     cover: /images/collections/2026/005.jpg
     start_date: 2026-01-02
-    status: in_progress
+    end_date: 2026-01-11
+    status: completed
   - name: 四元馆事件
     cover: /images/collections/2026/006.jpg
     start_date: 2026-01-03
