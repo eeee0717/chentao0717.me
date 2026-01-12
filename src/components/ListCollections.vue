@@ -34,11 +34,25 @@ function formatName(name: string) {
   return name.split('_')
 }
 
-function formatDate(item: CollectionItem) {
-  if (item.status === 'completed' && item.end_date)
-    return `${item.start_date} - ${item.end_date}`
+function stripYear(date: string, year: string) {
+  return date.startsWith(`${year}-`) ? date.slice(5) : date
+}
 
-  return item.start_date
+function getYear(date: string) {
+  return date.slice(0, 4)
+}
+
+function formatDate(item: CollectionItem, year: string) {
+  if (item.status === 'completed' && item.end_date) {
+    const startYear = getYear(item.start_date)
+    const endYear = getYear(item.end_date)
+    if (startYear !== endYear)
+      return `${item.start_date} - ${item.end_date}`
+
+    return `${stripYear(item.start_date, year)} - ${stripYear(item.end_date, year)}`
+  }
+
+  return stripYear(item.start_date, year)
 }
 </script>
 
@@ -86,7 +100,7 @@ function formatDate(item: CollectionItem) {
               </template>
             </div>
             <div class="date text-xs op50">
-              {{ formatDate(item) }}
+              {{ formatDate(item, year) }}
             </div>
             <div v-if="getStatusLabel(item.status)" class="status text-xs mt-0.5" :class="getStatusLabel(item.status)?.class">
               {{ getStatusLabel(item.status)?.text }}
