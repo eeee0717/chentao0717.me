@@ -60,3 +60,8 @@
     cover: /images/collections/2026/011.jpg
     start_date: 2026-01-12
     status: wishlist
+  - name: 无职转生
+    cover: /images/collections/2026/012.jpg
+    start_date: 2026-01-16
+    end_date: 2026-01-19
+    status: completed
