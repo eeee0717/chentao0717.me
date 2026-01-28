@@ -65,3 +65,23 @@
     start_date: 2026-01-16
     end_date: 2026-01-19
     status: completed
+  - name: 间谍过家家1
+    cover: /images/collections/2026/013.jpg
+    start_date: 2026-01-28
+    status: wishlist
+  - name: 间谍过家家1-2
+    cover: /images/collections/2026/014.jpg
+    start_date: 2026-01-28
+    status: wishlist
+  - name: 间谍过家家2
+    cover: /images/collections/2026/015.jpg
+    start_date: 2026-01-28
+    status: wishlist
+  - name: 间谍过家家3
+    cover: /images/collections/2026/016.jpg
+    start_date: 2026-01-28
+    status: wishlist
+  - name: 间谍过家家剧场版
+    cover: /images/collections/2026/017.jpg
+    start_date: 2026-01-28
+    status: wishlist
