@@ -45,6 +45,7 @@ declare module 'vue-router/auto-routes' {
     '/posts/rag': RouteRecordInfo<'/posts/rag', '/posts/rag', Record<never, never>, Record<never, never>>,
     '/posts/rust-in-depth-1': RouteRecordInfo<'/posts/rust-in-depth-1', '/posts/rust-in-depth-1', Record<never, never>, Record<never, never>>,
     '/posts/rust-in-depth-2': RouteRecordInfo<'/posts/rust-in-depth-2', '/posts/rust-in-depth-2', Record<never, never>, Record<never, never>>,
+    '/posts/start-of-2026': RouteRecordInfo<'/posts/start-of-2026', '/posts/start-of-2026', Record<never, never>, Record<never, never>>,
     '/posts/subtitle-translator-cli': RouteRecordInfo<'/posts/subtitle-translator-cli', '/posts/subtitle-translator-cli', Record<never, never>, Record<never, never>>,
     '/posts/yazi': RouteRecordInfo<'/posts/yazi', '/posts/yazi', Record<never, never>, Record<never, never>>,
     '/posts/zero2rust': RouteRecordInfo<'/posts/zero2rust', '/posts/zero2rust', Record<never, never>, Record<never, never>>,

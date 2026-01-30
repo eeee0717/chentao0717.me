@@ -89,7 +89,7 @@ function save() {
           {{ props.frontmatter.title }}
         </h1>
         <p text-gray class="line-clamp-2">
-          {{ props.content.textContent }}...
+          {{ props.frontmatter.summary }}...
         </p>
         <img v-if="text" class="rounded w-80px mt-auto self-end" :src="qrcode" alt="QR Code">
       </div>
@@ -121,7 +121,7 @@ function save() {
         </div>
       </div>
       <p class="flex justify-center" text-gray>
-        {{ props.content.textContent?.slice(0, 15) }}...
+        {{ props.frontmatter.summary }}...
       </p>
       <div flex flex-row justify-between items-end h-full>
         <div class="flex flex-col h-full justify-end">
