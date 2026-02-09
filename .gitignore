@@ -19,3 +19,5 @@ public/basic_photos
 # Private content - not committed to Git
 pages/private/
 **/*.private.md
+
+.claude
