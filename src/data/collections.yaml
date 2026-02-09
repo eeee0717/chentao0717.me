@@ -89,3 +89,8 @@
     cover: /images/collections/2026/018.jpg
     start_date: 2026-01-29
     status: in_progress
+  - name: 爱情怎么翻译
+    cover: /images/collections/2026/019.jpg
+    start_date: 2026-02-01
+    end_date: 2026-02-09
+    status: completed
