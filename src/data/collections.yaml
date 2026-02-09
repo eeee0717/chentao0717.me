@@ -5,6 +5,7 @@
 # cover:封面图片路径（/images/collections/{year}/{number}.jpg）
 # start_date:开始日期（YYYY-MM-DD）
 # end_date:结束日期（YYYY-MM-DD，可选，仅completed状态有）
+# rating:评分（1-10，可选）
 # status:状态
 # - completed:已完成（显示日期范围）
 # - in_progress:进行中（显示开始日期）
@@ -16,16 +17,19 @@
     start_date: 2026-01-01
     end_date: 2026-01-01
     status: completed
+    rating: 8.9
   - name: 架构整洁之道
     cover: /images/collections/2026/002.jpg
     start_date: 2026-01-01
     end_date: 2026-01-11
     status: completed
+    rating: 8
   - name: 怪奇物语第五季
     cover: /images/collections/2026/003.jpg
     start_date: 2026-01-03
     end_date: 2026-01-10
     status: completed
+    rating: 9.5
   - name: The Immortal Man
     cover: /images/collections/2026/004.jpg
     start_date: 2026-03-06
@@ -35,11 +39,13 @@
     start_date: 2026-01-02
     end_date: 2026-01-11
     status: completed
+    rating: 9.2
   - name: 四元馆事件
     cover: /images/collections/2026/006.jpg
     start_date: 2026-01-03
     end_date: 2026-01-08
     status: completed
+    rating: 7.2
   - name: 十角馆事件
     cover: /images/collections/2026/007.jpg
     start_date: 2026-01-10
@@ -56,15 +62,18 @@
     cover: /images/collections/2026/010.jpg
     start_date: 2026-01-10
     status: in_progress
+    rating: 8.9
   - name: The Pitt
     cover: /images/collections/2026/011.jpg
     start_date: 2026-01-12
     status: in_progress
+    rating: 9.3
   - name: 无职转生
     cover: /images/collections/2026/012.jpg
     start_date: 2026-01-16
     end_date: 2026-01-19
     status: completed
+    rating: 8.5
   - name: 间谍过家家1
     cover: /images/collections/2026/013.jpg
     start_date: 2026-01-28
@@ -89,8 +98,10 @@
     cover: /images/collections/2026/018.jpg
     start_date: 2026-01-29
     status: in_progress
+    rating: 7.3
   - name: 爱情怎么翻译
     cover: /images/collections/2026/019.jpg
     start_date: 2026-02-01
     end_date: 2026-02-09
     status: completed
+    rating: 8.6

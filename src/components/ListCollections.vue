@@ -7,6 +7,7 @@ interface CollectionItem {
   status: 'completed' | 'in_progress' | 'wishlist'
   start_date: string
   end_date?: string
+  rating?: number
 }
 
 const collections = collectionsData as Record<string, CollectionItem[]>
@@ -101,6 +102,9 @@ function formatDate(item: CollectionItem, year: string) {
             </div>
             <div class="date text-xs op50">
               {{ formatDate(item, year) }}
+            </div>
+            <div v-if="item.rating" class="rating text-xs op70 mt-0.5">
+              {{ item.rating }}/10
             </div>
             <div v-if="getStatusLabel(item.status)" class="status text-xs mt-0.5" :class="getStatusLabel(item.status)?.class">
               {{ getStatusLabel(item.status)?.text }}
