@@ -105,3 +105,15 @@
     end_date: 2026-02-09
     status: completed
     rating: 8.6
+  - name: 超时空辉夜姬
+    cover: /images/collections/2026/021.jpg
+    start_date: 2026-02-15
+    end_date: 2026-02-15
+    status: completed
+    rating: 8.6
+  - name: Douglas is Cancelled
+    cover: /images/collections/2026/020.jpg
+    start_date: 2026-02-17
+    end_date: 2026-02-18
+    status: completed
+    rating: 9.2
