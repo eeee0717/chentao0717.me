@@ -41,6 +41,9 @@ const { y: scroll } = useWindowScroll()
           <span class="lt-md:hidden">Collections</span>
           <div i-carbon-explore class="md:hidden" />
         </RouterLink>
+        <RouterLink to="/diary" title="Diary" aria-label="Diary">
+          <div i-ri-booklet-line />
+        </RouterLink>
         <RouterLink to="/photos" title="Photos">
           <div i-ri-camera-3-line />
         </RouterLink>

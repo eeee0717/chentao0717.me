@@ -4,6 +4,6 @@ display: ''
 art: connections
 ---
 
-<SubNav />
+<BlogNav />
 
 <ListPosts only-date type="blog" />
