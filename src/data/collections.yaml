@@ -129,3 +129,9 @@
     end_date: 2026-03-21
     status: completed
     rating: 7.6
+  - name: 机智的医生生活1-2
+    cover: /images/collections/2026/024.jpg
+    start_date: 2026-03-15
+    end_date: 2026-03-31
+    status: completed
+    rating: 9.5
