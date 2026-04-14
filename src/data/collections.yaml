@@ -135,3 +135,7 @@
     end_date: 2026-03-31
     status: completed
     rating: 9.5
+  - name: 神与律师事务所
+    cover: /images/collections/2026/025.jpg
+    start_date: 2026-04-14
+    status: in_progress
