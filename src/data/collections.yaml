@@ -74,26 +74,12 @@
     end_date: 2026-01-19
     status: completed
     rating: 8.5
-  - name: 间谍过家家1
+  - name: 间谍过家家
     cover: /images/collections/2026/013.jpg
     start_date: 2026-01-28
-    status: wishlist
-  - name: 间谍过家家1-2
-    cover: /images/collections/2026/014.jpg
-    start_date: 2026-01-28
-    status: wishlist
-  - name: 间谍过家家2
-    cover: /images/collections/2026/015.jpg
-    start_date: 2026-01-28
-    status: wishlist
-  - name: 间谍过家家3
-    cover: /images/collections/2026/016.jpg
-    start_date: 2026-01-28
-    status: wishlist
-  - name: 间谍过家家剧场版
-    cover: /images/collections/2026/017.jpg
-    start_date: 2026-01-28
-    status: wishlist
+    end_date: 2026-04-15
+    status: completed
+    rating: 7.5
   - name: 紫菜包饭和饭团
     cover: /images/collections/2026/018.jpg
     start_date: 2026-01-29
@@ -147,3 +133,7 @@
     cover: /images/collections/2026/027.jpg
     start_date: 2026-04-15
     status: in_progress
+  - name: 劳务师卢武镇
+    cover: /images/collections/2026/028.jpg
+    start_date: 2026-04-15
+    status: wishlist
