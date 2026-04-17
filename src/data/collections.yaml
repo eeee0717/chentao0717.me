@@ -66,7 +66,8 @@
   - name: The Pitt
     cover: /images/collections/2026/011.jpg
     start_date: 2026-01-12
-    status: in_progress
+    end_date: 2026-04-17
+    status: completed
     rating: 9.3
   - name: 无职转生
     cover: /images/collections/2026/012.jpg
