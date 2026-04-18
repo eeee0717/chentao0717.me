@@ -56,6 +56,7 @@ declare module 'vue-router/auto-routes' {
     '/posts/subtitle-translator-cli': RouteRecordInfo<'/posts/subtitle-translator-cli', '/posts/1020', Record<never, never>, Record<never, never>>,
     '/posts/yazi': RouteRecordInfo<'/posts/yazi', '/posts/1021', Record<never, never>, Record<never, never>>,
     '/posts/zero2rust': RouteRecordInfo<'/posts/zero2rust', '/posts/1022', Record<never, never>, Record<never, never>>,
+    '/posts/cherry.lifecycle': RouteRecordInfo<'/posts/cherry.lifecycle', '/posts/1023', Record<never, never>, Record<never, never>>,
     '/private/README': RouteRecordInfo<'/private/README', '/private/README', Record<never, never>, Record<never, never>>,
     '/projects': RouteRecordInfo<'/projects', '/projects', Record<never, never>, Record<never, never>>,
     '/test/': RouteRecordInfo<'/test/', '/test', Record<never, never>, Record<never, never>>,
