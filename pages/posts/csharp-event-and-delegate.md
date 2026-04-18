@@ -1,5 +1,6 @@
 ---
 title: 深入理解C#事件与委托
+postId: '1008'
 date: 2023-10-12T16:00:00.000+00:00
 lang: zh
 duration: 20min

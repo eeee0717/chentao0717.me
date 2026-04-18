@@ -1,5 +1,6 @@
 ---
 title: Yazi初体验
+postId: '1021'
 date: 2024-12-11 18:28:11
 lang: zh
 duration: 10min

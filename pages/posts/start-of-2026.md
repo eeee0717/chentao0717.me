@@ -1,5 +1,6 @@
 ---
 title: 2026年开年随笔
+postId: '1019'
 date: 2026-01-30T15:40:27.000Z
 lang: zh
 duration: 17min

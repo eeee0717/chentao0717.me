@@ -1,5 +1,6 @@
 ---
 title: .NET System.Text.Json的便利性
+postId: '1013'
 date: 2023-10-28T16:00:00.000+00:00
 lang: zh
 duration: 25min

@@ -1,5 +1,6 @@
 ---
 title: 2025年终总结
+postId: '1002'
 date: 2025-12-26T00:00:00.000Z
 lang: zh
 duration: 17min

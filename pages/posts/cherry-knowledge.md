@@ -1,5 +1,6 @@
 ---
 title: Cherry Studio v1.6.0 知识库使用指南
+postId: '1003'
 date: 2025-09-04 20:40:34
 lang: zh
 duration: 10min

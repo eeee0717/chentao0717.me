@@ -1,5 +1,6 @@
 ---
 title: Zero2Rust 读书心得
+postId: '1022'
 date: 2024-09-06 09:58:53
 lang: zh
 duration: 5min

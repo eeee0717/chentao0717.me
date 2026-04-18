@@ -1,5 +1,6 @@
 ---
 title: Cherry Studio MCP初探
+postId: '1012'
 date: 2025-03-05 20:29:54
 lang: zh
 duration: 10min

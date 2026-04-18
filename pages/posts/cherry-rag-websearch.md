@@ -1,5 +1,6 @@
 ---
 title: Cherry Studio 网络搜索与知识库最佳实践
+postId: '1005'
 date: 2025-04-17 13:20:43
 lang: zh
 duration: 10min

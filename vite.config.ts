@@ -26,6 +26,12 @@ import Yaml from 'unplugin-yaml/vite'
 import TOC from 'markdown-it-table-of-contents'
 
 const promises: Promise<any>[] = []
+const postIdPattern = /^\d+$/
+const seenPostIds = new Map<string, string>()
+
+function isPostPage(path: string) {
+  return path.includes('/pages/posts/') && path.endsWith('.md') && !path.endsWith('/pages/posts/index.md')
+}
 
 export default defineConfig({
   resolve: {
@@ -57,12 +63,32 @@ export default defineConfig({
         if (!path)
           return
 
-        if (!path.includes('projects.md') && !path.includes('collections.md') && path.endsWith('.md')) {
-          const { data } = matter(fs.readFileSync(path, 'utf-8'))
-          route.addToMeta({
-            frontmatter: data,
-          })
+        const normalizedPath = path.replaceAll('\\', '/')
+        if (normalizedPath.includes('projects.md') || normalizedPath.includes('collections.md') || !normalizedPath.endsWith('.md'))
+          return
+
+        const { data } = matter(fs.readFileSync(path, 'utf-8'))
+        const frontmatter = { ...data } as Record<string, unknown>
+
+        if (isPostPage(normalizedPath)) {
+          const postId = typeof frontmatter.postId === 'string' ? frontmatter.postId.trim() : ''
+          if (!postId)
+            throw new Error(`Missing "postId" in ${normalizedPath}`)
+          if (!postIdPattern.test(postId))
+            throw new Error(`Invalid "postId" in ${normalizedPath}: "${postId}". Use digits only.`)
+
+          const duplicatedPath = seenPostIds.get(postId)
+          if (duplicatedPath && duplicatedPath !== normalizedPath)
+            throw new Error(`Duplicate "postId" ${postId} in ${normalizedPath} and ${duplicatedPath}`)
+          seenPostIds.set(postId, normalizedPath)
+
+          route.path = `/posts/${postId}`
+          frontmatter.postId = postId
         }
+
+        route.addToMeta({
+          frontmatter,
+        })
       },
     }),
 

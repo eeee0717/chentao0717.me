@@ -1,5 +1,6 @@
 ---
 title: Subtitle-Translator-CLI/GUI使用说明书
+postId: '1006'
 date: 2024-12-27 10:49:34
 lang: zh
 duration: 10min

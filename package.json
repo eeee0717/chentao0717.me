@@ -3,10 +3,11 @@
   "private": true,
   "packageManager": "pnpm@10.26.2",
   "scripts": {
-    "build": "cross-env NODE_ENV=production vite-ssg build",
-    "dev": "vite --port 3333 --mode dev",
+    "build": "node script/generate-post-ids.mjs && cross-env NODE_ENV=production vite-ssg build",
+    "dev": "node script/generate-post-ids.mjs && vite --port 3333 --mode dev",
     "preview": "vite preview",
     "lint": "eslint .",
+    "post:ids": "node script/generate-post-ids.mjs",
     "summary": "tsx script/generate-ai-summary.ts",
     "photos": "tsx script/process-photos.ts",
     "covers": "tsx script/process-collection-covers.ts"

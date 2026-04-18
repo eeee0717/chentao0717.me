@@ -1,5 +1,6 @@
 ---
 title: EFCore Mysql多层级项目数据库迁移
+postId: '1009'
 date: 2024-01-08T20:20:00.000+00:00
 lang: zh
 duration: 10min

@@ -1,5 +1,6 @@
 ---
 title: Subtitle Translator CLI
+postId: '1020'
 date: 2024-11-01 10:30:31
 lang: zh
 duration: 5min

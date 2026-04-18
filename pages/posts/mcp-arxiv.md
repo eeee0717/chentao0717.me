@@ -1,5 +1,6 @@
 ---
 title: Cherry Studio MCP with Arxiv
+postId: '1011'
 date: 2025-03-11 17:17:04
 lang: zh
 duration: 5min

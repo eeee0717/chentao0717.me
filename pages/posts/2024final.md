@@ -1,5 +1,6 @@
 ---
 title: 2024年终总结
+postId: '1001'
 date: 2024-12-28 13:57:54
 lang: zh
 duration: 10min

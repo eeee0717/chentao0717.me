@@ -1,5 +1,6 @@
 ---
 title: ComfyUI Furry风格
+postId: '1007'
 date: 2024-05-20 15:11:18
 lang: zh
 duration: 5min

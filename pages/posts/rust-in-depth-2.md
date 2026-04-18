@@ -1,5 +1,6 @@
 ---
 title: Rust in Depth - Chapter 2
+postId: '1018'
 date: 2025-02-11 20:24:00
 lang: en
 duration: 10min

@@ -1,5 +1,6 @@
 ---
 title: My Mac
+postId: '1010'
 date: 2025-01-03 14:05:34
 lang: zh
 duration: 5min

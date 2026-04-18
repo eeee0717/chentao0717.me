@@ -1,5 +1,6 @@
 ---
 title: Podwise AI
+postId: '1015'
 date: 2024-05-25 16:35
 lang: zh
 duration: 5min

@@ -1,5 +1,6 @@
 ---
 title: Cherry Studio 知识库V2 提案
+postId: '1004'
 date: 2025-12-21T00:00:00.000Z
 lang: zh
 duration: 20min

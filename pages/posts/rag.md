@@ -1,5 +1,6 @@
 ---
 title: RAG 学习与探索
+postId: '1016'
 date: 2025-03-18 18:07:57
 lang: zh
 duration: 8min

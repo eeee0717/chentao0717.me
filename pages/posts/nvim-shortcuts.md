@@ -1,5 +1,6 @@
 ---
 title: nvim 快捷键速查
+postId: '1014'
 date: 2025-01-27 10:30:41
 lang: zh
 duration: 5min
