@@ -125,7 +125,9 @@
   - name: 神与律师事务所
     cover: /images/collections/2026/025.jpg
     start_date: 2026-04-14
-    status: wishlist
+    end_date: 2026-05-04
+    status: completed
+    rating: 7.7
   - name: 21世纪大君夫人
     cover: /images/collections/2026/026.jpg
     start_date: 2026-04-15
