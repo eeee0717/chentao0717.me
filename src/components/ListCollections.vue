@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { blurhashToGradientCssObject } from '@unpic/placeholder'
+import collectionCoverBlurhashes from '~/data/collection-covers.json'
 import collectionsData from '~/data/collections.yaml'
 
 interface CollectionItem {
@@ -11,6 +13,8 @@ interface CollectionItem {
 }
 
 const collections = collectionsData as Record<string, CollectionItem[]>
+const coverBlurhashes = collectionCoverBlurhashes as Record<string, string>
+const loadedCovers = ref(new Set<string>())
 
 const sortedYears = computed(() => {
   return Object.keys(collections).sort((a, b) => Number(b) - Number(a))
@@ -55,6 +59,23 @@ function formatDate(item: CollectionItem, year: string) {
 
   return stripYear(item.start_date, year)
 }
+
+function getBlurhashStyle(cover: string) {
+  const blurhash = coverBlurhashes[cover]
+  if (!blurhash)
+    return {}
+
+  try {
+    return blurhashToGradientCssObject(blurhash)
+  }
+  catch {
+    return {}
+  }
+}
+
+function onCoverLoad(cover: string) {
+  loadedCovers.value.add(cover)
+}
 </script>
 
 <template>
@@ -86,11 +107,19 @@ function formatDate(item: CollectionItem, year: string) {
           class="item relative flex flex-col"
         >
           <div class="cover-wrapper relative overflow-hidden rounded-lg aspect-[2/3] bg-gray-100 dark:bg-gray-800">
+            <div
+              v-if="coverBlurhashes[item.cover]"
+              class="absolute inset-0"
+              :style="getBlurhashStyle(item.cover)"
+              aria-hidden="true"
+            />
             <img
               :src="item.cover"
               :alt="item.name"
-              class="w-full h-full object-cover"
+              class="cover-image absolute inset-0 w-full h-full object-cover"
               loading="lazy"
+              :style="{ opacity: loadedCovers.has(item.cover) ? 1 : 0 }"
+              @load="onCoverLoad(item.cover)"
             >
           </div>
           <div class="info mt-2 text-center">
@@ -140,6 +169,10 @@ function formatDate(item: CollectionItem, year: string) {
 .collection-grid .item .cover-wrapper {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.2s ease;
+}
+
+.collection-grid .item .cover-image {
+  transition: opacity 0.5s ease-out;
 }
 
 .collection-grid .item:hover .cover-wrapper {

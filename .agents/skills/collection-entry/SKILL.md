@@ -63,6 +63,7 @@ For a request such as `collection 添加铁拳教育，7.8 分`:
 - Before `pnpm covers`, confirm no unrelated non-numbered images would also be
   processed. If there are any, preserve them and process only the new cover
   with Sharp using the script's current size and quality settings.
+- `pnpm covers` refreshes `src/data/collection-covers.json`; keep it in sync.
 - Confirm the final file is a JPEG, uses the expected three-digit name, has
   sensible portrait dimensions, and visually matches the selected subject.
 
@@ -79,7 +80,7 @@ For a request such as `collection 添加铁拳教育，7.8 分`:
 - Run targeted ESLint for the YAML, `git diff --check`, and `pnpm build`.
 - Confirm the generated collection page contains the name, cover path, date,
   rating, and status. Report unrelated baseline failures without fixing them.
-- Review `git diff` and stage only the YAML and the new cover.
+- Stage only the YAML, new cover, and generated blurhash manifest.
 - If push was requested, commit with the repository's message style, fetch the
   remote branch, reconcile any remote commits without losing user work, push,
   and verify local `HEAD` equals the remote branch.

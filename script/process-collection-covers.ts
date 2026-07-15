@@ -7,11 +7,13 @@
  * 1. 遍历 public/images/collections/{year}/ 目录
  * 2. 将中文命名的图片重命名为编号格式 (001.jpg, 002.jpg, ...)
  * 3. 压缩图片（最大 800px，JPEG 质量 80）
+ * 4. 生成全量 blurhash manifest（32x32 采样，4x4 组件）
  */
 
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { encode } from 'blurhash'
 import sharp from 'sharp'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
@@ -19,8 +21,11 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 type ColorName = 'reset' | 'red' | 'yellow' | 'green' | 'cyan' | 'magenta'
 
 const COLLECTIONS_DIR = path.resolve(__dirname, '../public/images/collections')
+const BLURHASH_MANIFEST_PATH = path.resolve(__dirname, '../src/data/collection-covers.json')
 const MAX_DIMENSION = 800
 const JPEG_QUALITY = 80
+const BLURHASH_SIZE = 32
+const BLURHASH_COMPONENTS = 4
 
 const colors: Record<ColorName, string> = {
   reset: '\x1B[0m',
@@ -45,6 +50,22 @@ async function compressImage(inputPath: string, outputPath: string): Promise<num
 
   const newStats = fs.statSync(outputPath)
   return stats.size - newStats.size
+}
+
+async function generateBlurhash(imagePath: string): Promise<string> {
+  const { data, info } = await sharp(imagePath)
+    .resize(BLURHASH_SIZE, BLURHASH_SIZE, { fit: 'inside' })
+    .ensureAlpha()
+    .raw()
+    .toBuffer({ resolveWithObject: true })
+
+  return encode(
+    new Uint8ClampedArray(data),
+    info.width,
+    info.height,
+    BLURHASH_COMPONENTS,
+    BLURHASH_COMPONENTS,
+  )
 }
 
 async function processYear(yearDir: string): Promise<{ count: number, saved: number }> {
@@ -125,6 +146,28 @@ async function processYear(yearDir: string): Promise<{ count: number, saved: num
   return { count: newFiles.length, saved: totalSaved }
 }
 
+async function generateBlurhashManifest(years: string[]): Promise<number> {
+  const manifest: Record<string, string> = {}
+
+  for (const year of years) {
+    const yearPath = path.join(COLLECTIONS_DIR, year)
+    if (!fs.statSync(yearPath).isDirectory())
+      continue
+
+    const covers = fs.readdirSync(yearPath)
+      .filter(file => /^\d{3}\.jpg$/.test(file))
+      .sort()
+
+    for (const cover of covers) {
+      const publicPath = `/images/collections/${year}/${cover}`
+      manifest[publicPath] = await generateBlurhash(path.join(yearPath, cover))
+    }
+  }
+
+  fs.writeFileSync(BLURHASH_MANIFEST_PATH, `${JSON.stringify(manifest, null, 2)}\n`, 'utf-8')
+  return Object.keys(manifest).length
+}
+
 async function processCollections(): Promise<void> {
   log('\n🖼️  处理 Collections 封面...\n', 'magenta')
 
@@ -144,10 +187,13 @@ async function processCollections(): Promise<void> {
     totalSaved += saved
   }
 
+  const blurhashCount = await generateBlurhashManifest(years)
+
   log('')
   log(`✓ 处理完成 ${totalCount} 张图片`, 'green')
   if (totalSaved > 0)
     log(`✓ 节省 ${(totalSaved / 1024 / 1024).toFixed(2)} MB`, 'green')
+  log(`✓ 生成 ${blurhashCount} 个 blurhash`, 'green')
 
   log('')
 }
