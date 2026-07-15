@@ -143,5 +143,16 @@
   - name: 铁拳教育
     cover: /images/collections/2026/029.jpg
     start_date: 2026-07-15
-    status: in_progress
+    end_date: 2026-07-15
+    status: completed
     rating: 7.8
+  - name: 隐秘的监察
+    cover: /images/collections/2026/030.jpg
+    start_date: 2026-07-15
+    end_date: 2026-07-15
+    status: completed
+    rating: 7.2
+  - name: 暗影蜘蛛侠
+    cover: /images/collections/2026/031.jpg
+    start_date: 2026-07-15
+    status: in_progress
