@@ -15,7 +15,9 @@ For a request such as `collection 添加铁拳教育，7.8 分`:
 1. Resolve the matching subject and cover through OpenCLI.
 2. Determine dates and status from the request and current release state.
 3. Process the cover to the next three-digit JPEG filename.
-4. Append the YAML entry, validate it, and commit or push only when requested.
+4. Append the YAML entry and validate it.
+5. Close Chrome containers created by OpenCLI, then commit or push only when
+   requested.
 
 ## Inputs
 
@@ -45,6 +47,9 @@ For a request such as `collection 添加铁拳教育，7.8 分`:
 - Run their required live-registry and help preflight. Use the site explicitly
   requested by the user; default to Douban for Chinese movie, TV, and book
   entries.
+- Before the first browser-dependent OpenCLI call, snapshot the IDs and URLs of
+  existing Chrome windows and tabs. Use this baseline to identify only windows
+  created during the workflow.
 - Search once with a narrow media type and JSON output. Validate the selected
   result by title, year, type, and synopsis before using its subject ID.
 - Record the subject URL, subject ID, cover URL, and image ID from the OpenCLI
@@ -71,11 +76,28 @@ For a request such as `collection 添加铁拳教育，7.8 分`:
 
 - Keep the existing field order: `name`, `cover`, `start_date`, `end_date`,
   `status`, `rating`; omit fields that do not apply.
-- `completed` entries require `end_date`. `in_progress` and `wishlist` entries
-  must not invent an `end_date`.
+- `completed` entries normally require `end_date`. If the user explicitly says
+  the completion date is unknown or should be omitted, keep the item completed
+  without inventing one. `in_progress` and `wishlist` must not have `end_date`.
 - Use `_` in `name` only when an intentional display line break is needed.
 
-### 5. Verify and Deliver
+### 5. Clean Up OpenCLI Browser
+
+- Clean up after the last OpenCLI call even when search or download failed.
+- Release every known named browser session with
+  `opencli browser <session> close` before closing its container.
+- Snapshot Chrome again and compare it with the pre-OpenCLI baseline. Close only
+  new OpenCLI-owned windows, identified by the window ID difference plus a sole
+  `about:blank` tab or an `OpenCLI Browser` / `OpenCLI Adapter` tab group.
+- OpenCLI may retain both grouped interactive and ungrouped adapter containers
+  as blank windows. Prefer Chrome browser control; if another extension blocks
+  takeover, use Chrome's native scripting interface with the exact confirmed
+  window IDs.
+- Never close windows by a global URL-only match, terminate the main Chrome
+  process, or disturb any window or tab present in the baseline.
+- Verify the OpenCLI-owned windows are gone and the baseline tabs remain.
+
+### 6. Verify and Deliver
 
 - Run targeted ESLint for the YAML, `git diff --check`, and `pnpm build`.
 - Confirm the generated collection page contains the name, cover path, date,
@@ -85,8 +107,8 @@ For a request such as `collection 添加铁拳教育，7.8 分`:
   remote branch, reconcile any remote commits without losing user work, push,
   and verify local `HEAD` equals the remote branch.
 - Report the entry fields, source subject ID, cover dimensions, verification
-  results, commit hash, push target, and the search summary required by
-  `smart-search`.
+  results, browser cleanup result, commit hash, push target, and the search
+  summary required by `smart-search`.
 
 ## Boundaries
 

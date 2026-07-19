@@ -32,8 +32,10 @@
     rating: 9.5
   - name: The Immortal Man
     cover: /images/collections/2026/004.jpg
-    start_date: 2026-03-06
-    status: wishlist
+    start_date: 2026-06-16
+    end_date: 2026-06-18
+    status: completed
+    rating: 8.0
   - name: 小丑回魂：欢迎来到德里镇
     cover: /images/collections/2026/005.jpg
     start_date: 2026-01-02
@@ -61,7 +63,7 @@
   - name: 咒术回战3
     cover: /images/collections/2026/010.jpg
     start_date: 2026-01-10
-    status: in_progress
+    status: completed
     rating: 8.9
   - name: The Pitt
     cover: /images/collections/2026/011.jpg
@@ -156,3 +158,11 @@
     cover: /images/collections/2026/031.jpg
     start_date: 2026-07-15
     status: in_progress
+  - name: 我的王室死对头
+    cover: /images/collections/2026/032.jpg
+    start_date: 2026-07-17
+    status: in_progress
+  - name: 机智的监狱生活
+    cover: /images/collections/2026/033.jpg
+    start_date: 2026-07-19
+    status: wishlist
