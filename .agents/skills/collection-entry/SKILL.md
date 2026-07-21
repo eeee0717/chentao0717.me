@@ -1,6 +1,6 @@
 ---
 name: collection-entry
-description: Adds or updates this site's movie, TV, and book collection entries, sources matching covers through OpenCLI, processes assets, validates the site, and optionally commits and pushes the change. Use when the user asks to add, finish, rate, wishlist, or otherwise update an item in this project's collection.
+description: Adds or updates this site's movie, TV, and book collection entries, sources matching covers through OpenCLI, processes assets, validates the site, then commits and pushes every completed change. Use when the user asks to add, finish, rate, wishlist, or otherwise update an item in this project's collection.
 ---
 
 # Collection Entry
@@ -16,8 +16,7 @@ For a request such as `collection 添加铁拳教育，7.8 分`:
 2. Determine dates and status from the request and current release state.
 3. Process the cover to the next three-digit JPEG filename.
 4. Append the YAML entry and validate it.
-5. Close Chrome containers created by OpenCLI, then commit or push only when
-   requested.
+5. Close Chrome containers created by OpenCLI, then commit and push the change.
 
 ## Inputs
 
@@ -102,10 +101,12 @@ For a request such as `collection 添加铁拳教育，7.8 分`:
 - Run targeted ESLint for the YAML, `git diff --check`, and `pnpm build`.
 - Confirm the generated collection page contains the name, cover path, date,
   rating, and status. Report unrelated baseline failures without fixing them.
-- Stage only the YAML, new cover, and generated blurhash manifest.
-- If push was requested, commit with the repository's message style, fetch the
-  remote branch, reconcile any remote commits without losing user work, push,
-  and verify local `HEAD` equals the remote branch.
+- Stage only files that belong to the current collection task; never stage
+  unrelated worktree changes.
+- Commit every completed modification using the repository's message style.
+  Fetch the remote branch, reconcile any remote commits without losing user
+  work, push, and verify local `HEAD` equals the remote branch. If the request
+  produces no file changes, do not create an empty commit.
 - Report the entry fields, source subject ID, cover dimensions, verification
   results, browser cleanup result, commit hash, push target, and the search
   summary required by `smart-search`.
