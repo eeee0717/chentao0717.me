@@ -3,7 +3,7 @@
 # 字段说明:
 # name:名称（使用 _分隔可换行显示）
 # cover:封面图片路径（/images/collections/{year}/{number}.jpg）
-# start_date:开始日期（YYYY-MM-DD）
+# start_date:开始日期（YYYY-MM-DD，可选，日期未知时省略）
 # end_date:结束日期（YYYY-MM-DD，可选，仅completed状态有）
 # rating:评分（1-10，可选）
 # status:状态
@@ -161,8 +161,14 @@
   - name: 我的王室死对头
     cover: /images/collections/2026/032.jpg
     start_date: 2026-07-17
-    status: in_progress
+    end_date: 2026-07-21
+    status: completed
+    rating: 6.5
   - name: 机智的监狱生活
     cover: /images/collections/2026/033.jpg
     start_date: 2026-07-19
     status: wishlist
+  - name: 挽救计划
+    cover: /images/collections/2026/034.jpg
+    status: completed
+    rating: 7.3

@@ -7,7 +7,7 @@ interface CollectionItem {
   name: string
   cover: string
   status: 'completed' | 'in_progress' | 'wishlist'
-  start_date: string
+  start_date?: string
   end_date?: string
   rating?: number
 }
@@ -48,6 +48,9 @@ function getYear(date: string) {
 }
 
 function formatDate(item: CollectionItem, year: string) {
+  if (!item.start_date)
+    return null
+
   if (item.status === 'completed' && item.end_date) {
     const startYear = getYear(item.start_date)
     const endYear = getYear(item.end_date)
@@ -129,7 +132,7 @@ function onCoverLoad(cover: string) {
                 <br v-if="i < formatName(item.name).length - 1">
               </template>
             </div>
-            <div class="date text-xs op50">
+            <div v-if="formatDate(item, year)" class="date text-xs op50">
               {{ formatDate(item, year) }}
             </div>
             <div v-if="item.rating" class="rating text-xs op70 mt-0.5">
