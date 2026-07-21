@@ -172,3 +172,7 @@
     cover: /images/collections/2026/034.jpg
     status: completed
     rating: 7.3
+  - name: 稻草人
+    cover: /images/collections/2026/035.jpg
+    start_date: 2026-07-21
+    status: in_progress
