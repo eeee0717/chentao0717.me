@@ -175,7 +175,9 @@
   - name: 稻草人
     cover: /images/collections/2026/035.jpg
     start_date: 2026-07-21
-    status: in_progress
+    end_date: 2026-07-25
+    status: completed
+    rating: 8.8
   - name: 蜘蛛侠：崭新之日
     cover: /images/collections/2026/036.jpg
     start_date: 2026-07-22
