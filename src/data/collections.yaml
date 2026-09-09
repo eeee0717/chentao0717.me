@@ -167,7 +167,9 @@
   - name: 机智的监狱生活
     cover: /images/collections/2026/033.jpg
     start_date: 2026-07-19
-    status: wishlist
+    end_date: 2026-09-09
+    status: completed
+    rating: 8.5
   - name: 挽救计划
     cover: /images/collections/2026/034.jpg
     status: completed
@@ -185,4 +187,26 @@
   - name: 复仇者联盟5：毁灭之日
     cover: /images/collections/2026/037.jpg
     start_date: 2026-07-22
+    status: wishlist
+  - name: 奥德赛 The Odyssey
+    cover: /images/collections/2026/038.jpg
+    start_date: 2026-09-06
+    end_date: 2026-09-06
+    status: completed
+    rating: 9.0
+  - name: 金特务：本色回归
+    cover: /images/collections/2026/039.jpg
+    start_date: 2026-09-09
+    status: wishlist
+  - name: 我的荒糖恋爱
+    cover: /images/collections/2026/040.jpg
+    start_date: 2026-09-09
+    status: wishlist
+  - name: 现在不是出轨的问题
+    cover: /images/collections/2026/041.jpg
+    start_date: 2026-09-09
+    status: wishlist
+  - name: 鬼怪
+    cover: /images/collections/2026/042.jpg
+    start_date: 2026-09-09
     status: wishlist
