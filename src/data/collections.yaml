@@ -210,3 +210,9 @@
     cover: /images/collections/2026/042.jpg
     start_date: 2026-09-09
     status: wishlist
+  - name: 杀人者的购物中心1-2
+    cover: /images/collections/2026/043.jpg
+    start_date: 2026-09-07
+    end_date: 2026-09-10
+    status: completed
+    rating: 8.7
