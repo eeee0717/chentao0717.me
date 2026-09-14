@@ -216,3 +216,9 @@
     end_date: 2026-09-10
     status: completed
     rating: 8.7
+  - name: 鼠惑
+    cover: /images/collections/2026/044.jpg
+    start_date: 2026-09-13
+    end_date: 2026-09-13
+    status: completed
+    rating: 7.3
