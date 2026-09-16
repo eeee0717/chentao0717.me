@@ -205,7 +205,9 @@
   - name: 现在不是出轨的问题
     cover: /images/collections/2026/041.jpg
     start_date: 2026-09-09
-    status: wishlist
+    end_date: 2026-09-15
+    status: completed
+    rating: 7.3
   - name: 鬼怪
     cover: /images/collections/2026/042.jpg
     start_date: 2026-09-09
