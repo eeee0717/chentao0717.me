@@ -133,7 +133,9 @@
   - name: 21世纪大君夫人
     cover: /images/collections/2026/026.jpg
     start_date: 2026-04-15
-    status: in_progress
+    end_date: 2026-09-20
+    status: completed
+    rating: 6.3
   - name: 所有人都在与自己的无价值对抗
     cover: /images/collections/2026/027.jpg
     start_date: 2026-04-15
