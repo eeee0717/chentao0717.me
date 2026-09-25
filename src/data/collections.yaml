@@ -219,10 +219,18 @@
     start_date: 2026-09-07
     end_date: 2026-09-10
     status: completed
-    rating: 8.7
+    rating: 7.2
   - name: 鼠惑
     cover: /images/collections/2026/044.jpg
     start_date: 2026-09-13
     end_date: 2026-09-13
     status: completed
     rating: 7.3
+  - name: 在超市后门吸烟的二人
+    cover: /images/collections/2026/045.jpg
+    start_date: 2026-09-15
+    status: in_progress
+  - name: 中头奖还是要上班
+    cover: /images/collections/2026/046.jpg
+    start_date: 2026-09-25
+    status: wishlist
