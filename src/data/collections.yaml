@@ -203,7 +203,9 @@
   - name: 我的荒糖恋爱
     cover: /images/collections/2026/040.jpg
     start_date: 2026-09-22
-    status: in_progress
+    end_date: 2026-09-26
+    status: completed
+    rating: 8.3
   - name: 现在不是出轨的问题
     cover: /images/collections/2026/041.jpg
     start_date: 2026-09-09
@@ -229,8 +231,10 @@
   - name: 在超市后门吸烟的二人
     cover: /images/collections/2026/045.jpg
     start_date: 2026-09-15
-    status: in_progress
+    end_date: 2026-09-28
+    status: completed
+    rating: 7.2
   - name: 中头奖还是要上班
     cover: /images/collections/2026/046.jpg
-    start_date: 2026-09-25
-    status: wishlist
+    start_date: 2026-09-27
+    status: in_progress
