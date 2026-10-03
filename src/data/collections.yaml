@@ -199,7 +199,7 @@
   - name: 金特务：本色回归
     cover: /images/collections/2026/039.jpg
     start_date: 2026-09-09
-    status: wishlist
+    status: in_progress
   - name: 我的荒糖恋爱
     cover: /images/collections/2026/040.jpg
     start_date: 2026-09-22
@@ -237,4 +237,8 @@
   - name: 中头奖还是要上班
     cover: /images/collections/2026/046.jpg
     start_date: 2026-09-27
+    status: in_progress
+  - name: 继承之战
+    cover: /images/collections/2026/047.jpg
+    start_date: 2026-10-02
     status: in_progress
