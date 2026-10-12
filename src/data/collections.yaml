@@ -243,3 +243,7 @@
     start_date: 2026-10-02
     status: in_progress
     rating: 8.6
+  - name: 菜鸟炊事兵
+    cover: /images/collections/2026/048.jpg
+    start_date: 2026-10-12
+    status: in_progress
