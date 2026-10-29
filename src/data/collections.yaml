@@ -237,13 +237,18 @@
   - name: 中头奖还是要上班
     cover: /images/collections/2026/046.jpg
     start_date: 2026-09-27
-    status: in_progress
+    end_date: 2026-10-29
+    status: completed
+    rating: 8.5
   - name: 继承之战
     cover: /images/collections/2026/047.jpg
     start_date: 2026-10-02
-    status: in_progress
+    end_date: 2026-10-29
+    status: completed
     rating: 8.6
   - name: 菜鸟炊事兵
     cover: /images/collections/2026/048.jpg
     start_date: 2026-10-12
-    status: in_progress
+    end_date: 2026-10-29
+    status: completed
+    rating: 8.6
