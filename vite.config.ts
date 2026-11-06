@@ -155,6 +155,9 @@ export default defineConfig({
             'Leetcode-master': 'https://github.com/youngyangyang04/leetcode-master',
             'CS-base': 'https://github.com/xiaolincoder/CS-Base',
             'Leetcode-extension': 'https://github.com/ccagml/leetcode-extension',
+            'scratch': 'https://github.com/erictli/scratch',
+            'OpenCLI': 'https://github.com/jackwener/OpenCLI',
+            'BewlyBewly': 'https://github.com/BewlyBewly/BewlyBewly',
           },
         })
 
