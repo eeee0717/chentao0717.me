@@ -16,17 +16,6 @@
         </div>
       </div>
     </section>
-    <section id="footprints" class="home-footprints" aria-labelledby="footprints-title">
-      <div class="footprints-heading">
-        <h2 id="footprints-title">
-          Footprints
-        </h2>
-        <span>A few places along the way.</span>
-      </div>
-      <ClientOnly>
-        <FootprintsMap class="footprints-embed" :zoom="1.3" auto-rotate />
-      </ClientOnly>
-    </section>
   </div>
 </template>
 
@@ -34,6 +23,10 @@
 .home {
   --home-ink: #262626;
   --home-muted: #737373;
+  display: flex;
+  flex: 1;
+  align-items: center;
+  width: 100%;
   max-width: 1080px;
   margin: 0 auto;
   color: var(--home-ink);
@@ -46,11 +39,11 @@
 
 .home-hero {
   display: grid;
+  width: 100%;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   align-items: center;
   gap: clamp(40px, 6vw, 88px);
-  min-height: min(660px, calc(100svh - 200px));
-  padding: 20px 0 68px;
+  padding: 16px 0 24px;
 }
 
 .home-portrait {
@@ -106,34 +99,18 @@
   outline-offset: 4px;
 }
 
-.home-footprints {
-  margin-top: 68px;
-  scroll-margin-top: 32px;
-}
+@media (min-width: 761px) and (max-height: 800px) {
+  .home-hero {
+    padding: 8px 0 16px;
+  }
 
-.footprints-heading {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-bottom: 20px;
-}
+  .home-bio :deep(p) {
+    margin-block: 12px;
+  }
 
-.footprints-heading h2 {
-  font-size: 20px;
-  font-weight: 500;
-}
-
-.footprints-heading > span {
-  color: var(--home-muted);
-  font-size: 12px;
-}
-
-.footprints-embed {
-  height: 400px;
-  border-radius: 12px;
-  overflow: hidden;
+  .home-social {
+    margin-top: 16px;
+  }
 }
 
 @media (max-width: 760px) {
@@ -153,10 +130,6 @@
   .home-copy {
     max-width: 520px;
     margin: 0 auto;
-  }
-
-  .home-footprints {
-    margin-top: 44px;
   }
 }
 </style>

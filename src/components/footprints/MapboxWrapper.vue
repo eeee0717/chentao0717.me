@@ -110,6 +110,9 @@ onMounted(() => {
 
 // Auto-rotate animation
 function startRotation() {
+  if (animationId !== null)
+    cancelAnimationFrame(animationId)
+
   function rotate() {
     if (!map.value || !props.autoRotate)
       return
@@ -132,6 +135,14 @@ watch(mapStyle, (newStyle) => {
     map.value.setStyle(newStyle)
 })
 
+watch(() => props.zoom, (zoom) => {
+  map.value?.setZoom(zoom)
+})
+
+useResizeObserver(mapContainer, () => {
+  map.value?.resize()
+})
+
 onUnmounted(() => {
   // Stop auto-rotate
   if (animationId !== null)
@@ -144,9 +155,6 @@ onUnmounted(() => {
   map.value?.remove()
   map.value = undefined
   isLoaded.value = false
-
-  // 清理 Mapbox 可能残留的全局元素
-  document.querySelectorAll('.mapboxgl-map, .mapboxgl-canvas-container, .mapboxgl-canvas').forEach(el => el.remove())
 })
 </script>
 

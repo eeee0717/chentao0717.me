@@ -17,11 +17,13 @@ function toggle(label: string) {
 
 <template>
   <div class="legend-container">
-    <div
+    <button
       v-for="category in categories"
       :key="category.label"
+      type="button"
       class="legend-item"
       :class="{ inactive: !activeLegends.has(category.label) }"
+      :aria-pressed="activeLegends.has(category.label)"
       @click="toggle(category.label)"
     >
       <span
@@ -30,7 +32,7 @@ function toggle(label: string) {
         aria-hidden="true"
       />
       <span>{{ category.label }}</span>
-    </div>
+    </button>
   </div>
 </template>
 
@@ -62,6 +64,11 @@ html.dark .legend-container {
 
 .legend-item.inactive {
   opacity: 0.3;
+}
+
+.legend-item:focus-visible {
+  outline: 1px solid currentColor;
+  outline-offset: 3px;
 }
 
 .legend-dot {

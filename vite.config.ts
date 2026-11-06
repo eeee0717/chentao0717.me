@@ -57,6 +57,8 @@ export default defineConfig({
     VueRouter({
       extensions: ['.vue', '.md'],
       routesFolder: 'pages',
+      // Keep diary sources available while this section is hidden.
+      exclude: ['pages/diary.md', 'pages/diaries/**'],
       logs: true,
       extendRoute(route) {
         const path = route.components.get('default')

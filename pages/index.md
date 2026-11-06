@@ -21,6 +21,6 @@ Dreaming up ideas and making them come true is where my passion lies. You can fi
 
 Occasionally, I also do some coding projects on [哔哩哔哩](https://space.bilibili.com/52423255).
 
-Outside of programming, I enjoy doing photography and traveling. Some of my photos can be found on [Photos](/photos). If you happen to be in the same city I live (currently in Hangzhou), maybe we can hang out and take some photos or code together.
+Outside of programming, I enjoy doing photography and <TravelFootprints />. Some of my photos can be found on [Photos](/photos). If you happen to be in the same city I live (currently in Hangzhou), maybe we can hang out and take some photos or code together.
 
 </HomeHero>

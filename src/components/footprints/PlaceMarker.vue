@@ -80,6 +80,7 @@ onMounted(() => {
 })
 
 onUnmounted(() => {
+  popup?.remove()
   marker?.remove()
   if (map?.value)
     map.value.off('click', hidePopup)

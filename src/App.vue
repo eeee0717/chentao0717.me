@@ -37,7 +37,7 @@ onKeyStroke('Escape', (e) => {
 
 <template>
   <NavBar />
-  <main class="px-7 py-10 of-x-hidden">
+  <main class="px-7 py-10 of-x-hidden" :class="{ 'home-main': route.path === '/' }">
     <RouterView />
     <Footer :key="route.path" />
   </main>
@@ -48,3 +48,37 @@ onKeyStroke('Escape', (e) => {
     </div>
   </Transition>
 </template>
+
+<style scoped>
+:global(html:has(.home-main)) {
+  overflow-y: auto;
+}
+
+:global(#app:has(.home-main)) {
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
+}
+
+.home-main {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding-top: 0;
+  padding-bottom: max(20px, env(safe-area-inset-bottom));
+}
+
+.home-main :deep(.post-container),
+.home-main :deep(.post-container > article),
+.home-main :deep(.post-container > article > div) {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+}
+
+.home-main :deep(.site-footer) {
+  flex-shrink: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+</style>
