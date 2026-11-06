@@ -100,13 +100,14 @@ const ArtComponent = computed(() => {
     v-if="frontmatter.display ?? frontmatter.title"
     class="prose m-auto mb-8"
     :class="[frontmatter.wrapperClass]"
+    :lang="frontmatter.lang || 'zh-CN'"
   >
     <h1 class="mb-0 slide-enter-50">
       {{ frontmatter.display ?? frontmatter.title }}
     </h1>
     <p
       v-if="frontmatter.date"
-      class="opacity-50 !-mt-6 slide-enter-50"
+      class="font-mono opacity-50 !-mt-6 slide-enter-50"
     >
       {{ formatDate(frontmatter.date, false) }} <span v-if="frontmatter.duration">· {{ frontmatter.duration }}</span>
     </p>
@@ -133,7 +134,7 @@ const ArtComponent = computed(() => {
     </p>
     <AISummary v-if="frontmatter.ai && frontmatter.summary" :summary="frontmatter.summary" />
   </div>
-  <div class="post-container">
+  <div class="post-container" :lang="frontmatter.lang || 'zh-CN'">
     <article ref="content" :class="[frontmatter.tocAlwaysOn ? 'toc-always-on' : '', frontmatter.class]">
       <slot />
     </article>

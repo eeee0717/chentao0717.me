@@ -10,12 +10,12 @@ toc: false
 
 <HomeHero>
 
-<h1 id="home-title" class="home-title">Hey, I am<span>槑囿脑袋.</span></h1>
+<h1 id="home-title" class="home-title">Hey, I am<span lang="zh-CN">槑囿脑袋.</span></h1>
 
 Currently studying for a graduate degree 😢.
 
 Core Developer of {CherryStudio}<br>
-Contributor of {Leetcode-master} {CS-base} {Leetcode-extension} {scratch} {OpenCLI} {BewlyBewly}
+Contributor of {scratch} {OpenCLI} {BewlyBewly}
 
 Dreaming up ideas and making them come true is where my passion lies. You can find my [full projects list here](/projects). I also share some technical [articles](/posts) on Blog.
 

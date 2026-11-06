@@ -94,7 +94,7 @@ function getGroupName(p: Post) {
               />
             </div>
 
-            <div flex="~ gap-2 items-center">
+            <div flex="~ gap-2 items-center" font-mono>
               <span
                 v-if="route.inperson"
                 align-middle op50 flex-none

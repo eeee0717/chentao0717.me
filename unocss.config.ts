@@ -1,6 +1,13 @@
 import { defineConfig, presetAttributify, presetIcons, presetUno, presetWebFonts, transformerDirectives } from 'unocss'
 
 export default defineConfig({
+  theme: {
+    fontFamily: {
+      sans: '"Noto Serif SC Variable", -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif',
+      serif: '"Noto Serif SC Variable", "Source Serif 4 Variable", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif',
+      mono: '"Geist Mono", "Noto Serif SC Variable", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
+    },
+  },
   shortcuts: [
     {
       'bg-base': 'bg-white dark:bg-black',
@@ -27,9 +34,7 @@ export default defineConfig({
     presetUno(),
     presetWebFonts({
       fonts: {
-        sans: 'Inter:400,600,800',
-        mono: 'DM Mono:400,600',
-        condensed: 'Roboto Condensed',
+        avatar: 'DM Mono:400,600',
         wisper: 'Bad Script',
       },
     }),

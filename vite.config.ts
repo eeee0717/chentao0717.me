@@ -21,9 +21,9 @@ import MarkdownItFootnote from 'markdown-it-footnote'
 import VueRouter from 'unplugin-vue-router/vite'
 import { VueRouterAutoImports } from 'unplugin-vue-router'
 import Yaml from 'unplugin-yaml/vite'
-
 // @ts-expect-error missing types
 import TOC from 'markdown-it-table-of-contents'
+import { markdownTypography } from './script/markdown-typography'
 
 const promises: Promise<any>[] = []
 const postIdPattern = /^\d+$/
@@ -163,6 +163,7 @@ export default defineConfig({
 
         md.use(GitHubAlerts)
         md.use(MarkdownItFootnote)
+        md.use(markdownTypography)
       },
 
     }),

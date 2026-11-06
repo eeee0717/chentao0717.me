@@ -132,13 +132,13 @@ function onCoverLoad(cover: string) {
                 <br v-if="i < formatName(item.name).length - 1">
               </template>
             </div>
-            <div v-if="formatDate(item, year)" class="date text-xs op50">
+            <div v-if="formatDate(item, year)" class="date font-mono text-xs op50">
               {{ formatDate(item, year) }}
             </div>
-            <div v-if="item.rating" class="rating text-xs op70 mt-0.5">
+            <div v-if="item.rating" class="rating font-mono text-xs op70 mt-0.5">
               {{ item.rating }}/10
             </div>
-            <div v-if="getStatusLabel(item.status)" class="status text-xs mt-0.5" :class="getStatusLabel(item.status)?.class">
+            <div v-if="getStatusLabel(item.status)" class="status font-mono text-xs mt-0.5" :class="getStatusLabel(item.status)?.class">
               {{ getStatusLabel(item.status)?.text }}
             </div>
           </div>

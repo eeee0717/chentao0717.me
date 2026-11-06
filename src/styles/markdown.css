@@ -43,7 +43,7 @@ html:not(.dark) .shiki span {
 }
 
 .prose .shiki {
-  font-family: 'DM Mono', 'Input Mono', 'Fira Code', monospace;
+  --uno: font-mono;
   font-size: 0.92em;
   line-height: 1.4;
   margin: 0.5em 0;
@@ -238,7 +238,7 @@ h6:focus .header-anchor {
   transform: translateY(3px);
   line-height: 100%;
   color: var(--fg-light) !important;
-  --uno: gap-1 transition rounded px1.5 py1 important-border-0 font-condensed;
+  --uno: gap-1 transition rounded px1.5 py1 important-border-0 font-mono;
 }
 
 .markdown-magic-link:hover {

@@ -59,11 +59,11 @@ function onAnimationComplete() {
       <div class="flex items-center justify-between gap-1 text-sm">
         <div class="flex items-center gap-1 text-sm">
           <div i-ri-robot-3-line />
-          <span>TLDR</span>
+          <span font-mono>TLDR</span>
         </div>
         <div class="flex items-center gap-1">
           <div class="breathing-dot w-2 h-2 rounded-full bg-green-500" />
-          <span class="text-xs">AI-GEN</span>
+          <span class="font-mono text-xs">AI-GEN</span>
         </div>
       </div>
       <span class="text-sm op90">

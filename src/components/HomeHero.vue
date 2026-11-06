@@ -4,7 +4,7 @@
       <div class="home-portrait slide-enter">
         <AvatarAscii />
       </div>
-      <div class="home-copy slide-enter">
+      <div class="home-copy slide-enter" lang="en">
         <div class="home-bio prose">
           <slot />
         </div>
@@ -69,7 +69,7 @@
   color: var(--home-ink);
   font-size: clamp(32px, 3.3vw, 44px);
   font-weight: 500;
-  letter-spacing: -1.5px;
+  letter-spacing: -0.03em;
   line-height: 1.25;
 }
 
@@ -81,6 +81,7 @@
 }
 
 .home-social {
+  --uno: font-mono;
   display: flex;
   flex-wrap: wrap;
   gap: 8px 20px;
