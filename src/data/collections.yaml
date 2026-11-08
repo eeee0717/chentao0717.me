@@ -199,7 +199,9 @@
   - name: 金特务：本色回归
     cover: /images/collections/2026/039.jpg
     start_date: 2026-09-09
-    status: in_progress
+    end_date: 2026-10-08
+    status: completed
+    rating: 7.8
   - name: 我的荒糖恋爱
     cover: /images/collections/2026/040.jpg
     start_date: 2026-09-22
@@ -214,8 +216,8 @@
     rating: 7.3
   - name: 鬼怪
     cover: /images/collections/2026/042.jpg
-    start_date: 2026-09-09
-    status: wishlist
+    start_date: 2026-11-08
+    status: in_progress
   - name: 杀人者的购物中心1-2
     cover: /images/collections/2026/043.jpg
     start_date: 2026-09-07
