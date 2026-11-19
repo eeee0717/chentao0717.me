@@ -264,3 +264,8 @@
     cover: /images/collections/2026/050.jpg
     start_date: 2026-10-01
     status: in_progress
+  - name: 谷雨
+    cover: /images/collections/2026/051.jpg
+    start_date: 2026-11-11
+    status: in_progress
+    rating: 7.0
